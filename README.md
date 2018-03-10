@@ -27,7 +27,7 @@ RStudio is a set of integrated tools designed to help you be more productive wit
 We have a chatroom set up at [CSULB-intro-R.slack.com](ADD LINK) for you to have discussions and ask/answer questions that may arise throughout the day.
 
 
-## Authors
+# Authors
 Chris Galbraith (<galbraic@uci.edu>)
 
 Micah Jackson (<gmjackso@uci.edu>)
