@@ -23,7 +23,19 @@ First, visit [The R Project for Statistical Computing](https://www.r-project.org
 ### Step 2: Download and install RStudio
 RStudio is a set of integrated tools designed to help you be more productive with R. Also, it is far more user-friendly than base R. You will be doing essentially all of your programming in RStudio. To download RStudio, visit the [download page](https://www.rstudio.com/products/rstudio/download/), scroll down to "Installers for Supported Platforms," and click on the appropriate installer for your platform. Finally, open the downloaded file and follow the instructions.
 
-### Step 3: Join the Slack chatroom
+### Step 3: Install required R packages
+In R, packages are used to share code. A package bundles together code, data, documentation, and tests. As of February 2018, there were over 12,000 packages available on the Comprehensive R Archive Network, or CRAN. This huge variety of packages is one of the reasons that R is so successful: the chances are that someone has already solved a problem that you’re working on, and you can benefit from their work by downloading their package and using their code.
+
+In this workshop, we will be using three packages-- `BRRR`, `car` and `here`. If everyone attempts to download them at the same time, the wireless internet will become very upset with us and work slowly. Therefore, I suggest installing them before coming to class. There are a few ways to do this (which we will discuss more during the workshop). For now, please download [install_packages.R](http://ucidatascienceinitiative.github.io/IDA-with-R/install_packages.R) and open it in RStudio (`Right click > Open with > RStudio`). Once in RStudio, you should see the following three lines of code:
+```r
+install.packages("BRRR", dependencies = TRUE)
+install.packages("car", dependencies = TRUE)
+install.packages("here", dependencies = TRUE)
+```
+Highlight all of this code (using your cursor, `Ctrl + A` on Windows, or `Cmd + A` on Mac) and click the Run icon (or hit `Ctrl + Enter` on Windows or `Cmd + Enter` on Mac). Additional "dependencies," or other packages necessary to run the three above, will also be installed. This may take a few minutes.
+
+
+### Step 4: Join the Slack chatroom
 We have a chatroom set up at [CSULB-intro-R.slack.com](ADD LINK) for you to have discussions and ask/answer questions that may arise throughout the day.
 
 
