@@ -16,6 +16,10 @@ Please follow the [Pre-Workshop Instructions](#Instructions) prior to coming to 
 * **Logistic Regression**: the basics of generalized linear models (GLMs) with an emphasis on binary response data--we extend the theory and modeling strategies of linear regression
 
 
+# Schedule
+[Introduction to Programming](https://datumu.github.io/CSULB_Intro_R/slides/intro_programming.html)
+
+
 # <a name="Instructions"></a>Pre-Workshop Instructions
 ### Step 1: Download and install R
 First, visit [The R Project for Statistical Computing](https://www.r-project.org/). Click on `CRAN` under the Download section on the left-hand side of the page. Then, click on any of the nearby websites under the USA section near the bottom of the page. For example, the link from the University of California, Berkley, CA or University of California, Los Angeles, CA are both fine. Download R for your platform (Linux, Mac, or Windows), open the downloaded file and follow the instructions.
