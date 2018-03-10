@@ -1,0 +1,20 @@
+---
+title: Introduction to Programming
+subtitle: CSULB Intro to R
+date: April 13, 2018
+#author: Chris Galbraith, Micah Jackson
+output: slidy_presentation
+smaller: yes
+---
+
+```{r,echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
+library(ggplot2)
+```
+
+
+## Introduction 
++ Please ask questions during lectures & throughout the day!
++ To access course materials please visit the [CSULB_Intro_R website](https://datumu.github.io/CSULB_Intro_R/).
++ **Please [download](https://github.com/datumU/CSULB_Intro_R/archive/master.zip) & unzip the Github repository!**
+
+
