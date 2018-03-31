@@ -91,6 +91,18 @@ return a BLT sandwich
 + Many different ways to perform this translation
     + Think of pseudocode as cave drawings and code as English, German, or Chinese
     + Referred to as programming languages
+    
+
+## Algorithm for swapping two variables
+**Input:** Two variables: `var1` and `var2`
+
+**Output:** Same variables with values swapped
+
+Copy value of `var1` to `temp`
+   
+Copy value of `var2` to `var1`
+          
+Copy value of `temp` to `var2`
 
 
 ## Programming Languages
@@ -178,12 +190,31 @@ tomato <- "slice of tomato"
 lettuce <- "piece of romaine lettuce"
 bacon <- "cooked strips of bacon"
 
-# make the sandwich
+# output the sandwich
 print(bread)
 print(bacon)
 print(lettuce)
 print(tomato)
 print(bread)
+```
+
+
+## Swapping two variables in R
+Let's implement our swap algorithm in R
+
+```{r}
+# inputs
+var1 <- 10
+var2 <- 15
+
+# perform the swap
+temp <- var1
+var1 <- var2
+var2 <- temp
+
+# inspect the results
+var1
+var2
 ```
 
 
