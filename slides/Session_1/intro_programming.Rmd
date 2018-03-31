@@ -209,19 +209,19 @@ print(bread)
     + Follow the template on the previous slide
     
     
-<!-- ## Algorithm: Find the Height of the Tallest Person in the Room -->
-<!-- **Input:** List of heights of people in the room, $H = [height_1, height_2, \ldots]$ -->
+## Algorithm: Find the Height of the Tallest Person in the Room
+**Input:** List of heights of people in the room, $H = [height_1, height_2, \ldots]$
 
-<!-- **Output:** Height of the tallest person in the room, $tallest$ -->
+**Output:** Height of the tallest person in the room, $tallest$
 
-<!-- $tallest = height_1$ -->
+$tallest = height_1$
 
-<!-- for each $item$ in $H$, do -->
+for each $item$ in $H$, do
 
-<!-- &nbsp;&nbsp;&nbsp;&nbsp; if $item > tallest$, then -->
+&nbsp;&nbsp;&nbsp;&nbsp; if $item > tallest$, then
 
-<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $tallest = item$ -->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $tallest = item$
 
-<!-- return $tallest$ -->
+return $tallest$
 
 
