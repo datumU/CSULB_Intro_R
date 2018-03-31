@@ -17,7 +17,7 @@ Please follow the [Pre-Workshop Instructions](#Instructions) prior to coming to 
 
 
 # Schedule
-[Introduction to Programming](https://datumu.github.io/CSULB_Intro_R/slides/intro_programming.html)
+[Introduction to Programming](https://datumu.github.io/CSULB_Intro_R/slides/session_1/intro_programming.html)
 
 
 # <a name="Instructions"></a>Pre-Workshop Instructions
