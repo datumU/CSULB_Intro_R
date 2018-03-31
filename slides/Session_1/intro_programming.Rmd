@@ -18,6 +18,7 @@ smaller: yes
 2. Making a sandwich
 3. Discussion & vocab lesson
 4. Programming Languages
+5. The R language
 
 
 ## Why Program?
@@ -32,6 +33,7 @@ smaller: yes
 
 ## Computer Systems
 + *Hardware*: physical components of the machine
+
 ![](hardware.jpeg)
 
 
@@ -53,13 +55,37 @@ smaller: yes
 + Human-readable
 + Compiler or interpreter converts into machine language that the CPU understands
     + E.g., `2 + 2` becomes `10100010 11101011`
++ Important aspects:
+    1. Correctness
+    2. Efficency
 
 
-## Making a Sandwich
-Let's write an algorithm with instructions on how to make a BLT.
+## Examples of Algorithms
++ Google Maps: route finding algorithm to find most efficent path from A to B
++ Skype: audio & video compression algorithms
++ Video games: rendering algorithms to color character characters
++ Biological sciences: algorithms to design molecular structure of drugs
 
 
-## Making a Sandwich - Discussion
+## Algorithm for making a BLT
+**Input:** Slices of bread, slices of tomato, pieces of lettuce, strips of cooked bacon
+
+**Output:** BLT sandwich
+
+put down a slice of bread
+
+put a slice of tomato on top of the bread
+
+put a piece of lettuce on top of the tomato
+
+put 3 strips of cooked bacon on top of the lettuce 
+
+put a second slice of bread on top of the bacon
+
+return a BLT sandwich
+
+
+## Making a BLT - Discussion
 + We just wrote *pseudocode*, or an informal high-level description of a program or algorithm, for making a BLT!
 + We must convert this pseudocode into code (e.g., language) that the computer can interpret.
 + Many different ways to perform this translation
@@ -98,7 +124,7 @@ Let's write an algorithm with instructions on how to make a BLT.
 + **In the repository that you downloaded, there is a file called `CSULB_Intro_R.Rproj` -- please open it in RStudio.**
 
 
-## Fundamentals of R
+## How R Works
 + When you type commands at the prompt '>' and hit ENTER
     + R tries to interpret what you've asked it to do (evaluation)
     + If it understands what you've written, it does it (execution)
@@ -109,14 +135,56 @@ Let's write an algorithm with instructions on how to make a BLT.
     + Type _Ctrl_ + *C* on Windows and Linux to cancel
 
 
-## R Syntax
-TODO: briefly discuss basic syntax
+## Fundamentals of R
++ Everything in R is an **object** with a descriptive **name**
+    + Variables, data, functions, etc.
++ **Variables** store data that can be referenced and manipulated 
+    + Containers that hold information
++ Can perform actions on objects using **operators**
+    + Assignment: `<-` and `=`
+    + Arithmetic: addition `+`, subtraction `-`, multiplication `*`, division `/`, etc.
+    + Logical: greater than `>`, less than `<`, equal to `==`, etc.
 
 
-## Making a Sandwich in R
-TODO: go over Micah's script in RStudio...
+## Naming Conventions for Objects
++ Start with a letter A-Z or a-z
++ Can include letters, digits (0-9), dots (.), and underscores (_)
++ Case sensitive!
+    + `X != x`
+  
+    
+## Simple Example
+Let's try some simple assignment operations...
+```{r}
+n <- 10  # assign the value 10 to an object named n
+n  # look at what R stored it as
 
-TODO: add here with syntax highlighting and results
+N <- 5  # assign the value 5 to an object named N
+N  # inspect the result
+
+n == N  # are n and N equal?
+
+n + N  # add n and N
+```
+
+
+## Making a BLT in R
+Let's implement our BLT sandwich in R
+
+```{r, results="hold"}
+# ingredients
+bread <- "slice of bread"
+tomato <- "slice of tomato"
+lettuce <- "piece of romaine lettuce"
+bacon <- "cooked strips of bacon"
+
+# make the sandwich
+print(bread)
+print(bacon)
+print(lettuce)
+print(tomato)
+print(bread)
+```
 
 
 ## Summary
@@ -128,4 +196,32 @@ TODO: add here with syntax highlighting and results
 
 
 ## Up Next
-TODO: add in schedule information here (e.g., exercise, break/lunch)
++ Active Learning Exercise
++ Break/Lunch?
++ Return at XXXX to discuss the exercise
+
+
+## Active Learning
++ How would you tell someone how to make a BLT sandwich who has never had a sandwich before?
++ Let's write an algorithm with instructions on how to do so.
+    + List the ingredients
+    + Describe how to assemble them into a BLT
+    + Follow the template on the previous slide
+    
+    
+<!-- ## Algorithm: Find the Height of the Tallest Person in the Room -->
+<!-- **Input:** List of heights of people in the room, $H = [height_1, height_2, \ldots]$ -->
+
+<!-- **Output:** Height of the tallest person in the room, $tallest$ -->
+
+<!-- $tallest = height_1$ -->
+
+<!-- for each $item$ in $H$, do -->
+
+<!-- &nbsp;&nbsp;&nbsp;&nbsp; if $item > tallest$, then -->
+
+<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $tallest = item$ -->
+
+<!-- return $tallest$ -->
+
+
