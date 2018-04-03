@@ -24,9 +24,9 @@ Please follow the [Pre-Workshop Instructions](#Instructions) prior to coming to 
 |	 11:00-12:00 	| Lunch | |
 |	 12:00-1:00 	| Session 2, part A | |
 |	 1:00-1:15 	  | Break | |
-|	 1:15-2:00 	  | Session 2, part B | |
-|	 2:00-2:15  	| Break | |
-|	 2:15-3:00  	| [Packages & Help](https://datumu.github.io/CSULB_Intro_R/slides/session_3/packages_and_resources.html) | |
+|	 1:15-2:15 	  | Session 2, part B | |
+|	 2:15-2:30  	| Break | |
+|	 2:30-3:30  	| [Packages & Help](https://datumu.github.io/CSULB_Intro_R/slides/session_3/packages_and_resources.html) | |
 
 # <a name="Instructions"></a>Pre-Workshop Instructions
 ### Step 1: Download and install R
