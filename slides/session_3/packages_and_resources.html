@@ -126,19 +126,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ol>
 </div>
-<div id="install-devtools-from-cran" class="slide section level2">
-<h2>Install <code>devtools</code> from CRAN</h2>
-<p>Let’s install the <code>devtools</code> package from CRAN using the console</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<div id="install-some-packages-from-cran" class="slide section level2">
+<h2>Install some packages from CRAN</h2>
+<p>Let’s install <code>devtools, here, and car</code> from CRAN using the console:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;here&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;car&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</code></pre></div>
 </div>
-<div id="using-devtools" class="slide section level2">
-<h2>Using <code>devtools</code></h2>
+<div id="using-a-package" class="slide section level2">
+<h2>Using a Package</h2>
 <p>Now, let’s use <code>devtools</code> to install <code>BRRR</code> from Github (more info <a href="https://github.com/brooke-watson/BRRR">here</a>).</p>
 <p>Method 1:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(devtools)  <span class="co"># load the devtools package</span>
 <span class="kw">install_github</span>(<span class="st">&quot;brooke-watson/BRRR&quot;</span>)  <span class="co"># use the function install_github() to install BRRR</span></code></pre></div>
 <p>Method 2:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;brooke-watson/BRRR&quot;</span>)  <span class="co"># use the function install_github() from devtools to install BRRR</span></code></pre></div>
+<p>Play around with BRRR!</p>
 </div>
 <div id="popular-packages" class="slide section level2">
 <h2>Popular Packages</h2>
@@ -160,6 +163,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><code>data.table</code>: to organize datasets for fast operations</li>
 <li><code>parallel</code>: to use parallel processing in R</li>
 </ul></li>
+</ul>
+</div>
+<div id="helpful-resources" class="slide section level2">
+<h2>Helpful Resources</h2>
+<ul>
+<li>General programming (Khan academy, etc)</li>
+<li>R (CRAN, Rbloggers, RStudio cheat sheets, Stackoverflow, Books - Data Science with R, etc)</li>
+</ul>
+</div>
+<div id="how-to-troubleshootde-bug" class="slide section level2">
+<h2>How to Troubleshoot/De-bug</h2>
+<ul>
+<li>built in Help in R</li>
+<li>stackoverflow</li>
 </ul>
 </div>
 
