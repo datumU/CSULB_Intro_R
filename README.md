@@ -31,6 +31,7 @@ Please follow the [Pre-Workshop Instructions](#Instructions) prior to coming to 
 |	 2:30-3:30  	| [Packages & Help](https://datumu.github.io/CSULB_Intro_R/slides/session_3/packages_and_resources.html) | |
 
 ### DAY 2 - April 27
+
 | 	   Time	    |           			         	|							              |
 | ------------- | :-----------------------:	| :-----------------------: |   
 |  10:00-11:00  | Exploratory Data Analysis	|	|
