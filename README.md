@@ -24,7 +24,7 @@ Please follow the [Pre-Workshop Instructions](#Instructions) prior to coming to 
 | ------------- | :-----------------------:	| :-----------------------: |   
 |  10:00-11:00  | [Introduction to Programming](https://datumu.github.io/CSULB_Intro_R/slides/session_1/intro_programming.html)	|		|
 |	 11:00-12:00 	| Lunch | |
-|	 12:00-1:00 	| Session 2, part A | |
+|	 12:00-1:00 	| [Session 2](https://datumu.github.io/CSULB_Intro_R/slides/session_2/session_2.html) | |
 |	 1:00-1:15 	  | Break | |
 |	 1:15-2:15 	  | Session 2, part B | |
 |	 2:15-2:30  	| Break | |
