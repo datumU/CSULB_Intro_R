@@ -241,31 +241,11 @@ var2
 
 
 ## Up Next
-+ Exercise 1
++ [Exercise 1](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_1/ex_1.html)
 + Lunch
 + Return at XXXX to discuss the exercise
 
 
-## Exercise
-+ How would you find the height of the tallest person in the room?
-+ Let's write an algorithm with instructions on how to do so.
-    + List the necessary inputs
-    + Describe how to take those inputs and return the height of the tallest person
 
-    
-## Algorithm: Find the Height of the Tallest Person in the Room
-**Input:** List of heights of people in the room, $H = [height_1, height_2, \ldots]$
-
-**Output:** Height of the tallest person in the room, $tallest$
-
-$tallest = height_1$
-
-for each $item$ in $H$, do
-
-&nbsp;&nbsp;&nbsp;&nbsp; if $item > tallest$, then
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $tallest = item$
-
-return $tallest$
 
 
