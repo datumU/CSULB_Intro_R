@@ -23,7 +23,7 @@ Please follow the [Pre-Workshop Instructions](#Instructions) prior to coming to 
 | 	   Time	    |           			         	|							              |
 | ------------- | :-----------------------:	| :-----------------------: |   
 |  10:00-11:00  | [Introduction to Programming](https://datumu.github.io/CSULB_Intro_R/slides/session_1/session_1.html)	|		|
-|	 11:00-11:15 	| Exercise 1 | |
+|	 11:00-11:15 	| [Exercise 1](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_1/ex_1.html) | |
 |	 11:15-12:00 	| Lunch | |
 |	 12:00-12:45 	| [Data Structures](https://datumu.github.io/CSULB_Intro_R/slides/session_2/session_2.html) | |
 |	 12:45-1:00 	| Exercise 2 | |
