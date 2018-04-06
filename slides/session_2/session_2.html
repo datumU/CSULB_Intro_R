@@ -59,6 +59,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="agenda" class="slide section level2">
 <h2>Agenda</h2>
+<ol style="list-style-type: decimal">
+<li>Vectors and Matrices</li>
+<li>Lists and Data Frames</li>
+<li>Type Coercion</li>
+<li>Troubleshooting</li>
+</ol>
 </div>
 <div id="data-types-in-r" class="slide section level2">
 <h2>Data Types in R</h2>
@@ -98,7 +104,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </div>
 <div id="vectors-in-r" class="slide section level2">
-<h2>Vectors in R:</h2>
+<h2>Vectors in R</h2>
 <ul>
 <li>A vector is the most basic structure in R</li>
 <li>It is one-dimensional; its single dimension is its length</li>
@@ -115,18 +121,18 @@ numVec</code></pre></div>
 <div id="examples-of-vectors" class="slide section level2">
 <h2>Examples of Vectors</h2>
 <p>Examples of character, logical, and complex vectors:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">intVec &lt;-<span class="st"> </span><span class="kw">c</span>(2L, 3L, 4L)
+intVec</code></pre></div>
+<pre><code>## [1] 2 3 4</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">charVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)
 charVec</code></pre></div>
 <pre><code>## [1] &quot;red&quot;   &quot;green&quot; &quot;blue&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">logVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, T, F)
 logVec</code></pre></div>
 <pre><code>## [1]  TRUE FALSE FALSE  TRUE FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">compVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>0i, <span class="dv">3</span> <span class="op">+</span><span class="st"> </span>1i)
-compVec</code></pre></div>
-<pre><code>## [1] 1+0i 3+1i</code></pre>
 </div>
 <div id="matrices" class="slide section level2">
-<h2>Matrices:</h2>
+<h2>Matrices</h2>
 <ul>
 <li>A matrix is a special case of a vector
 <ul>
@@ -143,7 +149,7 @@ myMat</code></pre></div>
 ## [1] 2 4</code></pre>
 </div>
 <div id="matrices-1" class="slide section level2">
-<h2>Matrices:</h2>
+<h2>Matrices</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myMat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">4</span>)
 myMat <span class="co"># matrices are filled in column-wise</span></code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
@@ -151,7 +157,7 @@ myMat <span class="co"># matrices are filled in column-wise</span></code></pre><
 ## [2,]    2    4    6    8</code></pre>
 </div>
 <div id="a-matrix-is-a-special-case-of-a-vector" class="slide section level2">
-<h2>A matrix is a special case of a vector:</h2>
+<h2>A matrix is a special case of a vector</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">8</span>
 myVec</code></pre></div>
 <pre><code>## [1] 1 2 3 4 5 6 7 8</code></pre>
@@ -168,10 +174,10 @@ myVec</code></pre></div>
 </ul>
 </div>
 <div id="other-ways-to-create-a-matrix" class="slide section level2">
-<h2>Other Ways to Create a Matrix:</h2>
+<h2>Other Ways to Create a Matrix</h2>
 <ul>
 <li><p>Intuitively, matrices seem to be a combination of vectors that are put next to each other (either column-wise or row-wise).</p></li>
-<li><p>rbind() and cbind() (row bind and column bind) achieve this:</p></li>
+<li><p><code>rbind()</code> and <code>cbind()</code> (row bind and column bind) achieve this:</p></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>
 vec2 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">4</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)
@@ -179,28 +185,25 @@ vec3 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="d
 colMat &lt;-<span class="st"> </span><span class="kw">cbind</span>(vec1, vec2, vec3)
 colMat</code></pre></div>
 <pre><code>##      vec1 vec2 vec3
-## [1,]    1    3   14
-## [2,]    2   76   15
-## [3,]    3   77   19
-## [4,]    4   37    5</code></pre>
+## [1,]    1   10   10
+## [2,]    2   69   20
+## [3,]    3   79   14
+## [4,]    4   39   15</code></pre>
 </div>
 <div id="other-ways-to-create-a-matrix-1" class="slide section level2">
-<h2>Other Ways to Create a Matrix:</h2>
+<h2>Other Ways to Create a Matrix</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>
 vec2 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">4</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)
 vec3 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">4</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>)
 rowMat &lt;-<span class="st"> </span><span class="kw">rbind</span>(vec1, vec2, vec3)
 rowMat</code></pre></div>
-<pre><code>##          [,1]      [,2]        [,3]     [,4]
-## vec1 1.000000  2.000000  3.00000000  4.00000
-## vec2 7.000000 10.000000 17.00000000 95.00000
-## vec3 1.277629 -1.809628  0.07326385 -1.18553</code></pre>
-<!-- do we need this slide?
-
--->
+<pre><code>##            [,1]       [,2]       [,3]      [,4]
+## vec1  1.0000000  2.0000000  3.0000000  4.000000
+## vec2 12.0000000 93.0000000 60.0000000 21.000000
+## vec3 -0.4226836 -0.7934135 -0.1075604  1.213465</code></pre>
 </div>
 <div id="factors" class="slide section level2">
-<h2>Factors:</h2>
+<h2>Factors</h2>
 <ul>
 <li>A factor is a vector used to specify a discrete classification (categorical values).</li>
 <li>Factors can be ordered or un-ordered</li>
@@ -218,20 +221,16 @@ SexFac1</code></pre></div>
 ## Levels: Female Male</code></pre>
 </div>
 <div id="factors-1" class="slide section level2">
-<h2>Factors:</h2>
+<h2>Factors</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(SexFac1)</code></pre></div>
 <pre><code>## [1] &quot;Female&quot; &quot;Male&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(SexFac1)</code></pre></div>
 <pre><code>## SexFac1
 ## Female   Male 
 ##      3      3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unclass</span>(SexFac1) <span class="co"># returns the factor as integer values</span></code></pre></div>
-<pre><code>## [1] 1 2 1 2 1 2
-## attr(,&quot;levels&quot;)
-## [1] &quot;Female&quot; &quot;Male&quot;</code></pre>
 </div>
 <div id="factors-2" class="slide section level2">
-<h2>Factors:</h2>
+<h2>Factors</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SexFac1 <span class="co"># levels are ordered alphabetically - 1st level = BaseLevel</span></code></pre></div>
 <pre><code>## [1] Female Male   Female Male   Female Male  
 ## Levels: Female Male</code></pre>
@@ -243,8 +242,96 @@ SexFac1</code></pre></div>
 <pre><code>## [1] Female Male   Female Male   Female Male  
 ## Levels: Male Female</code></pre>
 </div>
+<div id="lists" class="slide section level2">
+<h2>Lists</h2>
+<ul>
+<li>Think of a list as a vector with the following main differences:
+<ul>
+<li>Each element of a list can have its own data structure regardless of other elements
+<ul>
+<li>vector, matrix, another list</li>
+</ul></li>
+<li>This means, each element can be of a different data type and a different length</li>
+</ul></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="st">&quot;R&quot;</span>, 5L, T)
+myVec</code></pre></div>
+<pre><code>## [1] &quot;10&quot;   &quot;R&quot;    &quot;5&quot;    &quot;TRUE&quot;</code></pre>
+</div>
+<div id="lists-1" class="slide section level2">
+<h2>Lists</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">10</span>, <span class="st">&quot;R&quot;</span>, 5L, T)
+myList</code></pre></div>
+<pre><code>## [[1]]
+## [1] 10
+## 
+## [[2]]
+## [1] &quot;R&quot;
+## 
+## [[3]]
+## [1] 5
+## 
+## [[4]]
+## [1] TRUE</code></pre>
+<ul>
+<li>Elements of a list are shown with <code>[[]]</code></li>
+<li>Elements of a vector are shown with <code>[]</code></li>
+</ul>
+</div>
+<div id="data-frames" class="slide section level2">
+<h2>Data Frames</h2>
+<ul>
+<li>A data frame is a special list where all objects have equal length</li>
+<li>A data frame looks very similar to a matrix; however, different columns in a data frame can be different data types</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">studentID &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;S#&quot;</span>, <span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">6473</span><span class="op">:</span><span class="dv">7392</span>), <span class="dv">10</span>), <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)
+score &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">100</span>), <span class="dv">10</span>)
+sex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
+data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">studentID =</span> studentID, <span class="dt">score =</span> score, <span class="dt">sex =</span> sex)
+<span class="kw">head</span>(data)</code></pre></div>
+<pre><code>##   studentID score    sex
+## 1    S#7182    20   male
+## 2    S#6834     4 female
+## 3    S#6924    35   male
+## 4    S#7257    44   male
+## 5    S#7064    70   male
+## 6    S#7346    81   male</code></pre>
+</div>
+<div id="special-values" class="slide section level2">
+<h2>Special Values</h2>
+<p>There are some special values in R:</p>
+<ul>
+<li>Use <code>L</code> to refer to an integer value, e.g., <code>1L</code></li>
+<li>R knows infinity: <code>Inf</code>, <code>-Inf</code></li>
+<li><code>NaN</code>: refers to “Not a number”</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">intVec &lt;-<span class="st"> </span><span class="kw">c</span>(1L, 2L, 3L, 4L) 
+intVec</code></pre></div>
+<pre><code>## [1] 1 2 3 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="ot">Inf</span>; b &lt;-<span class="st"> </span><span class="dv">0</span>
+rslt &lt;-<span class="st"> </span><span class="kw">c</span>(b<span class="op">/</span>a, a<span class="op">/</span>a)
+rslt</code></pre></div>
+<pre><code>## [1]   0 NaN</code></pre>
+</div>
+<div id="missing-values" class="slide section level2">
+<h2>Missing Values</h2>
+<ul>
+<li>There are two kinds of missing values in R:
+<ul>
+<li><code>NaN</code>: stands for “Not a Number” and is a missing value produced by numerical computation.</li>
+<li><code>NA</code>: stands for “Not Available” and is used when a value is missing</li>
+</ul></li>
+<li><code>NaN</code> is also considered as <code>NA</code> (the reverse is NOT true)</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)
+a[<span class="dv">3</span>]</code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b &lt;-<span class="st"> </span><span class="dv">0</span><span class="op">/</span><span class="dv">0</span>
+b</code></pre></div>
+<pre><code>## [1] NaN</code></pre>
+</div>
 <div id="data-type-coercion" class="slide section level2">
-<h2>Data Type Coercion:</h2>
+<h2>Data Type Coercion</h2>
 <ul>
 <li>In general, vectors CANNOT have mixed types of objects</li>
 </ul>
@@ -262,9 +349,9 @@ charLogVec </code></pre></div>
 </ul>
 </div>
 <div id="data-type-coercion-1" class="slide section level2">
-<h2>Data Type Coercion:</h2>
+<h2>Data Type Coercion</h2>
 <ul>
-<li>as(): explicitly coerces objects from one type to another</li>
+<li><code>as()</code>: explicitly coerces objects from one type to another</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numVec &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1200</span>, <span class="dt">to =</span> <span class="dv">1300</span>, <span class="dt">by =</span> <span class="dv">15</span>)
 numVec</code></pre></div>
@@ -281,106 +368,33 @@ numToChar</code></pre></div>
 <pre><code>## [1] 0 1 0 1 1</code></pre>
 </div>
 <div id="data-type-coercion-2" class="slide section level2">
-<h2>Data Type Coercion:</h2>
+<h2>Data Type Coercion</h2>
 <ul>
 <li>Coercion does not always work! Be careful about warnings:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">compVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">12</span><span class="op">+</span>10i, <span class="dv">1</span><span class="op">+</span>6i, <span class="op">-</span><span class="dv">3</span><span class="op">-</span>2i)
-<span class="kw">as</span>(compVec, <span class="st">&quot;numeric&quot;</span>)</code></pre></div>
-<pre><code>## Warning in asMethod(object): imaginary parts discarded in coercion</code></pre>
-<pre><code>## [1] 12  1 -3</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">charVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;2.5&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;2.8&quot;</span>, <span class="st">&quot;1.5&quot;</span>, <span class="st">&quot;zero&quot;</span>)
 <span class="kw">as</span>(charVec, <span class="st">&quot;numeric&quot;</span>)</code></pre></div>
 <pre><code>## Warning in asMethod(object): NAs introduced by coercion</code></pre>
 <pre><code>## [1] 2.5 3.0 2.8 1.5  NA</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">charVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;2.5&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;2.8&quot;</span>, <span class="st">&quot;1.5&quot;</span>, zero)</code></pre></div>
+<pre><code>## Error in eval(expr, envir, enclos): object 'zero' not found</code></pre>
 </div>
-<div id="lists" class="slide section level2">
-<h2>Lists:</h2>
+<div id="summary" class="slide section level2">
+<h2>Summary</h2>
 <ul>
-<li>Think of a list as a vector with the following main differences:
-<ul>
-<li>Each element of a list can have its own data structure regardless of other elements
-<ul>
-<li>vector, matrix, another list</li>
-</ul></li>
-<li>This means, each element can be of a different data type and a different length</li>
-</ul></li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="st">&quot;R&quot;</span>, <span class="dv">10</span><span class="op">-</span>5i, T)
-myVec</code></pre></div>
-<pre><code>## [1] &quot;10&quot;    &quot;R&quot;     &quot;10-5i&quot; &quot;TRUE&quot;</code></pre>
-</div>
-<div id="lists-1" class="slide section level2">
-<h2>Lists:</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">10</span>, <span class="st">&quot;R&quot;</span>, <span class="dv">10</span><span class="op">-</span>5i, T)
-myList</code></pre></div>
-<pre><code>## [[1]]
-## [1] 10
-## 
-## [[2]]
-## [1] &quot;R&quot;
-## 
-## [[3]]
-## [1] 10-5i
-## 
-## [[4]]
-## [1] TRUE</code></pre>
-<ul>
-<li>Elements of a list are shown with [[]]</li>
-<li>Elements of a vector are shown with []</li>
+<li>There are 5 atomic data types in R. Logical, integer, numeric, complex, character.</li>
+<li>Vectors and matrices are used to store data of the same type.</li>
+<li>Lists and data frames are used to store data of different types.</li>
+<li>R con handle infinity (<code>Inf</code>), missing values (<code>NA</code>), and division by 0 (<code>NaN</code>)</li>
+<li>Different data types inside of a vector or matrix will be coerced to the most flexible.</li>
 </ul>
 </div>
-<div id="data-frames" class="slide section level2">
-<h2>Data Frames:</h2>
+<div id="up-next" class="slide section level2">
+<h2>Up Next</h2>
 <ul>
-<li>A data frame is a special list where all objects have equal length</li>
-<li>A data frame looks very similar to a matrix; however, different columns in a data frame can be different data types</li>
+<li><a href="https://datumu.github.io/CSULB_Intro_R/exercises/exercise_2/ex_2.html">Exercise 2</a></li>
+<li>Break</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">studentID &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;S#&quot;</span>, <span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">6473</span><span class="op">:</span><span class="dv">7392</span>), <span class="dv">10</span>), <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)
-score &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">100</span>), <span class="dv">10</span>)
-sex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
-data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">studentID =</span> studentID, <span class="dt">score =</span> score, <span class="dt">sex =</span> sex)
-<span class="kw">head</span>(data)</code></pre></div>
-<pre><code>##   studentID score    sex
-## 1    S#6868    52 female
-## 2    S#6590    40   male
-## 3    S#7139    14 female
-## 4    S#7063    51   male
-## 5    S#6893    99 female
-## 6    S#7391    54   male</code></pre>
-</div>
-<div id="special-values" class="slide section level2">
-<h2>Special Values:</h2>
-<p>There are some special values in R:</p>
-<ul>
-<li>Use L to refer to an integer value, e.g., 1L</li>
-<li>R knows infinity: Inf, -Inf</li>
-<li>NaN: refers to “Not a number”</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">intVec &lt;-<span class="st"> </span><span class="kw">c</span>(1L, 2L, 3L, 4L) 
-intVec</code></pre></div>
-<pre><code>## [1] 1 2 3 4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="ot">Inf</span>; b &lt;-<span class="st"> </span><span class="dv">0</span>
-rslt &lt;-<span class="st"> </span><span class="kw">c</span>(b<span class="op">/</span>a, a<span class="op">/</span>a)
-rslt</code></pre></div>
-<pre><code>## [1]   0 NaN</code></pre>
-</div>
-<div id="missing-values" class="slide section level2">
-<h2>Missing Values:</h2>
-<ul>
-<li>There are two kinds of missing values in R:
-<ul>
-<li>NaN: stands for “Not a Number” and is a missing value produced by numerical computation.</li>
-<li>NA: stands for “Not Available” and is used when a value is missing</li>
-</ul></li>
-<li>NaN is also considered as NA (the reverse is NOT true)</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)
-a[<span class="dv">3</span>]</code></pre></div>
-<pre><code>## [1] NA</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b &lt;-<span class="st"> </span><span class="dv">0</span><span class="op">/</span><span class="dv">0</span>
-b</code></pre></div>
-<pre><code>## [1] NaN</code></pre>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->

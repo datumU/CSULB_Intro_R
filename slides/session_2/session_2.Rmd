@@ -9,7 +9,10 @@ smaller: yes
 
 
 ## Agenda
-
+1. Vectors and Matrices
+2. Lists and Data Frames
+3. Type Coercion
+4. Troubleshooting
 
 
 ## Data Types in R
@@ -37,7 +40,7 @@ smaller: yes
     + e.g., names, dimension, length
 
 
-## Vectors in R:
+## Vectors in R
 
 + A vector is the most basic structure in R
 + It is one-dimensional; its single dimension is its length
@@ -51,28 +54,26 @@ numVec
 ```
 
 
-
 ## Examples of Vectors
-
 Examples of character, logical, and complex vectors:
 
 ```{r echo=TRUE}
+intVec <- c(2L, 3L, 4L)
+intVec
+
 charVec <- c("red", "green", "blue")
 charVec
 
 logVec <- c(TRUE, FALSE, FALSE, T, F)
 logVec
 
-compVec <- c(1 + 0i, 3 + 1i)
-compVec
 ```
 
 
-## Matrices:
-
+## Matrices
 + A matrix is a special case of a vector
     + Unlike vectors, matrices have a dimension attribute
-
+    
 ```{r echo=TRUE}
 myMat <- matrix(nrow = 2, ncol = 4)
 myMat
@@ -80,16 +81,15 @@ attributes(myMat)
 ```
 
 
+## Matrices
 
-## Matrices:
 ```{r echo=TRUE}
 myMat <- matrix(1:8, nrow = 2, ncol = 4)
 myMat # matrices are filled in column-wise
 ```
 
 
-
-## A matrix is a special case of a vector:
+## A matrix is a special case of a vector
 
 ```{r echo=TRUE}
 myVec <- 1:8
@@ -97,17 +97,16 @@ myVec
 dim(myVec) <- c(2,4)
 myVec
 ```
-
 + Similar to vectors, all elements of a matrix should be of the same data type
     + If not, R automatically coerces
 
 
-
-## Other Ways to Create a Matrix:
+## Other Ways to Create a Matrix
 
 + Intuitively, matrices seem to be a combination of vectors that are put next to each other (either column-wise or row-wise).
 
-+ rbind() and cbind() (row bind and column bind) achieve this: 
++ ```rbind()``` and ```cbind()``` (row bind and column bind) achieve this: 
+
 ```{r echo=TRUE}
 vec1 <- 1:4
 vec2 <- sample(1:100, 4, replace = FALSE)
@@ -117,8 +116,7 @@ colMat
 ```
 
 
-
-## Other Ways to Create a Matrix:
+## Other Ways to Create a Matrix
 
 ```{r echo=TRUE}
 vec1 <- 1:4
@@ -129,17 +127,13 @@ rowMat
 ```
 
 
-
-<!-- do we need this slide?
-
--->
-
-## Factors:
+## Factors
 
 + A factor is a vector used to specify a discrete classification (categorical values).
 + Factors can be ordered or un-ordered
 + Levels of a factor are better when labeled (self-descriptive)
     + Consider sex as (0, 1) as opposed to labeled ("F", "M")
+    
 ```{r echo=TRUE}
 Sex <- rep(c("Female", "Male"), times = 3)
 Sex
@@ -148,18 +142,16 @@ SexFac1
 ```
 
 
-
-## Factors:
+## Factors
 
 ```{r echo=TRUE}
 levels(SexFac1)
 table(SexFac1)
-unclass(SexFac1) # returns the factor as integer values
 ```
 
 
+## Factors
 
-## Factors:
 ```{r echo=TRUE}
 SexFac1 # levels are ordered alphabetically - 1st level = BaseLevel
 SexFac2 <- factor(Sex, levels = c("Male", "Female"))
@@ -168,9 +160,73 @@ SexFac2
 ```
 
 
+## Lists
++ Think of a list as a vector with the following main differences: 
+    + Each element of a list can have its own data structure regardless of other elements
+        + vector, matrix, another list
+    + This means, each element can be of a different data type and a different length
+    
+```{r echo=TRUE}
+myVec <- c(10, "R", 5L, T)
+myVec
+```
 
-## Data Type Coercion:
 
+## Lists
+
+```{r echo=TRUE}
+myList <- list(10, "R", 5L, T)
+myList
+```
++ Elements of a list are shown with ```[[]]```
++ Elements of a vector are shown with ```[]```
+
+
+## Data Frames
++ A data frame is a special list where all objects have equal length
++ A data frame looks very similar to a matrix; however, different columns in a data frame can be different data types
+
+```{r echo=TRUE}
+studentID <- paste("S#", sample(c(6473:7392), 10), sep = "")
+score <- sample(c(0:100), 10)
+sex <- sample(c("female", "male"), 10, replace = TRUE)
+data <- data.frame(studentID = studentID, score = score, sex = sex)
+head(data)
+```
+
+
+## Special Values
+There are some special values in R:
+
+  + Use ```L``` to refer to an integer value, e.g., ```1L```
+  + R knows infinity: ```Inf```, ```-Inf```
+  + ```NaN```: refers to "Not a number"
+  
+```{r echo=TRUE}
+intVec <- c(1L, 2L, 3L, 4L) 
+intVec
+
+a <- Inf; b <- 0
+rslt <- c(b/a, a/a)
+rslt
+```
+
+
+## Missing Values
++ There are two kinds of missing values in R:
+    + ```NaN```: stands for "Not a Number" and is a missing value produced by numerical computation.
+    + ```NA```: stands for "Not Available" and is used when a value is missing
++ ```NaN``` is also considered as ```NA``` (the reverse is NOT true)
+```{r echo=TRUE}
+a <- c(1,2)
+a[3]
+
+b <- 0/0
+b
+```
+
+
+## Data Type Coercion
 + In general, vectors CANNOT have mixed types of objects
 
 ```{r echo=TRUE, results='hide'}
@@ -183,14 +239,12 @@ numLogVec
 charLogVec <- c("a", TRUE)
 charLogVec 
 ```
-
 + The above are examples of implicit coercion 
 + Explicit coercion is also possible
 
 
-## Data Type Coercion:
-
-+ as(): explicitly coerces objects from one type to another
+## Data Type Coercion
++ ```as()```: explicitly coerces objects from one type to another
 
 ```{r echo=TRUE}
 numVec <- seq(from = 1200, to = 1300, by = 15)
@@ -205,90 +259,29 @@ as.numeric(logVec)
 
 
 
-## Data Type Coercion:
-
+## Data Type Coercion
 + Coercion does not always work! Be careful about warnings:
 
-```{r echo=TRUE}
-compVec <- c(12+10i, 1+6i, -3-2i)
-as(compVec, "numeric")
+```{r echo=TRUE, error=TRUE}
 
 charVec <- c("2.5", "3", "2.8", "1.5", "zero")
 as(charVec, "numeric")
+
+charVec <- c("2.5", "3", "2.8", "1.5", zero)
 ```
 
 
-
-## Lists:
-
-+ Think of a list as a vector with the following main differences: 
-    + Each element of a list can have its own data structure regardless of other elements
-        + vector, matrix, another list
-    + This means, each element can be of a different data type and a different length
-```{r echo=TRUE}
-myVec <- c(10, "R", 10-5i, T)
-myVec
-```
+## Summary
++ There are 5 atomic data types in R. Logical, integer, numeric, complex, character.
++ Vectors and matrices are used to store data of the same type.
++ Lists and data frames are used to store data of different types.
++ R con handle infinity (```Inf```), missing values (```NA```), and division by 0 (```NaN```)
++ Different data types inside of a vector or matrix will be coerced to the most flexible.
 
 
-
-## Lists:
-
-```{r echo=TRUE}
-myList <- list(10, "R", 10-5i, T)
-myList
-```
-+ Elements of a list are shown with [[]]
-+ Elements of a vector are shown with []
-
-
-
-## Data Frames:
-
-+ A data frame is a special list where all objects have equal length
-+ A data frame looks very similar to a matrix; however, different columns in a data frame can be different data types
-```{r echo=TRUE}
-studentID <- paste("S#", sample(c(6473:7392), 10), sep = "")
-score <- sample(c(0:100), 10)
-sex <- sample(c("female", "male"), 10, replace = TRUE)
-data <- data.frame(studentID = studentID, score = score, sex = sex)
-head(data)
-```
-
-
-## Special Values:
-
-There are some special values in R:
-
-  + Use L to refer to an integer value, e.g., 1L
-  + R knows infinity: Inf, -Inf
-  + NaN: refers to "Not a number"
-  
-```{r echo=TRUE}
-intVec <- c(1L, 2L, 3L, 4L) 
-intVec
-
-a <- Inf; b <- 0
-rslt <- c(b/a, a/a)
-rslt
-```
-
-
-## Missing Values:
-
-+ There are two kinds of missing values in R:
-    + NaN: stands for "Not a Number" and is a missing value produced by numerical computation.
-    + NA: stands for "Not Available" and is used when a value is missing
-
-+ NaN is also considered as NA (the reverse is NOT true)
-```{r echo=TRUE}
-a <- c(1,2)
-a[3]
-
-b <- 0/0
-b
-```
-
+## Up Next
++ [Exercise 2](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_2/ex_2.html)
++ Break
 
 
 
