@@ -22,13 +22,13 @@ Please follow the [Pre-Workshop Instructions](#Instructions) prior to coming to 
 
 | 	   Time	    |           			         	|							              |
 | ------------- | :-----------------------:	| :-----------------------: |   
-|  10:00-11:00  | [Introduction to Programming](https://datumu.github.io/CSULB_Intro_R/slides/session_1/intro_programming.html)	|		|
+|  10:00-11:00  | [Introduction to Programming](https://datumu.github.io/CSULB_Intro_R/slides/session_1/session_1.html)	|		|
 |	 11:00-12:00 	| Lunch | |
-|	 12:00-1:00 	| [Session 2](https://datumu.github.io/CSULB_Intro_R/slides/session_2/session_2.html) | |
+|	 12:00-1:00 	| [Data Structures](https://datumu.github.io/CSULB_Intro_R/slides/session_2/session_2.html) | |
 |	 1:00-1:15 	  | Break | |
-|	 1:15-2:15 	  | Session 2, part B | |
+|	 1:15-2:15 	  | [Subsetting ](https://datumu.github.io/CSULB_Intro_R/slides/session_3/session_3.html)| |
 |	 2:15-2:30  	| Break | |
-|	 2:30-3:30  	| [Packages & Help](https://datumu.github.io/CSULB_Intro_R/slides/session_3/packages_and_resources.html) | |
+|	 2:30-3:30  	| [Control Structures, Functions & Packages](https://datumu.github.io/CSULB_Intro_R/slides/session_4/session_4.html) | |
 
 ### DAY 2 - April 27
 

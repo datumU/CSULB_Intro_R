@@ -6,7 +6,7 @@
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
   <meta name="date" content="2018-04-13" />
-  <title>Data Structures</title>
+  <title>Control Structures, Functions &amp; Packages</title>
   <style type="text/css">code{white-space: pre;}</style>
   <style type="text/css">
 div.sourceCode { overflow-x: auto; }
@@ -50,7 +50,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </head>
 <body>
 <div class="slide titlepage">
-  <h1 class="title">Data Structures</h1>
+  <h1 class="title">Control Structures, Functions &amp; Packages</h1>
   <h1 class="subtitle">CSULB Intro to R</h1>
   <p class="author">
 
@@ -59,328 +59,300 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="agenda" class="slide section level2">
 <h2>Agenda</h2>
+<ol style="list-style-type: decimal">
+<li>Control Structures</li>
+<li>Functions</li>
+<li>Packages</li>
+<li>Helpful resources</li>
+</ol>
 </div>
-<div id="data-types-in-r" class="slide section level2">
-<h2>Data Types in R</h2>
-<!-- hierarchy? -->
+<div id="control-structures" class="slide section level2">
+<h2>Control Structures:</h2>
 <ul>
-<li>R has 5 main atomic data types:
+<li>A control structure is a block of programming that analyzes variables and chooses a direction in which to go based on given parameters</li>
+<li>Control structures in R include:
 <ul>
-<li>Logical</li>
-<li>Integer</li>
-<li>Numeric</li>
-<li>Complex</li>
-<li>Character</li>
+<li><strong>for loops</strong></li>
+<li><strong>if/else statements</strong></li>
+<li>while loops</li>
+<li>repeat</li>
+<li>break</li>
+<li>next</li>
+<li>return</li>
 </ul></li>
 </ul>
 </div>
-<div id="data-structures-in-r" class="slide section level2">
-<h2>Data Structures in R</h2>
-<ol style="list-style-type: decimal">
-<li>One-dimensional:
+<div id="for-loops" class="slide section level2">
+<h2>for loops:</h2>
 <ul>
-<li>Vectors</li>
-<li>Lists</li>
+<li>Suppose we want to write “The year is [year]” where year is equal to 2014, 2015, and 2016.</li>
+<li>One way to do so is like this:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The year is&quot;</span>, <span class="dv">2016</span>))</code></pre></div>
+<pre><code>## [1] &quot;The year is 2016&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The year is&quot;</span>, <span class="dv">2017</span>))</code></pre></div>
+<pre><code>## [1] &quot;The year is 2017&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The year is&quot;</span>, <span class="dv">2018</span>))</code></pre></div>
+<pre><code>## [1] &quot;The year is 2018&quot;</code></pre>
+</div>
+<div id="for-loops-1" class="slide section level2">
+<h2>for loops:</h2>
+<ul>
+<li>Or, we can use a for loop:</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2016</span><span class="op">:</span><span class="dv">2018</span>){
+  <span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The year is&quot;</span>, i))
+}</code></pre></div>
+<pre><code>## [1] &quot;The year is 2016&quot;
+## [1] &quot;The year is 2017&quot;
+## [1] &quot;The year is 2018&quot;</code></pre>
+</div>
+<div id="for-loops-2" class="slide section level2">
+<h2>for loops:</h2>
+<ul>
+<li>Suppose we have a numeric vector and we want to square each element</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">2</span>, <span class="dv">20</span>, <span class="dt">by =</span> <span class="dv">2</span>)</code></pre></div>
+<ul>
+<li>First, create a new vector of the same length as <code>vec</code></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">newvec &lt;-<span class="st"> </span><span class="kw">vector</span>(<span class="st">&quot;numeric&quot;</span>, <span class="dt">length =</span> <span class="kw">length</span>(vec)) <span class="co"># equivalent: numeric(length(vec))</span></code></pre></div>
+<ul>
+<li>Then, write the for loop</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(vec)){
+  newvec[i] &lt;-<span class="st"> </span>vec[i]<span class="op">^</span><span class="dv">2</span>
+}
+newvec</code></pre></div>
+<pre><code>##  [1]   4  16  36  64 100 144 196 256 324 400</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># advanced: vec^2</span></code></pre></div>
+</div>
+<div id="ifelse-statements" class="slide section level2">
+<h2>if/else statements:</h2>
+<ul>
+<li>if/else statements are used to write conditional statements</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">7</span>
+<span class="cf">if</span> (x <span class="op">&lt;</span><span class="st"> </span><span class="dv">10</span>){
+  <span class="kw">print</span>(<span class="st">&quot;x is less than 10&quot;</span>)
+}<span class="cf">else</span>{
+  <span class="kw">print</span>(<span class="st">&quot;x is greater than 10&quot;</span>)
+}</code></pre></div>
+<pre><code>## [1] &quot;x is less than 10&quot;</code></pre>
+</div>
+<div id="combining-for-loops-and-ifelse-statements" class="slide section level2">
+<h2>Combining for loops and if/else statements:</h2>
+<ul>
+<li>Suppose we have the ages of 10 individuals, and we want to categorize each age as young, middle-aged, or old</li>
+<li>Using a for loop, we can iterate through each age and then use if/else statements to classify each age</li>
+</ul>
+</div>
+<div id="for-loops-and-ifelse-statements" class="slide section level2">
+<h2>for loops and if/else statements:</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">age &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">10</span>)
+ageCat &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="kw">length</span>(age))
+<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(age)) {
+    <span class="cf">if</span> (age[i] <span class="op">&lt;=</span><span class="st"> </span><span class="dv">35</span>){
+       ageCat[i] &lt;-<span class="st"> &quot;Young&quot;</span>
+      }<span class="cf">else</span> <span class="cf">if</span> (age[i] <span class="op">&lt;=</span><span class="st"> </span><span class="dv">55</span>){
+        ageCat[i] &lt;-<span class="st"> &quot;Middle-Aged&quot;</span>
+      }<span class="cf">else</span>{
+         ageCat[i] &lt;-<span class="st"> &quot;Old&quot;</span>
+      } 
+}
+age.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> age, <span class="dt">ageCat =</span> ageCat)
+age.df[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,]</code></pre></div>
+<pre><code>##   age      ageCat
+## 1  12       Young
+## 2  51 Middle-Aged
+## 3  77         Old</code></pre>
+<!-- need to put transition slide or something -->
+</div>
+<div id="functions" class="slide section level2">
+<h2>Functions</h2>
+<ul>
+<li><strong>What:</strong>
+<ul>
+<li>A chunk/block of code that encapsulates a set of instructions (including other functions!).</li>
 </ul></li>
-<li>Multi-dimensional:
+<li><strong>Why:</strong> <!-- Wording ok? -->
 <ul>
-<li>Matrices</li>
-<li>Data frames</li>
+<li>Readability: Using functions makes it easier to read your code. This allows us to more quickly debug and makes it easier to make updates to our code later.</li>
+<li>Reusability: Instead of rewriting a set of instructions multiple times to complete similar tasks, you can just make a call to one function.</li>
+<li>Abstraction/Generalization: Functions should allow you to easily use different inputs of varying size, amount, type, etc.</li>
+<li>Automation: Functions allow you to automate a task instead of manually typing out instructions</li>
+</ul></li>
+</ul>
+</div>
+<div id="how-to-write-functions" class="slide section level2">
+<h2>How to write functions</h2>
+<ul>
+<li>Steps to writing a function
+<ol style="list-style-type: decimal">
+<li>Understand the purpose of the function. What do you want it to do?</li>
+<li>Define input (parameters, arguments).</li>
+<li>Determine the algorithm and output.</li>
+<li>Define data needed inside of the function (extra variables, storage, etc).</li>
+</ol></li>
+</ul>
+<!-- need example here and prob quick hand written exercise where they write their own function. write sandwich into a function? -->
+<!-- Part 7 -->
+</div>
+<div id="guided-exercise" class="slide section level2">
+<h2>Guided Exercise</h2>
+<ul>
+<li>What do we want our function to do?
+<ul>
+<li>Find the tallest height from a collection of heights</li>
+</ul></li>
+<li>Define input.
+<ul>
+<li>“collection of heights”</li>
+<li>vector of heights</li>
+<li>in feet? cm? inches? miles?</li>
+<li>I’m 0.00111 miles tall.</li>
+</ul></li>
+</ul>
+</div>
+<div id="exercise-contd" class="slide section level2">
+<h2>Exercise Cont’d</h2>
+<ul>
+<li>Determine algorithm and output.
+<ul>
+<li>output is height of tallest person (i.e. the maximum value)</li>
+</ul></li>
+</ul>
+<p><strong>Initialize</strong> <span class="math inline">\(tallest\)</span> = <span class="math inline">\(height_1\)</span><br />
+<strong>For</strong> each <span class="math inline">\(element\)</span> in <span class="math inline">\(H\)</span>, <strong>do</strong><br />
+    <strong>If</strong> <span class="math inline">\(element &gt; tallest\)</span>, <strong>then</strong><br />
+    <span class="math inline">\(tallest = element\)</span><br />
+end <strong>for</strong><br />
+<strong>return</strong> <span class="math inline">\(tallest\)</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myHeights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">63</span>, <span class="dv">58</span>, <span class="dv">72</span>, <span class="dv">65</span>)
+
+findTallest &lt;-<span class="st"> </span><span class="cf">function</span>(H){
+  tallest &lt;-<span class="st"> </span>H[<span class="dv">1</span>]
+  <span class="cf">for</span>(height <span class="cf">in</span> H){
+    <span class="cf">if</span>(height <span class="op">&gt;</span><span class="st"> </span>tallest){tallest &lt;-<span class="st"> </span>i}
+  }
+  <span class="kw">return</span>(tallest)
+}</code></pre></div>
+<!-- prompt them to modify the code to find the oldest person, shortest person, handle NA values -->
+<!-- Parts 8,9 -->
+</div>
+<div id="packages" class="slide section level2">
+<h2>Packages</h2>
+<ul>
+<li>Used to share R code</li>
+<li>Composed of code, data, documentation, and tests</li>
+<li>Allow for easy, transparent and cross-platform extension of the R base system</li>
+<li>Over 12,000 packages available on the Comprehensive R Archive Network (CRAN)
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/">Full list available packages</a></li>
+</ul></li>
+<li>For more info on how R packages are developed, please read <a href="http://cran.r-project.org/doc/contrib/Leisch-CreatingPackages.pdf">Creating R Packages: A Tutorial</a> by Friedrich Leisch.</li>
+</ul>
+</div>
+<div id="terminology" class="slide section level2">
+<h2>Terminology</h2>
+<ul>
+<li><em>Package</em>: an extension of the R base system with code, data and documentation in a standardized format</li>
+<li><em>Base packages</em>: part of the R source tree, maintained by R Core (what you downloaded before coming today)</li>
+<li><em>Repository</em>: a website that hosts a package for installation</li>
+<li><em>Source</em>: the original version of a package with human-readable text and code</li>
+<li><em>Library</em>: a directory containing installed packages (this is on your machine)</li>
+</ul>
+</div>
+<div id="installing-packages" class="slide section level2">
+<h2>Installing Packages</h2>
+<p>There are two main ways to install a package in R:</p>
+<ol style="list-style-type: decimal">
+<li>Installing from CRAN: install a package directly from the repository
+<ul>
+<li>Using R studio: <code>Tools &gt; Install Packages...</code></li>
+<li>From R console: <code>install.packages(&quot;package name&quot;)</code></li>
+</ul></li>
+<li>Installing from source: first download the add-on R package and then type the following in your console:
+<ul>
+<li><code>install.packages(&quot;path_to_file&quot;, repos = NULL, type = &quot;source&quot;)</code></li>
+</ul></li>
+<li>Installing a variety of sources using the <code>devtools</code> package (must have it installed first!)
+<ul>
+<li>Github: <code>devtools::install_github(&quot;repo name&quot;)</code></li>
+<li>URL: <code>devtools::install_github(&quot;url&quot;)</code></li>
+<li>Other methods available, too</li>
 </ul></li>
 </ol>
-<p> </p>
+</div>
+<div id="using-packages" class="slide section level2">
+<h2>Using Packages</h2>
+<p>There are two ways to access code and data from an installed package:</p>
+<ol style="list-style-type: decimal">
+<li>Loading the package to the current R workspace with the <code>library()</code> function
 <ul>
-<li>Everything in R is an object</li>
-<li>Objects can have attributes
+<li><code>library(package)</code> loads all contents of <code>package</code> and makes them accessible until R restarts</li>
+<li>This is the recommended way to use packages</li>
+</ul></li>
+<li>Directly referencing the code/data with the <code>::</code> operator
 <ul>
-<li>e.g., names, dimension, length</li>
+<li>Instead of loading an entire package, we can instead temporarily access its contents</li>
+<li><code>package::name</code> accesses <code>name</code> from <code>package</code> for a one-time use</li>
+<li>Useful when you only need to use a single object once or twice</li>
+</ul></li>
+</ol>
+</div>
+<div id="install-some-packages-from-cran" class="slide section level2">
+<h2>Install some packages from CRAN</h2>
+<p>Let’s install <code>devtools, here, and car</code> from CRAN using the console:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;here&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;car&quot;</span>, <span class="dt">dependencies =</span> <span class="ot">TRUE</span>)</code></pre></div>
+</div>
+<div id="using-a-package" class="slide section level2">
+<h2>Using a Package</h2>
+<p>Now, let’s use <code>devtools</code> to install <code>BRRR</code> from Github (more info <a href="https://github.com/brooke-watson/BRRR">here</a>).</p>
+<p>Method 1:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(devtools)  <span class="co"># load the devtools package</span>
+<span class="kw">install_github</span>(<span class="st">&quot;brooke-watson/BRRR&quot;</span>)  <span class="co"># use the function install_github() to install BRRR</span></code></pre></div>
+<p>Method 2:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;brooke-watson/BRRR&quot;</span>)  <span class="co"># use the function install_github() from devtools to install BRRR</span></code></pre></div>
+<p>Play around with BRRR!</p>
+</div>
+<div id="popular-packages" class="slide section level2">
+<h2>Popular Packages</h2>
+<ul>
+<li>To visualize data:
+<ul>
+<li><code>ggplot2</code>: to create beautiful graphics</li>
+<li><code>googleVis</code>: to use Google Chart tools</li>
+</ul></li>
+<li>To report results:
+<ul>
+<li><code>shiny</code>: to create interactive web-based apps</li>
+<li><code>knitr</code>: to combine R codes and Latex/Markdown codes</li>
+<li><code>slidify</code>: to build HTML 5 slide shows</li>
+</ul></li>
+<li>To write high-performance R code:
+<ul>
+<li><code>rcpp</code>: to write R functions that call C++ code</li>
+<li><code>data.table</code>: to organize datasets for fast operations</li>
+<li><code>parallel</code>: to use parallel processing in R</li>
 </ul></li>
 </ul>
 </div>
-<div id="vectors-in-r" class="slide section level2">
-<h2>Vectors in R:</h2>
+<div id="helpful-resources" class="slide section level2">
+<h2>Helpful Resources</h2>
 <ul>
-<li>A vector is the most basic structure in R</li>
-<li>It is one-dimensional; its single dimension is its length</li>
-<li>A vector of length <em>n</em> has <em>n</em> cells</li>
-<li>Each cell can hold a single value, like a numeric or string value
-<ul>
-<li>In general, vectors can only hold ONE type of data</li>
-</ul></li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)      <span class="co"># &lt;- is the assigning operator</span>
-numVec</code></pre></div>
-<pre><code>## [1] 2 3 4</code></pre>
-</div>
-<div id="examples-of-vectors" class="slide section level2">
-<h2>Examples of Vectors</h2>
-<p>Examples of character, logical, and complex vectors:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">charVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;blue&quot;</span>)
-charVec</code></pre></div>
-<pre><code>## [1] &quot;red&quot;   &quot;green&quot; &quot;blue&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">logVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">FALSE</span>, T, F)
-logVec</code></pre></div>
-<pre><code>## [1]  TRUE FALSE FALSE  TRUE FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">compVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span>0i, <span class="dv">3</span> <span class="op">+</span><span class="st"> </span>1i)
-compVec</code></pre></div>
-<pre><code>## [1] 1+0i 3+1i</code></pre>
-</div>
-<div id="matrices" class="slide section level2">
-<h2>Matrices:</h2>
-<ul>
-<li>A matrix is a special case of a vector
-<ul>
-<li>Unlike vectors, matrices have a dimension attribute</li>
-</ul></li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myMat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">4</span>)
-myMat</code></pre></div>
-<pre><code>##      [,1] [,2] [,3] [,4]
-## [1,]   NA   NA   NA   NA
-## [2,]   NA   NA   NA   NA</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attributes</span>(myMat)</code></pre></div>
-<pre><code>## $dim
-## [1] 2 4</code></pre>
-</div>
-<div id="matrices-1" class="slide section level2">
-<h2>Matrices:</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myMat &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>, <span class="dt">nrow =</span> <span class="dv">2</span>, <span class="dt">ncol =</span> <span class="dv">4</span>)
-myMat <span class="co"># matrices are filled in column-wise</span></code></pre></div>
-<pre><code>##      [,1] [,2] [,3] [,4]
-## [1,]    1    3    5    7
-## [2,]    2    4    6    8</code></pre>
-</div>
-<div id="a-matrix-is-a-special-case-of-a-vector" class="slide section level2">
-<h2>A matrix is a special case of a vector:</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">8</span>
-myVec</code></pre></div>
-<pre><code>## [1] 1 2 3 4 5 6 7 8</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(myVec) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>)
-myVec</code></pre></div>
-<pre><code>##      [,1] [,2] [,3] [,4]
-## [1,]    1    3    5    7
-## [2,]    2    4    6    8</code></pre>
-<ul>
-<li>Similar to vectors, all elements of a matrix should be of the same data type
-<ul>
-<li>If not, R automatically coerces</li>
-</ul></li>
+<li>General programming (Khan academy, etc)</li>
+<li>R (CRAN, Rbloggers, RStudio cheat sheets, Stackoverflow, Books - Data Science with R, etc)</li>
 </ul>
 </div>
-<div id="other-ways-to-create-a-matrix" class="slide section level2">
-<h2>Other Ways to Create a Matrix:</h2>
+<div id="how-to-troubleshootde-bug" class="slide section level2">
+<h2>How to Troubleshoot/De-bug</h2>
 <ul>
-<li><p>Intuitively, matrices seem to be a combination of vectors that are put next to each other (either column-wise or row-wise).</p></li>
-<li><p>rbind() and cbind() (row bind and column bind) achieve this:</p></li>
+<li>built in Help in R</li>
+<li>stackoverflow</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>
-vec2 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">4</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)
-vec3 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dv">4</span>, <span class="dt">replace=</span><span class="ot">TRUE</span>)
-colMat &lt;-<span class="st"> </span><span class="kw">cbind</span>(vec1, vec2, vec3)
-colMat</code></pre></div>
-<pre><code>##      vec1 vec2 vec3
-## [1,]    1    3   14
-## [2,]    2   76   15
-## [3,]    3   77   19
-## [4,]    4   37    5</code></pre>
-</div>
-<div id="other-ways-to-create-a-matrix-1" class="slide section level2">
-<h2>Other Ways to Create a Matrix:</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>
-vec2 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">4</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)
-vec3 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">4</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>)
-rowMat &lt;-<span class="st"> </span><span class="kw">rbind</span>(vec1, vec2, vec3)
-rowMat</code></pre></div>
-<pre><code>##          [,1]      [,2]        [,3]     [,4]
-## vec1 1.000000  2.000000  3.00000000  4.00000
-## vec2 7.000000 10.000000 17.00000000 95.00000
-## vec3 1.277629 -1.809628  0.07326385 -1.18553</code></pre>
-<!-- do we need this slide?
-
--->
-</div>
-<div id="factors" class="slide section level2">
-<h2>Factors:</h2>
-<ul>
-<li>A factor is a vector used to specify a discrete classification (categorical values).</li>
-<li>Factors can be ordered or un-ordered</li>
-<li>Levels of a factor are better when labeled (self-descriptive)
-<ul>
-<li>Consider sex as (0, 1) as opposed to labeled (“F”, “M”)</li>
-</ul></li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Sex &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>), <span class="dt">times =</span> <span class="dv">3</span>)
-Sex</code></pre></div>
-<pre><code>## [1] &quot;Female&quot; &quot;Male&quot;   &quot;Female&quot; &quot;Male&quot;   &quot;Female&quot; &quot;Male&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SexFac1 &lt;-<span class="st"> </span><span class="kw">factor</span>(Sex)
-SexFac1</code></pre></div>
-<pre><code>## [1] Female Male   Female Male   Female Male  
-## Levels: Female Male</code></pre>
-</div>
-<div id="factors-1" class="slide section level2">
-<h2>Factors:</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">levels</span>(SexFac1)</code></pre></div>
-<pre><code>## [1] &quot;Female&quot; &quot;Male&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">table</span>(SexFac1)</code></pre></div>
-<pre><code>## SexFac1
-## Female   Male 
-##      3      3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">unclass</span>(SexFac1) <span class="co"># returns the factor as integer values</span></code></pre></div>
-<pre><code>## [1] 1 2 1 2 1 2
-## attr(,&quot;levels&quot;)
-## [1] &quot;Female&quot; &quot;Male&quot;</code></pre>
-</div>
-<div id="factors-2" class="slide section level2">
-<h2>Factors:</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SexFac1 <span class="co"># levels are ordered alphabetically - 1st level = BaseLevel</span></code></pre></div>
-<pre><code>## [1] Female Male   Female Male   Female Male  
-## Levels: Female Male</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SexFac2 &lt;-<span class="st"> </span><span class="kw">factor</span>(Sex, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>))
-SexFac1</code></pre></div>
-<pre><code>## [1] Female Male   Female Male   Female Male  
-## Levels: Female Male</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">SexFac2</code></pre></div>
-<pre><code>## [1] Female Male   Female Male   Female Male  
-## Levels: Male Female</code></pre>
-</div>
-<div id="data-type-coercion" class="slide section level2">
-<h2>Data Type Coercion:</h2>
-<ul>
-<li>In general, vectors CANNOT have mixed types of objects</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numCharVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">3.14</span>, <span class="st">&quot;a&quot;</span>)
-numCharVec                 <span class="co"># What do you expect to be printed? </span>
-
-numLogVec &lt;-<span class="st"> </span><span class="kw">c</span>(pi, T)
-numLogVec                   
-
-charLogVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="ot">TRUE</span>)
-charLogVec </code></pre></div>
-<ul>
-<li>The above are examples of implicit coercion</li>
-<li>Explicit coercion is also possible</li>
-</ul>
-</div>
-<div id="data-type-coercion-1" class="slide section level2">
-<h2>Data Type Coercion:</h2>
-<ul>
-<li>as(): explicitly coerces objects from one type to another</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numVec &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from =</span> <span class="dv">1200</span>, <span class="dt">to =</span> <span class="dv">1300</span>, <span class="dt">by =</span> <span class="dv">15</span>)
-numVec</code></pre></div>
-<pre><code>## [1] 1200 1215 1230 1245 1260 1275 1290</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numToChar &lt;-<span class="st"> </span><span class="kw">as</span>(numVec, <span class="st">&quot;character&quot;</span>)
-numToChar</code></pre></div>
-<pre><code>## [1] &quot;1200&quot; &quot;1215&quot; &quot;1230&quot; &quot;1245&quot; &quot;1260&quot; &quot;1275&quot; &quot;1290&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">numToChar<span class="op">==</span><span class="kw">as.character</span>(numVec)</code></pre></div>
-<pre><code>## [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">logVec &lt;-<span class="st"> </span><span class="kw">c</span>(F, T, F, T, T)
-<span class="kw">as</span>(logVec, <span class="st">&quot;numeric&quot;</span>)</code></pre></div>
-<pre><code>## [1] 0 1 0 1 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as.numeric</span>(logVec)</code></pre></div>
-<pre><code>## [1] 0 1 0 1 1</code></pre>
-</div>
-<div id="data-type-coercion-2" class="slide section level2">
-<h2>Data Type Coercion:</h2>
-<ul>
-<li>Coercion does not always work! Be careful about warnings:</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">compVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">12</span><span class="op">+</span>10i, <span class="dv">1</span><span class="op">+</span>6i, <span class="op">-</span><span class="dv">3</span><span class="op">-</span>2i)
-<span class="kw">as</span>(compVec, <span class="st">&quot;numeric&quot;</span>)</code></pre></div>
-<pre><code>## Warning in asMethod(object): imaginary parts discarded in coercion</code></pre>
-<pre><code>## [1] 12  1 -3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">charVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;2.5&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;2.8&quot;</span>, <span class="st">&quot;1.5&quot;</span>, <span class="st">&quot;zero&quot;</span>)
-<span class="kw">as</span>(charVec, <span class="st">&quot;numeric&quot;</span>)</code></pre></div>
-<pre><code>## Warning in asMethod(object): NAs introduced by coercion</code></pre>
-<pre><code>## [1] 2.5 3.0 2.8 1.5  NA</code></pre>
-</div>
-<div id="lists" class="slide section level2">
-<h2>Lists:</h2>
-<ul>
-<li>Think of a list as a vector with the following main differences:
-<ul>
-<li>Each element of a list can have its own data structure regardless of other elements
-<ul>
-<li>vector, matrix, another list</li>
-</ul></li>
-<li>This means, each element can be of a different data type and a different length</li>
-</ul></li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">10</span>, <span class="st">&quot;R&quot;</span>, <span class="dv">10</span><span class="op">-</span>5i, T)
-myVec</code></pre></div>
-<pre><code>## [1] &quot;10&quot;    &quot;R&quot;     &quot;10-5i&quot; &quot;TRUE&quot;</code></pre>
-</div>
-<div id="lists-1" class="slide section level2">
-<h2>Lists:</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dv">10</span>, <span class="st">&quot;R&quot;</span>, <span class="dv">10</span><span class="op">-</span>5i, T)
-myList</code></pre></div>
-<pre><code>## [[1]]
-## [1] 10
-## 
-## [[2]]
-## [1] &quot;R&quot;
-## 
-## [[3]]
-## [1] 10-5i
-## 
-## [[4]]
-## [1] TRUE</code></pre>
-<ul>
-<li>Elements of a list are shown with [[]]</li>
-<li>Elements of a vector are shown with []</li>
-</ul>
-</div>
-<div id="data-frames" class="slide section level2">
-<h2>Data Frames:</h2>
-<ul>
-<li>A data frame is a special list where all objects have equal length</li>
-<li>A data frame looks very similar to a matrix; however, different columns in a data frame can be different data types</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">studentID &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;S#&quot;</span>, <span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">6473</span><span class="op">:</span><span class="dv">7392</span>), <span class="dv">10</span>), <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)
-score &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">100</span>), <span class="dv">10</span>)
-sex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
-data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">studentID =</span> studentID, <span class="dt">score =</span> score, <span class="dt">sex =</span> sex)
-<span class="kw">head</span>(data)</code></pre></div>
-<pre><code>##   studentID score    sex
-## 1    S#6868    52 female
-## 2    S#6590    40   male
-## 3    S#7139    14 female
-## 4    S#7063    51   male
-## 5    S#6893    99 female
-## 6    S#7391    54   male</code></pre>
-</div>
-<div id="special-values" class="slide section level2">
-<h2>Special Values:</h2>
-<p>There are some special values in R:</p>
-<ul>
-<li>Use L to refer to an integer value, e.g., 1L</li>
-<li>R knows infinity: Inf, -Inf</li>
-<li>NaN: refers to “Not a number”</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">intVec &lt;-<span class="st"> </span><span class="kw">c</span>(1L, 2L, 3L, 4L) 
-intVec</code></pre></div>
-<pre><code>## [1] 1 2 3 4</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="ot">Inf</span>; b &lt;-<span class="st"> </span><span class="dv">0</span>
-rslt &lt;-<span class="st"> </span><span class="kw">c</span>(b<span class="op">/</span>a, a<span class="op">/</span>a)
-rslt</code></pre></div>
-<pre><code>## [1]   0 NaN</code></pre>
-</div>
-<div id="missing-values" class="slide section level2">
-<h2>Missing Values:</h2>
-<ul>
-<li>There are two kinds of missing values in R:
-<ul>
-<li>NaN: stands for “Not a Number” and is a missing value produced by numerical computation.</li>
-<li>NA: stands for “Not Available” and is used when a value is missing</li>
-</ul></li>
-<li>NaN is also considered as NA (the reverse is NOT true)</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)
-a[<span class="dv">3</span>]</code></pre></div>
-<pre><code>## [1] NA</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">b &lt;-<span class="st"> </span><span class="dv">0</span><span class="op">/</span><span class="dv">0</span>
-b</code></pre></div>
-<pre><code>## [1] NaN</code></pre>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->
