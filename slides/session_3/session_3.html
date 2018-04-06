@@ -57,47 +57,48 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   </p>
   <p class="date">April 13, 2018</p>
 </div>
-<div id="agenda" class="slide section level2">
-<h2>Agenda</h2>
-</div>
 <div id="subsetting" class="slide section level2">
-<h2>Subsetting:</h2>
+<h2>Subsetting</h2>
 <ul>
 <li>Sometimes, we want to take a subset of a vector, matrix, list, or data frame</li>
-<li>Consider three main operators to take a subset of an object</li>
-<li>[ ] single brackets return an object of the same class of the original object (typically vectors, matrices)</li>
-<li>[[ ]] double brackets are used to subset lists and dataframes by an (numeric) index</li>
-<li>$ used to subset lists and dataframes by their <strong>name</strong> attributes</li>
-<li>[ ] allows us to select more than one element</li>
-<li>[[ ]] and $ allow us to select only one (though this <em>one</em> may be a structure with multiple elements)</li>
+<li>Three main operators to take a subset of an object:</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><code>[]</code> single brackets return an object of the same class of the original object (typically vectors, matrices)</li>
+<li><code>[[]]</code> double brackets are used to subset lists and dataframes by an (numeric) index</li>
+<li><code>$</code> used to subset lists and dataframes by their <strong>name</strong> attributes</li>
+</ol>
+<ul>
+<li><code>[]</code> allows us to select more than one element</li>
+<li><code>[[]]</code> and <code>$</code> allow us to select only one (though this <em>one</em> may be a structure with multiple elements)</li>
 </ul>
 </div>
 <div id="subsetting-examples" class="slide section level2">
-<h2>Subsetting Examples:</h2>
+<h2>Subsetting Examples</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myVec &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>
 myVec[<span class="dv">3</span>]</code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">obj1 =</span> <span class="st">&quot;a&quot;</span>, <span class="dt">obj2 =</span> <span class="dv">10</span>, <span class="dt">obj3 =</span> T, <span class="dt">obj4 =</span> <span class="dv">10</span><span class="op">-</span>5i)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">obj1 =</span> <span class="st">&quot;a&quot;</span>, <span class="dt">obj2 =</span> <span class="dv">10</span>, <span class="dt">obj3 =</span> T)
 myList[[<span class="dv">3</span>]]</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList<span class="op">$</span>obj4</code></pre></div>
-<pre><code>## [1] 10-5i</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList<span class="op">$</span>obj3</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
 </div>
 <div id="subsetting-with" class="slide section level2">
-<h2>Subsetting with [ ]:</h2>
-<ul>
-<li>By using single brackets, we can choose more than one element of an object</li>
-</ul>
+<h2>Subsetting with <code>[]</code></h2>
+<p>By using single brackets, we can choose more than one element of an object</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">0</span>, <span class="dt">to=</span><span class="dv">100</span>, <span class="dt">by=</span><span class="dv">10</span>) 
 x</code></pre></div>
 <pre><code>##  [1]   0  10  20  30  40  50  60  70  80  90 100</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]           <span class="co"># select the first, second, and third elements</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="dv">1</span>]  <span class="co"># select the first element</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="dv">10</span>]  <span class="co"># select the 10th element</span></code></pre></div>
+<pre><code>## [1] 90</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>]  <span class="co"># select the first, second, and third elements</span></code></pre></div>
 <pre><code>## [1]  0 10 20</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>)]      <span class="co"># select the second, fourth, and six elements</span></code></pre></div>
-<pre><code>## [1] 10 30 50</code></pre>
 </div>
-<div id="subsetting-with-index-vectors" class="slide section level2">
-<h2>Subsetting with [ ]: Index Vectors</h2>
+<div id="subsetting-with---index-vectors" class="slide section level2">
+<h2>Subsetting with <code>[]</code> - Index Vectors</h2>
 <ul>
 <li>Another way to select more than one element from an object is by using index vectors</li>
 <li>An index vector is a vector of indices that is used to select a subset of another vector (or matrix)</li>
@@ -105,15 +106,15 @@ x</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">0</span>, <span class="dt">to=</span><span class="dv">100</span>,<span class="dt">by=</span><span class="dv">10</span>) 
 x</code></pre></div>
 <pre><code>##  [1]   0  10  20  30  40  50  60  70  80  90 100</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x[<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>)]  <span class="co"># select the second, fourth, and six elements</span></code></pre></div>
+<pre><code>## [1] 10 30 50</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">IndVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)       <span class="co"># index vector to select the first 5 elements </span>
 x[IndVec]</code></pre></div>
 <pre><code>## [1]  0 10 20 30 40</code></pre>
 </div>
 <div id="index-vectors" class="slide section level2">
-<h2>Index Vectors:</h2>
-<ul>
-<li>There are four types of index vectors:</li>
-</ul>
+<h2>Index Vectors</h2>
+<p>There are four types of index vectors:</p>
 <ol style="list-style-type: decimal">
 <li>Logical index vector</li>
 <li>Vector of positive integers</li>
@@ -122,11 +123,11 @@ x[IndVec]</code></pre></div>
 </ol>
 </div>
 <div id="example" class="slide section level2">
-<h2>Example:</h2>
+<h2>Example</h2>
 <ul>
 <li>Suppose we have grades of ten students</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grades &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">10</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grades &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">10</span>)  <span class="co"># randomly choose 10 numbers between 0 and 100</span>
 <span class="kw">attributes</span>(grades)</code></pre></div>
 <pre><code>## NULL</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(grades) &lt;-<span class="st"> </span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]
@@ -135,7 +136,7 @@ x[IndVec]</code></pre></div>
 ##  [1] &quot;a&quot; &quot;b&quot; &quot;c&quot; &quot;d&quot; &quot;e&quot; &quot;f&quot; &quot;g&quot; &quot;h&quot; &quot;i&quot; &quot;j&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grades</code></pre></div>
 <pre><code>##  a  b  c  d  e  f  g  h  i  j 
-## 38 80 68 34 98 13 23 19 20 71</code></pre>
+##  4 18 91 53 34 12 41 48 37  8</code></pre>
 <ul>
 <li>We will explore the different ways to subset this vector using index vectors</li>
 </ul>
@@ -144,38 +145,34 @@ x[IndVec]</code></pre></div>
 <h2>1. Index Vector of Positive Integers</h2>
 <ul>
 <li>A vector of positive integers corresponding to the elements you want to subset</li>
-<li>All of the values in this type of index vector must lie in 1:(length(x)).</li>
+<li>All of the values in this type of index vector must lie in <code>1:(length(x))</code></li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">posIndVec &lt;-<span class="st"> </span><span class="dv">4</span><span class="op">:</span><span class="dv">7</span>
 posIndVec</code></pre></div>
 <pre><code>## [1] 4 5 6 7</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grades[posIndVec]</code></pre></div>
 <pre><code>##  d  e  f  g 
-## 34 98 13 23</code></pre>
+## 53 34 12 41</code></pre>
 </div>
 <div id="index-vector-of-negative-integers" class="slide section level2">
 <h2>2. Index Vector of Negative Integers</h2>
-<ul>
-<li>A vector of negative integers indicates the values to be <strong>excluded</strong> from the vector</li>
-</ul>
+<p>A vector of negative integers indicates the values to be <strong>excluded</strong> from the vector</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">negIndVec &lt;-<span class="st"> </span><span class="op">-</span><span class="dv">1</span><span class="op">:-</span><span class="dv">5</span>
 negIndVec</code></pre></div>
 <pre><code>## [1] -1 -2 -3 -4 -5</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grades[negIndVec]</code></pre></div>
 <pre><code>##  f  g  h  i  j 
-## 13 23 19 20 71</code></pre>
+## 12 41 48 37  8</code></pre>
 </div>
 <div id="vector-of-character-strings" class="slide section level2">
 <h2>3. Vector of Character Strings</h2>
-<ul>
-<li>If a vector has a name attribute, we can take a subset of the vector by calling the names of the elements</li>
-</ul>
+<p>If a vector has a name attribute, we can take a subset of the vector by calling the names of the elements</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">chIndVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;a&quot;</span>)
 chIndVec</code></pre></div>
 <pre><code>## [1] &quot;a&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grades[chIndVec]</code></pre></div>
-<pre><code>##  a 
-## 38</code></pre>
+<pre><code>## a 
+## 4</code></pre>
 </div>
 <div id="logical-index-vector" class="slide section level2">
 <h2>4. Logical Index Vector</h2>
@@ -188,27 +185,24 @@ logIndVec</code></pre></div>
 <pre><code>##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grades[logIndVec]</code></pre></div>
 <pre><code>##  a  b  c  d  e 
-## 38 80 68 34 98</code></pre>
+##  4 18 91 53 34</code></pre>
 </div>
 <div id="logical-index-vector-1" class="slide section level2">
 <h2>4. Logical Index Vector</h2>
-<ul>
-<li>Logical index vectors can also be generated by using conditional statements</li>
-<li>Using ==, !=, &lt;, &gt;, …</li>
-</ul>
+<p>Logical index vectors can also be generated by using conditional statements and operators including <code>==</code>, <code>!=</code>, <code>&lt;</code>, and <code>&gt;</code></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">logIndVec &lt;-<span class="st"> </span>grades <span class="op">&gt;</span><span class="st"> </span><span class="dv">60</span>
 logIndVec</code></pre></div>
 <pre><code>##     a     b     c     d     e     f     g     h     i     j 
-## FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE</code></pre>
+## FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grades[logIndVec]</code></pre></div>
-<pre><code>##  b  c  e  j 
-## 80 68 98 71</code></pre>
+<pre><code>##  c 
+## 91</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">grades[grades <span class="op">&lt;</span><span class="st"> </span><span class="dv">40</span>]</code></pre></div>
-<pre><code>##  a  d  f  g  h  i 
-## 38 34 13 23 19 20</code></pre>
+<pre><code>##  a  b  e  f  i  j 
+##  4 18 34 12 37  8</code></pre>
 </div>
 <div id="subsetting-matrices" class="slide section level2">
-<h2>Subsetting Matrices:</h2>
+<h2>Subsetting Matrices</h2>
 <ul>
 <li>We also use the single square brackets to subset matrices</li>
 <li>In the square brackets, the first position refers to the row(s) and the second position refers to the column(s)</li>
@@ -223,7 +217,7 @@ myMat</code></pre></div>
 </ul>
 </div>
 <div id="subsetting-matrices-1" class="slide section level2">
-<h2>Subsetting Matrices:</h2>
+<h2>Subsetting Matrices</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myMat[<span class="dv">1</span>,<span class="dv">1</span>]            <span class="co"># retrieve the element in the first row, first column</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myMat[<span class="dv">2</span>,]             <span class="co"># retrieve the second row</span></code></pre></div>
@@ -234,101 +228,116 @@ myMat</code></pre></div>
 ## [2,]    2    4    8</code></pre>
 </div>
 <div id="subsetting-matrices-2" class="slide section level2">
-<h2>Subsetting Matrices:</h2>
-<ul>
-<li>By default, when the retrieved elements of a matrix look like a vector, R drops their dimension attribute. We can turn this feature off by setting drop = FALSE</li>
-</ul>
+<h2>Subsetting Matrices</h2>
+<p>By default, when the retrieved elements of a matrix look like a vector, R drops their dimension attribute. We can turn this feature off by setting <code>drop = FALSE</code></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myMat[<span class="dv">1</span>,<span class="dv">1</span>]</code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myMat[<span class="dv">1</span>,<span class="dv">1</span>, drop =<span class="st"> </span><span class="ot">FALSE</span>]</code></pre></div>
 <pre><code>##      [,1]
 ## [1,]    1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myMat[<span class="dv">2</span>,]</code></pre></div>
+<pre><code>## [1] 2 4 6 8</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myMat[<span class="dv">2</span>,, drop =<span class="st"> </span><span class="ot">FALSE</span>]</code></pre></div>
 <pre><code>##      [,1] [,2] [,3] [,4]
 ## [1,]    2    4    6    8</code></pre>
 </div>
 <div id="subsetting-lists" class="slide section level2">
-<h2>Subsetting Lists:</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">ID =</span> <span class="kw">paste</span>(<span class="st">&quot;ID&quot;</span>, <span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">100</span><span class="op">:</span><span class="dv">199</span>), <span class="dv">3</span>), <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>), <span class="dt">Age =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">18</span><span class="op">:</span><span class="dv">99</span>), <span class="dv">3</span>), <span class="dt">Sex =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>), <span class="dv">3</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))
+<h2>Subsetting Lists</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">ID =</span> <span class="kw">paste</span>(<span class="st">&quot;ID&quot;</span>, <span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">100</span><span class="op">:</span><span class="dv">199</span>), <span class="dv">3</span>), <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>), 
+               <span class="dt">Age =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">18</span><span class="op">:</span><span class="dv">99</span>), <span class="dv">3</span>), 
+               <span class="dt">Sex =</span> <span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;M&quot;</span>, <span class="st">&quot;F&quot;</span>), <span class="dv">3</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>))
 myList</code></pre></div>
 <pre><code>## $ID
-## [1] &quot;ID170&quot; &quot;ID188&quot; &quot;ID195&quot;
+## [1] &quot;ID159&quot; &quot;ID125&quot; &quot;ID185&quot;
 ## 
 ## $Age
-## [1] 45 25 92
+## [1] 31 43 56
 ## 
 ## $Sex
-## [1] &quot;F&quot; &quot;M&quot; &quot;F&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList[<span class="dv">1</span>] <span class="co"># subset is still a list</span></code></pre></div>
+## [1] &quot;F&quot; &quot;F&quot; &quot;M&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList[<span class="dv">1</span>]  <span class="co"># subset is still a list</span></code></pre></div>
 <pre><code>## $ID
-## [1] &quot;ID170&quot; &quot;ID188&quot; &quot;ID195&quot;</code></pre>
+## [1] &quot;ID159&quot; &quot;ID125&quot; &quot;ID185&quot;</code></pre>
 </div>
 <div id="subsetting-lists-1" class="slide section level2">
-<h2>Subsetting Lists:</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>] <span class="co"># return the first two objects; subset is still a list</span></code></pre></div>
+<h2>Subsetting Lists</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>]  <span class="co"># return the first two objects; subset is still a list</span></code></pre></div>
 <pre><code>## $ID
-## [1] &quot;ID170&quot; &quot;ID188&quot; &quot;ID195&quot;
+## [1] &quot;ID159&quot; &quot;ID125&quot; &quot;ID185&quot;
 ## 
 ## $Age
-## [1] 45 25 92</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList[[<span class="dv">1</span>]] <span class="co"># return the 1st object; subset is a character vector</span></code></pre></div>
-<pre><code>## [1] &quot;ID170&quot; &quot;ID188&quot; &quot;ID195&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList<span class="op">$</span>ID <span class="co"># alternative to [[]]</span></code></pre></div>
-<pre><code>## [1] &quot;ID170&quot; &quot;ID188&quot; &quot;ID195&quot;</code></pre>
+## [1] 31 43 56</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList[[<span class="dv">1</span>]]  <span class="co"># return the 1st object; subset is a character vector</span></code></pre></div>
+<pre><code>## [1] &quot;ID159&quot; &quot;ID125&quot; &quot;ID185&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList<span class="op">$</span>ID  <span class="co"># alternative to [[]]</span></code></pre></div>
+<pre><code>## [1] &quot;ID159&quot; &quot;ID125&quot; &quot;ID185&quot;</code></pre>
 </div>
 <div id="subsetting-lists-2" class="slide section level2">
-<h2>Subsetting Lists:</h2>
+<h2>Subsetting Lists</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList[[<span class="dv">1</span>]][<span class="dv">2</span>] <span class="co"># return the 2nd element of the 1st object</span></code></pre></div>
-<pre><code>## [1] &quot;ID188&quot;</code></pre>
+<pre><code>## [1] &quot;ID125&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList<span class="op">$</span>ID[<span class="dv">2</span>]</code></pre></div>
-<pre><code>## [1] &quot;ID188&quot;</code></pre>
+<pre><code>## [1] &quot;ID125&quot;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myList[[<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]]</code></pre></div>
-<pre><code>## [1] &quot;ID188&quot;</code></pre>
+<pre><code>## [1] &quot;ID125&quot;</code></pre>
 </div>
 <div id="subsetting-data-frames" class="slide section level2">
-<h2>Subsetting Data Frames:</h2>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(data)</code></pre></div>
-<pre><code>## function (..., list = character(), package = NULL, lib.loc = NULL, 
-##     verbose = getOption(&quot;verbose&quot;), envir = .GlobalEnv)</code></pre>
-</div>
-<div id="subsetting-data-frames-1" class="slide section level2">
-<h2>Subsetting Data Frames:</h2>
+<h2>Subsetting Data Frames</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">studentID &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;S#&quot;</span>, <span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">6473</span><span class="op">:</span><span class="dv">7392</span>), <span class="dv">10</span>), <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)
 score &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">100</span>), <span class="dv">10</span>)
 sex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw">c</span>(<span class="st">&quot;female&quot;</span>, <span class="st">&quot;male&quot;</span>), <span class="dv">10</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
 data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">studentID =</span> studentID, <span class="dt">score =</span> score, <span class="dt">sex =</span> sex)
-<span class="kw">head</span>(data)</code></pre></div>
-<pre><code>##   studentID score    sex
-## 1    S#7241    81 female
-## 2    S#7266    91 female
-## 3    S#7114    24   male
-## 4    S#6860    79 female
-## 5    S#6621    98   male
-## 6    S#7338    33 female</code></pre>
+<span class="kw">str</span>(data)</code></pre></div>
+<pre><code>## 'data.frame':    10 obs. of  3 variables:
+##  $ studentID: Factor w/ 10 levels &quot;S#6482&quot;,&quot;S#6490&quot;,..: 3 4 10 2 1 9 5 7 8 6
+##  $ score    : int  2 96 61 22 23 76 7 94 5 90
+##  $ sex      : Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 2 2 1 2 2 1 2 2 1 1</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data</code></pre></div>
+<pre><code>##    studentID score    sex
+## 1     S#6623     2   male
+## 2     S#6625    96   male
+## 3     S#7340    61 female
+## 4     S#6490    22   male
+## 5     S#6482    23   male
+## 6     S#7263    76 female
+## 7     S#6897     7   male
+## 8     S#6924    94   male
+## 9     S#6987     5 female
+## 10    S#6912    90 female</code></pre>
+</div>
+<div id="subsetting-data-frames-1" class="slide section level2">
+<h2>Subsetting Data Frames</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data[<span class="dv">1</span><span class="op">:</span><span class="dv">8</span>,]</code></pre></div>
 <pre><code>##   studentID score    sex
-## 1    S#7241    81 female
-## 2    S#7266    91 female
-## 3    S#7114    24   male
-## 4    S#6860    79 female
-## 5    S#6621    98   male
-## 6    S#7338    33 female
-## 7    S#7105    44   male
-## 8    S#6686    96 female</code></pre>
+## 1    S#6623     2   male
+## 2    S#6625    96   male
+## 3    S#7340    61 female
+## 4    S#6490    22   male
+## 5    S#6482    23   male
+## 6    S#7263    76 female
+## 7    S#6897     7   male
+## 8    S#6924    94   male</code></pre>
 </div>
 <div id="subsetting-data-frames-2" class="slide section level2">
-<h2>Subsetting Data Frames:</h2>
+<h2>Subsetting Data Frames</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(data<span class="op">$</span>sex)</code></pre></div>
-<pre><code>## [1] female female male   female male   female
+<pre><code>## [1] male   male   female male   male   female
 ## Levels: female male</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(data[,<span class="kw">c</span>(<span class="st">&quot;studentID&quot;</span>, <span class="st">&quot;score&quot;</span>)])</code></pre></div>
 <pre><code>##   studentID score
-## 1    S#7241    81
-## 2    S#7266    91
-## 3    S#7114    24
-## 4    S#6860    79
-## 5    S#6621    98
-## 6    S#7338    33</code></pre>
+## 1    S#6623     2
+## 2    S#6625    96
+## 3    S#7340    61
+## 4    S#6490    22
+## 5    S#6482    23
+## 6    S#7263    76</code></pre>
+</div>
+<div id="up-next" class="slide section level2">
+<h2>Up Next</h2>
+<ul>
+<li>Exercise 3</li>
+<li>Break</li>
+</ul>
 </div>
 
   <!-- dynamically load mathjax for compatibility with self-contained -->
