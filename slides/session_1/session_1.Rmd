@@ -90,18 +90,10 @@ put 3 strips of cooked bacon on top of the lettuce
 put a second slice of bread on top of the bacon
 
 return a BLT sandwich
-
-
-## Making a BLT - Discussion
-+ We just wrote *pseudocode*, or an informal high-level description of a program or algorithm, for making a BLT!
-+ We must convert this pseudocode into code (e.g., language) that the computer can interpret.
-+ Many different ways to perform this translation
-    + Think of pseudocode as cave drawings and code as English, German, or Chinese
-    + Referred to as programming languages
     
     
 ## Active Learning
-+ How would you swap two variables?
++ How would you swap the contents of two variables?
 + Let's write an algorithm with instructions on how to do so
     + List the inputs
     + Describe how to swap their values step by step
@@ -117,6 +109,14 @@ Copy value of `var1` to `temp`
 Copy value of `var2` to `var1`
           
 Copy value of `temp` to `var2`
+
+
+## Active Learning - Discussion
++ We just wrote *pseudocode*, or an informal high-level description of a program or algorithm
++ We must convert this pseudocode into code (e.g., language) that the computer can interpret.
++ Many different ways to perform this translation
+    + Think of pseudocode as cave drawings and code as English, German, or Chinese
+    + Referred to as programming languages
 
 
 ## Programming Languages
@@ -166,6 +166,9 @@ Copy value of `temp` to `var2`
     + Variables, data, functions, etc.
 + **Variables** store data that can be referenced and manipulated 
     + Containers that hold information
++ **Functions** are code packaged together that performs a specific task
+    + Objects passed in to the function are called **arguments** (aka inputs)
+    + Usually return a value or object
 + Can perform actions on objects using **operators**
     + Assignment: `<-` and `=`
     + Arithmetic: addition `+`, subtraction `-`, multiplication `*`, division `/`, etc.
@@ -243,9 +246,3 @@ var2
 ## Up Next
 + [Exercise 1](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_1/ex_1.html)
 + Lunch
-+ Return at XXXX to discuss the exercise
-
-
-
-
-
