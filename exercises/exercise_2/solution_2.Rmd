@@ -1,0 +1,38 @@
+---
+title: "Exercise 2: Data Structures"
+subtitle: CSULB Intro to R
+# author: Chris Galbraith, Micah Jackson
+date: April 13, 2018
+output: html_document
+---
+
+## Introduction
+In this exercise, you will work on implementing various data structures in R.
+
+
+## Part A
+Open a new R script to write and save your code. You will need to re-use these results for Exercise 3!
+
+
+## Part B
+
+```{r}
+name <- c("Sally", "Michelle", "Lupe", "Wendy", "Maritza",
+          "Jorge", "Sam", "Joe", "Glenn", "Buck")
+female <- c(1, 1, 1, 1, 1, 
+            0, 0, 0, 0, 0)
+edu <- c("HS", "BS", "BS", "MS", "PhD", 
+         "HS", "HS", "BS", "MS", "PhD")
+salary <- c(30, 38, 53, 65, 89, 29, 33, 42, 107, 246)
+
+data <- data.frame(name = name,
+                   female = female,
+                   edu = edu,
+                   salary = salary)
+data
+str(data)
+data$name <- as.character(data$name)
+data$female <- factor(data$female)
+data$edu <- factor(data$edu)
+str(data)
+```
