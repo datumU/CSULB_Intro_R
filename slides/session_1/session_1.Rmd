@@ -67,6 +67,13 @@ smaller: yes
 + Biological sciences: algorithms to design molecular structure of drugs
 
 
+## Active Learning
++ How would you tell someone how to make a BLT sandwich who has never had a sandwich before?
++ Let's write an algorithm with instructions on how to do so
+    + List the ingredients
+    + Describe how to assemble them into a BLT
+
+
 ## Algorithm for making a BLT
 **Input:** Slices of bread, slices of tomato, pieces of lettuce, strips of cooked bacon
 
@@ -92,6 +99,13 @@ return a BLT sandwich
     + Think of pseudocode as cave drawings and code as English, German, or Chinese
     + Referred to as programming languages
     
+    
+## Active Learning
++ How would you swap two variables?
++ Let's write an algorithm with instructions on how to do so
+    + List the inputs
+    + Describe how to swap their values step by step
+
 
 ## Algorithm for swapping two variables
 **Input:** Two variables: `var1` and `var2`
@@ -227,18 +241,17 @@ var2
 
 
 ## Up Next
-+ Active Learning Exercise
-+ Break/Lunch?
++ Exercise 1
++ Lunch
 + Return at XXXX to discuss the exercise
 
 
-## Active Learning
-+ How would you tell someone how to make a BLT sandwich who has never had a sandwich before?
+## Exercise
++ How would you find the height of the tallest person in the room?
 + Let's write an algorithm with instructions on how to do so.
-    + List the ingredients
-    + Describe how to assemble them into a BLT
-    + Follow the template on the previous slide
-    
+    + List the necessary inputs
+    + Describe how to take those inputs and return the height of the tallest person
+
     
 ## Algorithm: Find the Height of the Tallest Person in the Room
 **Input:** List of heights of people in the room, $H = [height_1, height_2, \ldots]$
