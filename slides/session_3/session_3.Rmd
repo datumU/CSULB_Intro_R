@@ -233,5 +233,5 @@ head(data[,c("studentID", "score")])
 
 ## Up Next
 
-+ Exercise 3
++ [Exercise 3](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_3/ex_3.html)
 + Break
