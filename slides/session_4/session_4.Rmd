@@ -259,6 +259,8 @@ Play around with BRRR!
 + stackoverflow
 
 
-
+## Up Next
++ [Exercise 4](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_4/ex_4.html)
++ Closing Remarks
 
 
