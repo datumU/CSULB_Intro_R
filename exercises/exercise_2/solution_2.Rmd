@@ -15,12 +15,24 @@ Open a new R script to write and save your code. You will need to re-use these r
 
 
 ## Part B
+1. Create vectors using ```c()``` with the following attributes.
+    a. A vector, ```name```, with 10 names of your choosing. What type of vector is this?
+        + Character
+        
+    b. A vector, ```female```, with ```TRUE```s and ```FALSE```s indicating the sex of the people in your ```name``` vector. What type of vector is this? What is another way we could represent this information?
+        + Logical. We could use 1's and 0's to indicate ```TRUE``` or ```FALSE```. 
+        
+    c. A vector, ```edu```, indicating the highest degree of education completed for the people in your ```name``` vector. Use ```"HS"``` for high school, ```"BS"``` for a bachelor's degree, ```"MS"``` for master's, and ```"PhD"``` for doctorate. 
+    
+    d. A vector, ```salary```, indicating the salary in 1,000s of dollars for the people in your ```name``` vector. 
+
+2. Wrap this into a data.frame, ```data```.
 
 ```{r}
 name <- c("Sally", "Michelle", "Lupe", "Wendy", "Maritza",
           "Jorge", "Sam", "Joe", "Glenn", "Buck")
-female <- c(1, 1, 1, 1, 1, 
-            0, 0, 0, 0, 0)
+female <- c(TRUE, TRUE, TRUE, TRUE, TRUE, 
+            FALSE, FALSE, FALSE, FALSE, FALSE)
 edu <- c("HS", "BS", "BS", "MS", "PhD", 
          "HS", "HS", "BS", "MS", "PhD")
 salary <- c(30, 38, 53, 65, 89, 29, 33, 42, 107, 246)
@@ -29,10 +41,13 @@ data <- data.frame(name = name,
                    female = female,
                    edu = edu,
                    salary = salary)
+
 data
 str(data)
 data$name <- as.character(data$name)
-data$female <- factor(data$female)
-data$edu <- factor(data$edu)
+data$female <- as.numeric(data$female)
+data$edu <- factor(data$edu, levels=c("HS", "BS", "MS", "PhD"), ordered=TRUE)
+
+data
 str(data)
 ```

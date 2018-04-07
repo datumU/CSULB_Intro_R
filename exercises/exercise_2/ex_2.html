@@ -135,45 +135,20 @@ $(document).ready(function () {
 </div>
 <div id="part-b" class="section level2">
 <h2>Part B</h2>
-<pre class="r"><code>name &lt;- c(&quot;Sally&quot;, &quot;Michelle&quot;, &quot;Lupe&quot;, &quot;Wendy&quot;, &quot;Maritza&quot;,
-          &quot;Jorge&quot;, &quot;Sam&quot;, &quot;Joe&quot;, &quot;Glenn&quot;, &quot;Buck&quot;)
-female &lt;- c(1, 1, 1, 1, 1, 
-            0, 0, 0, 0, 0)
-edu &lt;- c(&quot;HS&quot;, &quot;BS&quot;, &quot;BS&quot;, &quot;MS&quot;, &quot;PhD&quot;, 
-         &quot;HS&quot;, &quot;HS&quot;, &quot;BS&quot;, &quot;MS&quot;, &quot;PhD&quot;)
-salary &lt;- c(30, 38, 53, 65, 89, 29, 33, 42, 107, 246)
-
-data &lt;- data.frame(name = name,
+<ol style="list-style-type: decimal">
+<li>Create vectors using <code>c()</code> with the following attributes.
+<ol style="list-style-type: lower-alpha">
+<li><p>A vector, <code>name</code>, with 10 names of your choosing. What type of vector is this?</p></li>
+<li><p>A vector, <code>female</code>, with <code>TRUE</code>s and <code>FALSE</code>s indicating the sex of the people in your <code>name</code> vector. What type of vector is this? What is another way we could represent this information?</p></li>
+<li><p>A vector, <code>edu</code>, indicating the highest degree of education completed for the people in your <code>name</code> vector. Use <code>&quot;HS&quot;</code> for high school, <code>&quot;BS&quot;</code> for a bachelor’s degree, <code>&quot;MS&quot;</code> for master’s, and <code>&quot;PhD&quot;</code> for doctorate.</p></li>
+<li><p>A vector, <code>salary</code>, indicating the salary in 1,000s of dollars for the people in your <code>name</code> vector.</p></li>
+</ol></li>
+<li>Run the following code to create a data.frame, <code>data</code>.</li>
+</ol>
+<pre class="r"><code>data &lt;- data.frame(name = name,
                    female = female,
                    edu = edu,
-                   salary = salary)
-data</code></pre>
-<pre><code>##        name female edu salary
-## 1     Sally      1  HS     30
-## 2  Michelle      1  BS     38
-## 3      Lupe      1  BS     53
-## 4     Wendy      1  MS     65
-## 5   Maritza      1 PhD     89
-## 6     Jorge      0  HS     29
-## 7       Sam      0  HS     33
-## 8       Joe      0  BS     42
-## 9     Glenn      0  MS    107
-## 10     Buck      0 PhD    246</code></pre>
-<pre class="r"><code>str(data)</code></pre>
-<pre><code>## 'data.frame':    10 obs. of  4 variables:
-##  $ name  : Factor w/ 10 levels &quot;Buck&quot;,&quot;Glenn&quot;,..: 8 7 5 10 6 4 9 3 2 1
-##  $ female: num  1 1 1 1 1 0 0 0 0 0
-##  $ edu   : Factor w/ 4 levels &quot;BS&quot;,&quot;HS&quot;,&quot;MS&quot;,..: 2 1 1 3 4 2 2 1 3 4
-##  $ salary: num  30 38 53 65 89 29 33 42 107 246</code></pre>
-<pre class="r"><code>data$name &lt;- as.character(data$name)
-data$female &lt;- factor(data$female)
-data$edu &lt;- factor(data$edu)
-str(data)</code></pre>
-<pre><code>## 'data.frame':    10 obs. of  4 variables:
-##  $ name  : chr  &quot;Sally&quot; &quot;Michelle&quot; &quot;Lupe&quot; &quot;Wendy&quot; ...
-##  $ female: Factor w/ 2 levels &quot;0&quot;,&quot;1&quot;: 2 2 2 2 2 1 1 1 1 1
-##  $ edu   : Factor w/ 4 levels &quot;BS&quot;,&quot;HS&quot;,&quot;MS&quot;,..: 2 1 1 3 4 2 2 1 3 4
-##  $ salary: num  30 38 53 65 89 29 33 42 107 246</code></pre>
+                   salary = salary)</code></pre>
 </div>
 
 
