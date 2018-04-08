@@ -58,9 +58,6 @@ First, visit [The R Project for Statistical Computing](https://www.r-project.org
 ### Step 2: Download and install RStudio
 RStudio is a set of integrated tools designed to help you be more productive with R. Also, it is far more user-friendly than base R. You will be doing essentially all of your programming in RStudio. To download RStudio, visit the [download page](https://www.rstudio.com/products/rstudio/download/), scroll down to "Installers for Supported Platforms," and click on the appropriate installer for your platform. Finally, open the downloaded file and follow the instructions.
 
-### Step 3: Join the Slack chatroom
-We have a chatroom set up at [CSULB-intro-R.slack.com](ADD LINK) for you to have discussions and ask/answer questions that may arise throughout the day.
-
 
 # Authors
 Chris Galbraith (<galbraic@uci.edu>)
