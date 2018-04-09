@@ -1,5 +1,5 @@
 ---
-title: "Exercise 2: Data Structures"
+title: "Exercise 2 Solutions"
 subtitle: CSULB Intro to R
 # author: Chris Galbraith, Micah Jackson
 date: April 13, 2018
