@@ -131,10 +131,75 @@ $(document).ready(function () {
 </div>
 <div id="part-a" class="section level2">
 <h2>Part A</h2>
-<p>Open the R script that you used for Exercise 1, and re-run the code there to ensure that <code>data</code> is loaded into your current environment. Check that this worked properly by typing <code>data</code> and <code>str(data)</code> at the prompt and inspecting the output.</p>
+<p>Open the R script that you used for Exercise 2, and re-run the code there to ensure that <code>data</code> is loaded into your current environment. Check that this worked properly by typing <code>data</code> and <code>str(data)</code> at the prompt and inspecting the output.</p>
 </div>
 <div id="part-b" class="section level2">
 <h2>Part B</h2>
+<p><strong>B.1</strong> Use a logical index vector to locate the rows with females. Name this vector <code>femaleIndex</code> and use it to look at the entries of <code>data</code> with females. Also, use this vector and a logical operator to look at the rows of data with men. HINT: you may find the exclamation point <code>!</code> useful.</p>
+<pre class="r"><code>femaleIndex &lt;- data$female == TRUE  # logical index vector selecting rows with females
+data[femaleIndex, ]  # women</code></pre>
+<pre><code>##       name female edu salary
+## 1    Sally      1  HS     30
+## 2 Michelle      1  BS     38
+## 3     Lupe      1  BS     53
+## 4    Wendy      1  MS     65
+## 5  Maritza      1 PhD     89</code></pre>
+<pre class="r"><code>data[!femaleIndex, ]  # men</code></pre>
+<pre><code>##     name female edu salary
+## 6  Jorge      0  HS     29
+## 7    Sam      0  HS     33
+## 8    Joe      0  BS     42
+## 9  Glenn      0  MS    107
+## 10  Buck      0 PhD    246</code></pre>
+<p><strong>B.2</strong> What is the mean salary for females? Is it more or less than that of males? HINT: you may want to repeat step 1 for males, subset the column <code>salary</code>, and use the <code>mean()</code> function.</p>
+<pre class="r"><code>mean(data$salary[femaleIndex])  # mean salary for women</code></pre>
+<pre><code>## [1] 55</code></pre>
+<pre class="r"><code>mean(data$salary[data$female == FALSE])  # mean salary for men</code></pre>
+<pre><code>## [1] 91.4</code></pre>
+<p>In this example, men have a higher mean salary than women.</p>
+<p><strong>B.3</strong> Is the mean salary an appropriate measure of the difference between the two groups? Compare their median salaries and comment. HINT: use the function <code>median()</code>.</p>
+<pre class="r"><code>median(data$salary[femaleIndex])  # median salary for women</code></pre>
+<pre><code>## [1] 53</code></pre>
+<pre class="r"><code>median(data$salary[!femaleIndex])  # median salary for men</code></pre>
+<pre><code>## [1] 42</code></pre>
+<p>In this example, women have a higher median salary than men. The mean salary for men is skewed by Glenn and Buck’s large salaries.</p>
+</div>
+<div id="part-c" class="section level2">
+<h2>Part C</h2>
+<p><strong>C.1</strong> Look at the rows of <code>data</code> whose salaries are less than the mean salary.</p>
+<pre class="r"><code>data[data$salary &lt; mean(data$salary), ]  # entries with lower than mean salary</code></pre>
+<pre><code>##       name female edu salary
+## 1    Sally      1  HS     30
+## 2 Michelle      1  BS     38
+## 3     Lupe      1  BS     53
+## 4    Wendy      1  MS     65
+## 6    Jorge      0  HS     29
+## 7      Sam      0  HS     33
+## 8      Joe      0  BS     42</code></pre>
+<p><strong>C.2</strong> Repeat step 1 using the median salary. Are there more or less people with salaries lower than the median versus salaries lower than the mean? Why do you think this is?</p>
+<pre class="r"><code>data[data$salary &lt; median(data$salary), ]  # entries with lower than median salary</code></pre>
+<pre><code>##       name female edu salary
+## 1    Sally      1  HS     30
+## 2 Michelle      1  BS     38
+## 6    Jorge      0  HS     29
+## 7      Sam      0  HS     33
+## 8      Joe      0  BS     42</code></pre>
+<p>In this example, there are 8 people with salaries less than the mean salary of $73,200 and 5 people with salaries less than the median of $47,500. This is due to the skew in the data (the two abnoramlly large salaries).</p>
+</div>
+<div id="part-d" class="section level2">
+<h2>Part D</h2>
+<p><strong>D.1</strong> On average, do people with a high school education make less anually than people with bachelor’s degrees? Use the data to answer this question.</p>
+<pre class="r"><code>mean(data$salary[data$edu == &quot;HS&quot;])  &lt;  mean(data$salary[data$edu == &quot;BS&quot;])  # mean salary BS edu</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>Yes, in this data set people with a high school education make less than those with a bachelor’s degree on average.</p>
+<p><strong>D.2</strong> Does the proportion of women differ among people with a high school education and people with at least a bachelor’s degree? HINT: make a logical index vector to select people with a HS education (name it <code>hs_index</code>) and use the <code>!</code> operator to select people with at least a BS. You can use the <code>sum()</code> function to get the total number of <code>TRUE</code>s from a logical index vector (e.g., the total number of poeple in the data frame with a high school education is <code>sum(hs_index)</code>).</p>
+<pre class="r"><code>hs_index &lt;- data$edu == &quot;HS&quot;  # logical index vector of HS education or not
+n_hs &lt;- sum(hs_index)  # number of people in data wiht HS education
+sum(data$female[hs_index]) / n_hs  # proportion of females among HS grads</code></pre>
+<pre><code>## [1] 0.3333333</code></pre>
+<pre class="r"><code>sum(data$female[!hs_index]) / (nrow(data) - n_hs)  # proportion of females among college grads</code></pre>
+<pre><code>## [1] 0.5714286</code></pre>
+<p>In this example, there is a higher percentage of female college graduates than there is of highschool graduates.</p>
 </div>
 
 

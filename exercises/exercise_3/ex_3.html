@@ -131,6 +131,23 @@ $(document).ready(function () {
 </div>
 <div id="part-a" class="section level2">
 <h2>Part A</h2>
+<p>Open the R script that you used for Exercise 2, and re-run the code there to ensure that <code>data</code> is loaded into your current environment. Check that this worked properly by typing <code>data</code> and <code>str(data)</code> at the prompt and inspecting the output.</p>
+</div>
+<div id="part-b" class="section level2">
+<h2>Part B</h2>
+<p><strong>B.1</strong> Use a logical index vector to locate the rows with females. Name this vector <code>femaleIndex</code> and use it to look at the entries of <code>data</code> with females. Also, use this vector and a logical operator to look at the rows of data with men. HINT: you may find the exclamation point <code>!</code> useful.</p>
+<p><strong>B.2</strong> What is the mean salary for females? Is it more or less than that of males? HINT: you may want to repeat step 1 for males, subset the column <code>salary</code>, and use the <code>mean()</code> function.</p>
+<p><strong>B.3</strong> Is the mean salary an appropriate measure of the difference between the two groups? Compare their median salaries and comment. HINT: use the function <code>median()</code>.</p>
+</div>
+<div id="part-c" class="section level2">
+<h2>Part C</h2>
+<p><strong>C.1</strong> Look at the rows of <code>data</code> whose salaries are less than the mean salary.</p>
+<p><strong>C.2</strong> Repeat step 1 using the median salary. Are there more or less people with salaries lower than the median versus salaries lower than the mean? Why do you think this is?</p>
+</div>
+<div id="part-d" class="section level2">
+<h2>Part D</h2>
+<p><strong>D.1</strong> On average, do people with a high school education make less anually than people with bachelor’s degrees? Use the data to answer this question.</p>
+<p><strong>D.2</strong> Does the proportion of women differ among people with a high school education and people with at least a bachelor’s degree? HINT: make a logical index vector to select people with a HS education (name it <code>hs_index</code>) and use the <code>!</code> operator to select people with at least a BS. You can use the <code>sum()</code> function to get the total number of <code>TRUE</code>s from a logical index vector (e.g., the total number of poeple in the data frame with a high school education is <code>sum(hs_index)</code>).</p>
 </div>
 
 

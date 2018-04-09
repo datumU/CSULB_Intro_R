@@ -10,24 +10,30 @@ output: html_document
 ## Introduction
 Practice subsetting the data frame you created in Exercise 2!
 
-```{r, echo=FALSE}
-name <- c("Sally", "Michelle", "Lupe", "Wendy", "Maritza",
-          "Jorge", "Sam", "Joe", "Glenn", "Buck")
-female <- c(1, 1, 1, 1, 1, 
-            0, 0, 0, 0, 0)
-edu <- c("HS", "BS", "BS", "MS", "PhD", 
-         "HS", "HS", "BS", "MS", "PhD")
-salary <- c(30, 38, 53, 65, 89, 29, 33, 42, 107, 246)
-
-data <- data.frame(name = name,
-                   female = female,
-                   edu = edu,
-                   salary = salary)
-data$name <- as.character(data$name)
-data$female <- factor(data$female)
-data$edu <- factor(data$edu)
-```
-
 
 ## Part A
 
+Open the R script that you used for Exercise 2, and re-run the code there to ensure that ```data``` is loaded into your current environment. Check that this worked properly by typing ```data``` and ```str(data)``` at the prompt and inspecting the output.
+
+
+## Part B
+
+**B.1** Use a logical index vector to locate the rows with females. Name this vector ```femaleIndex``` and use it to look at the entries of ```data``` with females. Also, use this vector and a logical operator to look at the rows of data with men. HINT: you may find the exclamation point ```!``` useful.
+
+**B.2** What is the mean salary for females? Is it more or less than that of males? HINT: you may want to repeat step 1 for males, subset the column ```salary```, and use the ```mean()``` function.
+
+**B.3** Is the mean salary an appropriate measure of the difference between the two groups? Compare their median salaries and comment. HINT: use the function ```median()```.
+
+
+## Part C
+
+**C.1** Look at the rows of ```data``` whose salaries are less than the mean salary.
+
+**C.2** Repeat step 1 using the median salary. Are there more or less people with salaries lower than the median versus salaries lower than the mean? Why do you think this is?
+
+
+## Part D
+
+**D.1** On average, do people with a high school education make less anually than people with bachelor's degrees? Use the data to answer this question.
+
+**D.2** Does the proportion of women differ among people with a high school education and people with at least a bachelor's degree? HINT: make a logical index vector to select people with a HS education (name it ```hs_index```) and use  the ```!``` operator to select people with at least a BS. You can use the ```sum()``` function to get the total number of ```TRUE```s from a logical index vector (e.g., the total number of poeple in the data frame with a high school education is ```sum(hs_index)```).
