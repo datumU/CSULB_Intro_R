@@ -1,5 +1,5 @@
 ---
-title: "Exercise 3: Subsetting"
+title: "Exercise 3 Solution"
 subtitle: CSULB Intro to R
 # author: Chris Galbraith, Micah Jackson
 date: April 13, 2018
@@ -13,8 +13,8 @@ Practice subsetting the data frame you created in Exercise 2!
 ```{r, echo=FALSE}
 name <- c("Sally", "Michelle", "Lupe", "Wendy", "Maritza",
           "Jorge", "Sam", "Joe", "Glenn", "Buck")
-female <- c(1, 1, 1, 1, 1, 
-            0, 0, 0, 0, 0)
+female <- c(TRUE, TRUE, TRUE, TRUE, TRUE, 
+            FALSE, FALSE, FALSE, FALSE, FALSE)
 edu <- c("HS", "BS", "BS", "MS", "PhD", 
          "HS", "HS", "BS", "MS", "PhD")
 salary <- c(30, 38, 53, 65, 89, 29, 33, 42, 107, 246)
@@ -23,11 +23,17 @@ data <- data.frame(name = name,
                    female = female,
                    edu = edu,
                    salary = salary)
+
 data$name <- as.character(data$name)
-data$female <- factor(data$female)
-data$edu <- factor(data$edu)
+data$female <- as.numeric(data$female)
+data$edu <- factor(data$edu, levels=c("HS", "BS", "MS", "PhD"), ordered=TRUE)
 ```
 
 
 ## Part A
+
+Open the R script that you used for Exercise 1, and re-run the code there to ensure that ```data``` is loaded into your current environment. Check that this worked properly by typing ```data``` and ```str(data)``` at the prompt and inspecting the output.
+
+
+## Part B
 
