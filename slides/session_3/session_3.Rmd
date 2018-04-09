@@ -60,10 +60,10 @@ x[IndVec]
 
 There are four types of index vectors:
 
-1. Logical index vector
-2. Vector of positive integers
-3. Vector of negative integers
-4. Vector of character strings
+1. Vector of positive integers
+2. Vector of negative integers
+3. Vector of character strings
+4. Logical index vector
 
 
 ## Example
