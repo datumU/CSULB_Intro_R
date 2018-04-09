@@ -250,17 +250,14 @@ Play around with BRRR!
 
 
 ## Helpful Resources
-+ General programming (Khan academy, etc)
-+ R (CRAN, Rbloggers, RStudio cheat sheets, Stackoverflow, Books - Data Science with R, etc)
-
-
-## How to Troubleshoot/De-bug
-+ built in Help in R
-+ stackoverflow
++ [Khan Academy](https://www.khanacademy.org/): free courses on programming, math, etc.
++ [CRAN](https://cran.r-project.org/): R manuals, FAQs, the R Journal
++ [Rbloggers](https://www.r-bloggers.com/): blog posts written by other R users
++ [RStudio cheat sheets](https://www.rstudio.com/resources/cheatsheets/)
++ [Stackoverflow](https://stackoverflow.com/): online community for asking and answering questions on a variety of topics (useful for searching error messages or for help with problem strategies)
++ [R for Data Science](http://r4ds.had.co.nz/): free online book by creators of RStudio
 
 
 ## Up Next
 + [Exercise 4](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_4/ex_4.html)
 + Closing Remarks
-
-
