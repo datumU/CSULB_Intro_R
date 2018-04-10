@@ -11,10 +11,25 @@ In this exercise, you will work on implementing various data structures in R.
 
 
 ## Part A
-Open a new R script to write and save your code. You will need to re-use these results for Exercise 3!
+1. Create a vector using ```vec1 <- c(1L, 2L, 3L)```. What type of vector is this? Verify your answer using ```typeof(vec1)```.
+    + This is an ```integer``` vector.
+
+2. Run the following code: ```vec2 <- as.numeric(vec1)```. Compare ```vec1``` and ```vec2``` using ```typeof()``` and ```object.size()```. What are the differences?
+    + vec2 is a ```numeric``` vector, specifically ```double```. This refers to the **precision** of the object that the computer stores, i.e. it can hold more decimal places. Thus, the more precise, the more memory that object takes up in your memory.  
+
+3. Run the code: ```vec2 <- vec2 + c(1, 1.5, 1.99)```. Before checking the output, what is the result of this line of code? 
+    + You should have ```2 3.5 4.99```
+
+4. Coerce ```vec2``` to ```integer```-type. What happens to non-integers?
+    + ```2 3 4``` All non-integers are rounded down to the nearest whole number (integer). 
+
+5. Create another vector ```vec3``` and assign the values ```"1L", "2L", "3L"```. What type of vector is this? Verify using ```typeof()```. Coerce this to a numeric vector. 
+    + This is a character vector. When trying to coerce this to numeric or integer, R doesn't know how to handle the ```"L"```s, so it returns a vector of NAs. Additionally, you should recieve ```Warning message: NAs introduced by coercion```.
 
 
 ## Part B
+Open a new R script to write and save your code. You will need to re-use these results for Exercise 3!
+
 1. Create vectors using ```c()``` with the following attributes.
     a. A vector, ```name```, with 10 names of your choosing. What type of vector is this?
         + Character

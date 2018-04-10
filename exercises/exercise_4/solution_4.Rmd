@@ -1,0 +1,149 @@
+---
+title: "Exercise 4 Solutions"
+subtitle: CSULB Intro to R
+# author: Chris Galbraith, Micah Jackson
+date: April 13, 2018
+output: html_document
+---
+
+
+## Introduction
+In this exercise, we will practice modifying and writing functions.
+
+
+## Part A
+1. Look again at your ```findTallest()``` function. How would we use this to find the age of the oldest person in the room? Write a function ```findOldest()``` that does performs this task.
+
+You can actually use the ```findTallest()``` function without modification. Just enter in a vector of ages instead of heights. However, one way of rewriting your function may look like
+```{r, evaluate=FALSE }
+findOldest <- function(A){
+  # initialize oldest
+  oldest <- A[1]
+  
+  # search through all ages in A
+  for(age in A){
+    if(age > oldest){oldest <- age}
+  }
+  
+  # spit out the oldest age after for-loop has run
+  return(oldest)
+}
+```
+
+2. Modify your ```findTallest()``` function to find the shortest person in the room. Name this new function ```findShortest()```.
+
+Here, we just need to flip the ```>``` to ```<```.
+```{r, evaluate=FALSE }
+findShortest <- function(H){
+  # initialize shortest
+  shortest <- H[1]
+  
+  # search through all heights in H
+  for(height in H){
+    if(height < shortest){shortest <- height}
+  }
+  
+  # spit out the shortest height after for-loop has run
+  return(shortest)
+}
+```
+
+3. Use one of your functions to find the tallest or shortest height from the vector ```theirHeights <- c(63, 58, NA, 72, 65)```. What happens? Modify your function to handle this missing data. HINT: There are several methods for this. If you wish to use an if/else statement, consider the function ```is.na()``` (```?is.na```). Alternatively, google "handling missing values R" and see what solutions you can find.
+
+Solution 1: for-loop NAs to 0
+```{r, evaluate=FALSE }
+theirHeights <- c(63, 58, NA, 72, 65)
+
+findTallest <- function(H){
+    
+    # for-loop to turn NAs to 0s
+    for(i in 1:length(H)){
+        if(is.na(H[i])){
+            H[i] <- 0
+        }
+    }
+    
+   # initialize tallest
+   tallest <- H[1]
+  
+   # search through all heights in H
+   for(height in H){
+     if(height > tallest){tallest <- height}
+   }
+  
+   # spit out the tallest height after for-loop has run
+   return(tallest)
+}
+```
+
+
+Solution 2: Logical indexing NAs to 0
+```{r, evaluate=FALSE }
+findTallest <- function(H){
+
+   # vectorized version of turning NAs to 0s
+   H[is.na(H)] <- 0
+    
+   # initialize tallest
+   tallest <- H[1]
+  
+   # search through all heights in H
+   for(height in H){
+     if(height > tallest){tallest <- height}
+   }
+  
+   # spit out the tallest height after for-loop has run
+   return(tallest)
+}
+```
+
+
+Solution 3: Omit NAs
+```{r, evaluate=FALSE }
+findTallest <- function(H){
+   
+   # remove the NAs from H
+   H <- na.omit(H)
+       
+   # initialize tallest
+   tallest <- H[1]
+  
+   # search through all heights in H
+   for(height in H){
+     if(height > tallest){tallest <- height}
+   }
+  
+   # spit out the tallest height after for-loop has run
+   return(tallest)
+}
+```
+
+
+## Part B
+Write a function that will take in 4 numbers and return them in order from least to greatest. 
+HINT:
+```{r eval=FALSE}
+myNums <- c(9,3,27,6)
+
+mySort <- function(numbers){
+
+    # need to repeat at most the number of items you're sorting
+    for(i in 1:length(numbers)){
+        # compare all of your numbers. don't need to go to length(numbers)
+        # because it has already been compared in the previous iteration.
+        for(j in 1:(length(numbers)-1)){
+            if(numbers[j] > numbers[j+1]){
+                # reassign the numbers in correct order
+                numbers[c(j,j+1)] <- swap(numbers[j], numbers[j+1])
+            }
+        }
+    }
+    # return your sorted numbers
+    return(numbers)
+}
+
+
+mySort(c(9,3,27,6))
+```
+
+

@@ -85,7 +85,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="for-loops" class="slide section level2">
 <h2>for loops:</h2>
 <ul>
-<li>Suppose we want to write “The year is [year]” where year is equal to 2014, 2015, and 2016.</li>
+<li>Suppose we want to write “The year is [year]” where year is equal to 2016, 2017, and 2018.</li>
 <li>One way to do so is like this:</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">paste</span>(<span class="st">&quot;The year is&quot;</span>, <span class="dv">2016</span>))</code></pre></div>
@@ -163,9 +163,9 @@ ageCat &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot
 age.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> age, <span class="dt">ageCat =</span> ageCat)
 age.df[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,]</code></pre></div>
 <pre><code>##   age ageCat
-## 1  93    Old
-## 2  28  Young
-## 3  82    Old</code></pre>
+## 1  66    Old
+## 2   6  Young
+## 3  31  Young</code></pre>
 <!-- need to put transition slide or something -->
 </div>
 <div id="functions" class="slide section level2">
@@ -212,16 +212,14 @@ age.df[<span class="dv">1</span><span class="op">:</span><span class="dv">3</spa
 <li>in feet? cm? inches? miles?</li>
 <li>I’m 0.00111 miles tall.</li>
 </ul></li>
-</ul>
-</div>
-<div id="exercise-contd" class="slide section level2">
-<h2>Exercise Cont’d</h2>
-<ul>
 <li>Determine algorithm and output.
 <ul>
 <li>output is height of tallest person (i.e. the maximum value)</li>
 </ul></li>
 </ul>
+</div>
+<div id="exercise-contd" class="slide section level2">
+<h2>Exercise Cont’d</h2>
 <p><strong>Initialize</strong> <span class="math inline">\(tallest\)</span> = <span class="math inline">\(height_1\)</span><br />
 <strong>For</strong> each <span class="math inline">\(element\)</span> in <span class="math inline">\(H\)</span>, <strong>do</strong><br />
     <strong>If</strong> <span class="math inline">\(element &gt; tallest\)</span>, <strong>then</strong><br />
@@ -231,10 +229,15 @@ end <strong>for</strong><br />
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">myHeights &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">63</span>, <span class="dv">58</span>, <span class="dv">72</span>, <span class="dv">65</span>)
 
 findTallest &lt;-<span class="st"> </span><span class="cf">function</span>(H){
+  <span class="co"># initialize tallest</span>
   tallest &lt;-<span class="st"> </span>H[<span class="dv">1</span>]
+  
+  <span class="co"># search through all heights in H</span>
   <span class="cf">for</span>(height <span class="cf">in</span> H){
     <span class="cf">if</span>(height <span class="op">&gt;</span><span class="st"> </span>tallest){tallest &lt;-<span class="st"> </span>i}
   }
+  
+  <span class="co"># spit out the tallest height after for-loop has run</span>
   <span class="kw">return</span>(tallest)
 }</code></pre></div>
 <!-- prompt them to modify the code to find the oldest person, shortest person, handle NA values -->
