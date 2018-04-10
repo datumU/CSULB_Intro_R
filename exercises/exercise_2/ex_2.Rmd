@@ -11,11 +11,22 @@ In this exercise, you will work on implementing various data structures in R.
 
 
 ## Part A
-Open a new R script to write and save your code. You will need to re-use these results for Exercise 3!
+1. Create a vector using ```vec1 <- c(1L, 2L, 3L)```. What type of vector is this? Verify your answer using ```typeof(vec1)```.
+
+2. Run the following code: ```vec2 <- as.numeric(vec1)```. Compare ```vec1``` and ```vec2``` using ```typeof()``` and ```object.size()```. What are the differences?
+
+3. Run the code: ```vec2 <- vec2 + c(1, 1.5, 1.99)```. Before checking the output, what is the result of this line of code? 
+
+4. Coerce ```vec2``` to ```integer```-type. What happens to non-integers?
+
+5. Create another vector ```vec3``` and assign the values ```"1L", "2L", "3L"```. What type of vector is this? Verify using ```typeof()```. Coerce this to a numeric vector. 
 
 
 ## Part B
+Open a new R script to write and save your code. You will need to re-use these results for Exercise 3!
+
 1. Create vectors using ```c()``` with the following attributes.
+    
     a. A vector, ```name```, with 10 names of your choosing. What type of vector is this?
         
     b. A vector, ```female```, with ```TRUE```s and ```FALSE```s indicating the sex of the people in your ```name``` vector. What type of vector is this? What is another way we could represent this information?

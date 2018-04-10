@@ -185,10 +185,10 @@ vec3 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="d
 colMat &lt;-<span class="st"> </span><span class="kw">cbind</span>(vec1, vec2, vec3)
 colMat</code></pre></div>
 <pre><code>##      vec1 vec2 vec3
-## [1,]    1   10   10
-## [2,]    2   69   20
-## [3,]    3   79   14
-## [4,]    4   39   15</code></pre>
+## [1,]    1   53   20
+## [2,]    2   62    6
+## [3,]    3   27   14
+## [4,]    4   87    3</code></pre>
 </div>
 <div id="other-ways-to-create-a-matrix-1" class="slide section level2">
 <h2>Other Ways to Create a Matrix</h2>
@@ -197,10 +197,10 @@ vec2 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="d
 vec3 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">4</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>)
 rowMat &lt;-<span class="st"> </span><span class="kw">rbind</span>(vec1, vec2, vec3)
 rowMat</code></pre></div>
-<pre><code>##            [,1]       [,2]       [,3]      [,4]
-## vec1  1.0000000  2.0000000  3.0000000  4.000000
-## vec2 12.0000000 93.0000000 60.0000000 21.000000
-## vec3 -0.4226836 -0.7934135 -0.1075604  1.213465</code></pre>
+<pre><code>##           [,1]      [,2]      [,3]       [,4]
+## vec1  1.000000  2.000000  3.000000  4.0000000
+## vec2 70.000000 81.000000 27.000000 35.0000000
+## vec3  1.885358 -1.539214 -1.648753 -0.7210572</code></pre>
 </div>
 <div id="factors" class="slide section level2">
 <h2>Factors</h2>
@@ -290,12 +290,12 @@ sex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw
 data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">studentID =</span> studentID, <span class="dt">score =</span> score, <span class="dt">sex =</span> sex)
 <span class="kw">head</span>(data)</code></pre></div>
 <pre><code>##   studentID score    sex
-## 1    S#7182    20   male
-## 2    S#6834     4 female
-## 3    S#6924    35   male
-## 4    S#7257    44   male
-## 5    S#7064    70   male
-## 6    S#7346    81   male</code></pre>
+## 1    S#7290    91   male
+## 2    S#7162    16   male
+## 3    S#6564    17   male
+## 4    S#7093    95   male
+## 5    S#7092     1   male
+## 6    S#7203    13 female</code></pre>
 </div>
 <div id="special-values" class="slide section level2">
 <h2>Special Values</h2>

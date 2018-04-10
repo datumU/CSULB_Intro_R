@@ -131,19 +131,26 @@ $(document).ready(function () {
 </div>
 <div id="part-a" class="section level2">
 <h2>Part A</h2>
-<p>Open a new R script to write and save your code. You will need to re-use these results for Exercise 3!</p>
+<ol style="list-style-type: decimal">
+<li><p>Create a vector using <code>vec1 &lt;- c(1L, 2L, 3L)</code>. What type of vector is this? Verify your answer using <code>typeof(vec1)</code>.</p></li>
+<li><p>Run the following code: <code>vec2 &lt;- as.numeric(vec1)</code>. Compare <code>vec1</code> and <code>vec2</code> using <code>typeof()</code> and <code>object.size()</code>. What are the differences?</p></li>
+<li><p>Run the code: <code>vec2 &lt;- vec2 + c(1, 1.5, 1.99)</code>. Before checking the output, what is the result of this line of code?</p></li>
+<li><p>Coerce <code>vec2</code> to <code>integer</code>-type. What happens to non-integers?</p></li>
+<li><p>Create another vector <code>vec3</code> and assign the values <code>&quot;1L&quot;, &quot;2L&quot;, &quot;3L&quot;</code>. What type of vector is this? Verify using <code>typeof()</code>. Coerce this to a numeric vector.</p></li>
+</ol>
 </div>
 <div id="part-b" class="section level2">
 <h2>Part B</h2>
+<p>Open a new R script to write and save your code. You will need to re-use these results for Exercise 3!</p>
 <ol style="list-style-type: decimal">
-<li>Create vectors using <code>c()</code> with the following attributes.
+<li><p>Create vectors using <code>c()</code> with the following attributes.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p>A vector, <code>name</code>, with 10 names of your choosing. What type of vector is this?</p></li>
 <li><p>A vector, <code>female</code>, with <code>TRUE</code>s and <code>FALSE</code>s indicating the sex of the people in your <code>name</code> vector. What type of vector is this? What is another way we could represent this information?</p></li>
 <li><p>A vector, <code>edu</code>, indicating the highest degree of education completed for the people in your <code>name</code> vector. Use <code>&quot;HS&quot;</code> for high school, <code>&quot;BS&quot;</code> for a bachelor’s degree, <code>&quot;MS&quot;</code> for master’s, and <code>&quot;PhD&quot;</code> for doctorate.</p></li>
 <li><p>A vector, <code>salary</code>, indicating the salary in 1,000s of dollars for the people in your <code>name</code> vector.</p></li>
 </ol></li>
-<li>Run the following code to create a data.frame, <code>data</code>.</li>
+<li><p>Run the following code to create a data.frame, <code>data</code>.</p></li>
 </ol>
 <pre class="r"><code>data &lt;- data.frame(name = name,
                    female = female,
