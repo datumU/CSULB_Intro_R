@@ -99,3 +99,9 @@ Play around with BRRR!
 + [Stackoverflow](https://stackoverflow.com/): online community for asking and answering questions on a variety of topics (useful for searching error messages or for help with problem strategies)
 + [R for Data Science](http://r4ds.had.co.nz/): free online book by creators of RStudio
 
+
+## DAY 2 - April 27
+
++ **Exploratory Data Analysis**: all the necessary tools to investigate your data before performing any formal modeling--from summary statistics to visualization including plotting histograms, boxplots, and scatterplots
++ **Linear Regression**: everything you need to know to begin fitting linear models--from simple t-tests to estimation of regression coefficients, variable selection, model diagnostics, and prediction
++ **Logistic Regression**: the basics of generalized linear models (GLMs) with an emphasis on binary response data--we extend the theory and modeling strategies of linear regression
