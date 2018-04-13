@@ -71,6 +71,7 @@ There are four types of index vectors:
 + Suppose we have grades of ten students
 
 ```{r echo=TRUE}
+set.seed(1234)  # so that everyone has the same grades
 grades <- sample(0:100, 10)  # randomly choose 10 numbers between 0 and 100
 attributes(grades)
 names(grades) <- letters[1:10]
@@ -84,7 +85,7 @@ grades
 ## 1. Index Vector of Positive Integers
 
 + A vector of positive integers corresponding to the elements you want to subset
-+ All of the values in this type of index vector must lie in ```1:(length(x))```
++ All of the values in this type of index vector must lie in ```1:length(x)```
 ```{r echo=TRUE}
 posIndVec <- 4:7
 posIndVec
