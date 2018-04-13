@@ -1,5 +1,5 @@
 ---
-title: Control Structures, Functions & Packages
+title: Packages
 subtitle: CSULB Intro to R
 date: April 13, 2018
 #author: Chris Galbraith, Micah Jackson
