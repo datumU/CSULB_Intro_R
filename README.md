@@ -27,13 +27,13 @@ Please follow the [Pre-Workshop Instructions](#Instructions) prior to coming to 
 |	 12:15 - 1:00   | Lunch | |
 |	 1:00 - 1:45 	  | [Data Structures](https://datumu.github.io/CSULB_Intro_R/slides/session_2/session_2.html) | |
 |	 1:45 - 2:00 	  | [Exercise 2](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_2/ex_2.html) | [Solution](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_2/solution_2.html) |
-|	 2:00 - 2:15 	  | Break | |
-|	 2:15 - 3:00 	  | [Subsetting ](https://datumu.github.io/CSULB_Intro_R/slides/session_3/session_3.html)| |
+|	 2:00 - 2:20 	  | Break | |
+|	 2:20 - 3:00 	  | [Subsetting ](https://datumu.github.io/CSULB_Intro_R/slides/session_3/session_3.html)| |
 |	 3:00 - 3:15 	  | [Exercise 3](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_3/ex_3.html) | [Solution](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_3/solution_3.html) |
 |	 3:15 - 3:30    | Break | |
-|	 3:30 - 4:30    | [Control Structures & Functions](https://datumu.github.io/CSULB_Intro_R/slides/session_4/session_4.html) | |
-|	 4:30 - 4:45 	  | [Exercise 4](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_4/ex_4.html) | [Solution](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_4/solution_4.html) |
-|	 4:45 - 5:00 	  | [Packages & Closing Remarks](https://datumu.github.io/CSULB_Intro_R/slides/session_5/session_5.html) | |
+|	 3:30 - 4:10    | [Control Structures & Functions](https://datumu.github.io/CSULB_Intro_R/slides/session_4/session_4.html) | |
+|	 4:10 - 4:40 	  | [Exercise 4](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_4/ex_4.html) | [Solution](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_4/solution_4.html) |
+|	 4:40 - 5:00 	  | [Packages & Closing Remarks](https://datumu.github.io/CSULB_Intro_R/slides/session_5/session_5.html) | |
 
 
 ### DAY 2 - April 27
