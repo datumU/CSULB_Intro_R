@@ -14,7 +14,7 @@ smaller: yes
 4. Helpful resources
 
 
-## Control Structures:
+## Control Structures
 
 + A control structure is a block of programming that analyzes variables and chooses a direction in which to go based on given parameters
 + Control structures in R include:
@@ -27,7 +27,7 @@ smaller: yes
     + return
   
 
-## for loops:
+## for loops
 
 + Suppose we want to write "The year is [year]" where year is equal to 2016, 2017, and 2018. 
 + One way to do so is like this:
@@ -39,7 +39,7 @@ print(paste("The year is", 2018))
 ```
 
 
-## for loops:
+## for loops
 
 + Or, we can use a for loop: 
 
@@ -50,7 +50,7 @@ for(i in 2016:2018){
 ```
 
 
-## for loops:
+## for loops
 
 + Suppose we have a numeric vector and we want to square each element
 ```{r echo = TRUE}
@@ -70,7 +70,8 @@ newvec
 # advanced: vec^2
 ```
 
-## if/else statements:
+
+## if/else statements
 
 + if/else statements are used to write conditional statements
 
@@ -87,7 +88,6 @@ if (x < 10){
 + Suppose we have the ages of 10 individuals, and we want to categorize each age as young, middle-aged, or old
 + Using a for loop, we can iterate through each age and then use if/else statements to classify each age
 
-## for loops and if/else statements:
 ```{r echo = T}
 age <- sample(1:100, 10)
 ageCat <- rep(NA, length(age))
@@ -141,6 +141,7 @@ age.df[1:3,]
     + I'm 0.00111 miles tall.
 + Determine algorithm and output.
     + output is height of tallest person (i.e. the maximum value)
+
     
 ## Active Learning
 **Initialize** $tallest$ = $height_1$  
@@ -168,99 +169,6 @@ findTallest <- function(H){
 ```
 
 
-## Packages
-+ Used to share R code
-+ Composed of code, data, documentation, and tests
-+ Allow for easy, transparent and cross-platform extension of the R base system
-+ Over 12,000 packages available on the Comprehensive R Archive Network (CRAN)
-    + [Full list available packages](https://cran.r-project.org/web/packages/) 
-+ For more info on how R packages are developed, please read [Creating R Packages: A Tutorial](http://cran.r-project.org/doc/contrib/Leisch-CreatingPackages.pdf) by Friedrich Leisch.
-
-
-## Terminology
-+ *Package*: an extension of the R base system with code, data and documentation in a standardized format
-+ *Base packages*: part of the R source tree, maintained by R Core (what you downloaded before coming today)
-+ *Repository*: a website that hosts a package for installation
-+ *Source*: the original version of a package with human-readable text and code
-+ *Library*: a directory containing installed packages (this is on your machine)
-
-
-## Installing Packages
-There are two main ways to install a package in R:
-
-1. Installing from CRAN: install a package directly from the repository
-    + Using R studio: ```Tools > Install Packages...```
-    + From R console: ```install.packages("package name")```
-2. Installing from source: first download the add-on R package and then type the following in your console:
-    + ```install.packages("path_to_file", repos = NULL, type = "source")``` 
-3. Installing a variety of sources using the ```devtools``` package (must have it installed first!)
-    + Github:  ```devtools::install_github("repo name")```
-    + URL:  ```devtools::install_url("url")```
-    + Other methods available, too
-    
-
-## Using Packages
-There are two ways to access code and data from an installed package:
-
-1. Loading the package to the current R workspace with the ```library()``` function
-    + ```library(package)``` loads all contents of ```package``` and makes them accessible until R restarts
-    + This is the recommended way to use packages
-
-2. Directly referencing the code/data with the ```::``` operator
-    + Instead of loading an entire package, we can instead temporarily access its contents 
-    + ```package::name``` accesses ```name``` from ```package``` for a one-time use
-    + Useful when you only need to use a single object once or twice 
-
-
-## Install some packages from CRAN
-Let's install ```devtools, here, and car``` from CRAN using the console:
-```{r echo=TRUE, eval=FALSE}
-install.packages("devtools", dependencies = TRUE)
-install.packages("here", dependencies = TRUE)
-install.packages("car", dependencies = TRUE)
-```
-
-
-## Using a Package
-Now, let's use ```devtools``` to install ```BRRR``` from Github (more info [here](https://github.com/brooke-watson/BRRR)). 
-
-Method 1:
-```{r echo=TRUE, eval=FALSE}
-library(devtools)  # load the devtools package
-install_github("brooke-watson/BRRR")  # use the function install_github() to install BRRR
-```
-
-Method 2: 
-```{r echo=TRUE, eval=FALSE}
-devtools::install_github("brooke-watson/BRRR")  # use the function install_github() from devtools to install BRRR
-```
-
-Play around with BRRR!
-
-
-## Popular Packages
-+ To visualize data:
-    + ```ggplot2```: to create beautiful graphics
-    + ```googleVis```: to use Google Chart tools
-+ To report results:
-    + ```shiny```: to create interactive web-based apps
-    + ```knitr```: to combine R codes and Latex/Markdown codes
-    + ```slidify```: to build HTML 5 slide shows
-+ To write high-performance R code:
-    + ```rcpp```: to write R functions that call C++ code
-    + ```data.table```: to organize datasets for fast operations
-    + ```parallel```: to use parallel processing in R
-
-
-## Helpful Resources
-+ [Khan Academy](https://www.khanacademy.org/): free courses on programming, math, etc.
-+ [CRAN](https://cran.r-project.org/): R manuals, FAQs, the R Journal
-+ [Rbloggers](https://www.r-bloggers.com/): blog posts written by other R users
-+ [RStudio cheat sheets](https://www.rstudio.com/resources/cheatsheets/)
-+ [Stackoverflow](https://stackoverflow.com/): online community for asking and answering questions on a variety of topics (useful for searching error messages or for help with problem strategies)
-+ [R for Data Science](http://r4ds.had.co.nz/): free online book by creators of RStudio
-
-
 ## Up Next
 + [Exercise 4](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_4/ex_4.html)
-+ Closing Remarks
++ Packages

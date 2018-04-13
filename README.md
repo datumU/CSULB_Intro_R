@@ -31,9 +31,9 @@ Please follow the [Pre-Workshop Instructions](#Instructions) prior to coming to 
 |	 2:15 - 3:00 	  | [Subsetting ](https://datumu.github.io/CSULB_Intro_R/slides/session_3/session_3.html)| |
 |	 3:00 - 3:15 	  | [Exercise 3](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_3/ex_3.html) | [Solution](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_3/solution_3.html) |
 |	 3:15 - 3:30    | Break | |
-|	 3:30 - 4:30    | [Control Structures, Functions & Packages](https://datumu.github.io/CSULB_Intro_R/slides/session_4/session_4.html) | |
+|	 3:30 - 4:30    | [Control Structures & Functions](https://datumu.github.io/CSULB_Intro_R/slides/session_4/session_4.html) | |
 |	 4:30 - 4:45 	  | [Exercise 4](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_4/ex_4.html) | [Solution](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_4/solution_4.html) |
-|	 4:45 - 5:00 	  | Closing Remarks | |
+|	 4:45 - 5:00 	  | [Packages & Closing Remarks](https://datumu.github.io/CSULB_Intro_R/slides/session_5/session_5.html) | |
 
 
 ### DAY 2 - April 27
