@@ -20,35 +20,35 @@ Please follow the [Pre-Workshop Instructions](#Instructions) prior to coming to 
 
 ### DAY 1 - April 13
 
-| 	   Time	    |           			         	|							              |
-| ------------- | :-----------------------:	| :-----------------------: |   
-|  11:00-12:00  | [Introduction to Programming](https://datumu.github.io/CSULB_Intro_R/slides/session_1/session_1.html)	|		|
-|	 12:00-12:15 	| [Exercise 1](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_1/ex_1.html) | |
-|	 12:15-1:00 	| Lunch | |
-|	 1:00-1:45 	| [Data Structures](https://datumu.github.io/CSULB_Intro_R/slides/session_2/session_2.html) | |
-|	 1:45-2:00 	| [Exercise 2](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_2/ex_2.html) | [Solution](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_2/solution_2.html) |
-|	 2:00-2:15 	  | Break | |
-|	 2:15-3:00 	  | [Subsetting ](https://datumu.github.io/CSULB_Intro_R/slides/session_3/session_3.html)| |
-|	 3:00-3:15 	| [Exercise 3](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_3/ex_3.html) | [Solution](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_3/solution_3.html) |
-|	 3:15-3:30  	| Break | |
-|	 3:30-4:30  	| [Control Structures, Functions & Packages](https://datumu.github.io/CSULB_Intro_R/slides/session_4/session_4.html) | |
-|	 4:30-4:45 	| [Exercise 4](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_4/ex_4.html) | [Solution](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_4/solution_4.html) |
-|	 4:45-5:00 	| Closing Remarks | |
+| 	   Time	      |            			         	|							              |
+| -------------   | :-----------------------:	| :-----------------------: |   
+|  11:00 - 12:00  | [Introduction to Programming](https://datumu.github.io/CSULB_Intro_R/slides/session_1/session_1.html)	|		|
+|	 12:00 - 12:15 	| [Exercise 1](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_1/ex_1.html) | |
+|	 12:15 - 1:00   | Lunch | |
+|	 1:00 - 1:45 	  | [Data Structures](https://datumu.github.io/CSULB_Intro_R/slides/session_2/session_2.html) | |
+|	 1:45 - 2:00 	  | [Exercise 2](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_2/ex_2.html) | [Solution](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_2/solution_2.html) |
+|	 2:00 - 2:15 	  | Break | |
+|	 2:15 - 3:00 	  | [Subsetting ](https://datumu.github.io/CSULB_Intro_R/slides/session_3/session_3.html)| |
+|	 3:00 - 3:15 	  | [Exercise 3](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_3/ex_3.html) | [Solution](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_3/solution_3.html) |
+|	 3:15 - 3:30    | Break | |
+|	 3:30 - 4:30    | [Control Structures, Functions & Packages](https://datumu.github.io/CSULB_Intro_R/slides/session_4/session_4.html) | |
+|	 4:30 - 4:45 	  | [Exercise 4](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_4/ex_4.html) | [Solution](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_4/solution_4.html) |
+|	 4:45 - 5:00 	  | Closing Remarks | |
 
 
 ### DAY 2 - April 27
 
-| 	   Time	    |           			         	|							              |
-| ------------- | :-----------------------:	| :-----------------------: |   
-|  10:00-11:00  | Exploratory Data Analysis	|	|
-|	 11:00-11:30 	| Exercise 1 | |
-|	 11:30-12:15 	| Lunch | |
-|	 12:15-12:30  | Discuss Exercise 1 Solutions | |
-|	 12:30-2:00 	| Linear Regression | |
-|	 2:00-2:30 	  | Exercise 2 | |
-|	 2:30-2:45  	| Break | |
-|	 2:45-3:00 	  | Discuss Exercise 2 Solutions | |
-|	 3:00-4:00  	| Logistic Regression | |
+| 	   Time	      |           			         	|							              |
+| -------------   | :-----------------------:	| :-----------------------: |   
+|  10:00 - 11:00  | Exploratory Data Analysis	|	|
+|	 11:00 - 11:30 	| Exercise 1 | |
+|	 11:30 - 12:15 	| Lunch | |
+|	 12:15 - 12:30  | Discuss Exercise 1 Solutions | |
+|	 12:30 - 2:00 	| Linear Regression | |
+|	 2:00 - 2:30 	  | Exercise 2 | |
+|	 2:30 - 2:45  	| Break | |
+|	 2:45 - 3:00 	  | Discuss Exercise 2 Solutions | |
+|	 3:00 - 4:00  	| Logistic Regression | |
 
 
 # <a name="Instructions"></a>Pre-Workshop Instructions
