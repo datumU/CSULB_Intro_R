@@ -185,22 +185,22 @@ vec3 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="d
 colMat &lt;-<span class="st"> </span><span class="kw">cbind</span>(vec1, vec2, vec3)
 colMat</code></pre></div>
 <pre><code>##      vec1 vec2 vec3
-## [1,]    1   53   20
-## [2,]    2   62    6
-## [3,]    3   27   14
-## [4,]    4   87    3</code></pre>
+## [1,]    1   50   15
+## [2,]    2   72   18
+## [3,]    3   15    8
+## [4,]    4   93   19</code></pre>
 </div>
 <div id="other-ways-to-create-a-matrix-1" class="slide section level2">
 <h2>Other Ways to Create a Matrix</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">vec1 &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">4</span>
-vec2 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">4</span>, <span class="dt">replace =</span> <span class="ot">FALSE</span>)
-vec3 &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">4</span>, <span class="dt">mean =</span> <span class="dv">0</span>, <span class="dt">sd =</span> <span class="dv">1</span>)
+vec2 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">100</span>, <span class="dv">4</span>, <span class="dt">replace =</span> <span class="ot">TRUE</span>)
+vec3 &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dv">4</span>, <span class="dt">replace=</span><span class="ot">FALSE</span>)
 rowMat &lt;-<span class="st"> </span><span class="kw">rbind</span>(vec1, vec2, vec3)
 rowMat</code></pre></div>
-<pre><code>##           [,1]      [,2]      [,3]       [,4]
-## vec1  1.000000  2.000000  3.000000  4.0000000
-## vec2 70.000000 81.000000 27.000000 35.0000000
-## vec3  1.885358 -1.539214 -1.648753 -0.7210572</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## vec1    1    2    3    4
+## vec2   86   94   82   60
+## vec3   14   16    3    7</code></pre>
 </div>
 <div id="factors" class="slide section level2">
 <h2>Factors</h2>
@@ -290,12 +290,12 @@ sex &lt;-<span class="st"> </span><span class="kw">sample</span>(<span class="kw
 data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">studentID =</span> studentID, <span class="dt">score =</span> score, <span class="dt">sex =</span> sex)
 <span class="kw">head</span>(data)</code></pre></div>
 <pre><code>##   studentID score    sex
-## 1    S#7290    91   male
-## 2    S#7162    16   male
-## 3    S#6564    17   male
-## 4    S#7093    95   male
-## 5    S#7092     1   male
-## 6    S#7203    13 female</code></pre>
+## 1    S#7019    40 female
+## 2    S#6968     9   male
+## 3    S#7025    14   male
+## 4    S#6972    73 female
+## 5    S#7320    78   male
+## 6    S#7279    79 female</code></pre>
 </div>
 <div id="special-values" class="slide section level2">
 <h2>Special Values</h2>
@@ -308,6 +308,10 @@ data &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span clas
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">intVec &lt;-<span class="st"> </span><span class="kw">c</span>(1L, 2L, 3L, 4L) 
 intVec</code></pre></div>
 <pre><code>## [1] 1 2 3 4</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">typeof</span>(intVec)</code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">intVec<span class="op">*</span><span class="ot">Inf</span></code></pre></div>
+<pre><code>## [1] Inf Inf Inf Inf</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">a &lt;-<span class="st"> </span><span class="ot">Inf</span>; b &lt;-<span class="st"> </span><span class="dv">0</span>
 rslt &lt;-<span class="st"> </span><span class="kw">c</span>(b<span class="op">/</span>a, a<span class="op">/</span>a)
 rslt</code></pre></div>
@@ -379,13 +383,32 @@ numToChar</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">charVec &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;2.5&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;2.8&quot;</span>, <span class="st">&quot;1.5&quot;</span>, zero)</code></pre></div>
 <pre><code>## Error in eval(expr, envir, enclos): object 'zero' not found</code></pre>
 </div>
+<div id="troubleshooting" class="slide section level2">
+<h2>Troubleshooting</h2>
+<ul>
+<li>Troubleshooting is a vital skill for anyone using a programming language</li>
+<li>Assume things will <strong>always</strong> break.</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Try to replicate the error. If you know what types of input will cause an error and which types won’t, this is a clue.</li>
+<li>Narrow down on where the error is occuring. This typically involves running chunks of code line-by-line or block-by-block.</li>
+<li>Try fixing the error.</li>
+<li>Google
+<ul>
+<li>copy and paste your error/warning message</li>
+<li><a href="https://cran.r-project.org/">CRAN (Comprehensive R Archive Network)</a></li>
+<li><a href="https://www.rdocumentation.org/">RDocumentation</a></li>
+<li><a href="https://stackoverflow.com/">Stack Exchange/Overflow</a></li>
+</ul></li>
+</ol>
+</div>
 <div id="summary" class="slide section level2">
 <h2>Summary</h2>
 <ul>
 <li>There are 5 atomic data types in R. Logical, integer, numeric, complex, character.</li>
 <li>Vectors and matrices are used to store data of the same type.</li>
 <li>Lists and data frames are used to store data of different types.</li>
-<li>R con handle infinity (<code>Inf</code>), missing values (<code>NA</code>), and division by 0 (<code>NaN</code>)</li>
+<li>R can handle infinity (<code>Inf</code>), missing values (<code>NA</code>), and division by 0 (<code>NaN</code>)</li>
 <li>Different data types inside of a vector or matrix will be coerced to the most flexible.</li>
 </ul>
 </div>

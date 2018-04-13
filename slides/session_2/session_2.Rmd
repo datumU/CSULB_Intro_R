@@ -120,8 +120,8 @@ colMat
 
 ```{r echo=TRUE}
 vec1 <- 1:4
-vec2 <- sample(1:100, 4, replace = FALSE)
-vec3 <- rnorm(4, mean = 0, sd = 1)
+vec2 <- sample(1:100, 4, replace = TRUE)
+vec3 <- sample(1:20, 4, replace=FALSE)
 rowMat <- rbind(vec1, vec2, vec3)
 rowMat
 ```
@@ -205,6 +205,9 @@ There are some special values in R:
 ```{r echo=TRUE}
 intVec <- c(1L, 2L, 3L, 4L) 
 intVec
+typeof(intVec)
+
+intVec*Inf
 
 a <- Inf; b <- 0
 rslt <- c(b/a, a/a)
@@ -258,7 +261,6 @@ as.numeric(logVec)
 ```
 
 
-
 ## Data Type Coercion
 + Coercion does not always work! Be careful about warnings:
 
@@ -271,19 +273,28 @@ charVec <- c("2.5", "3", "2.8", "1.5", zero)
 ```
 
 
+## Troubleshooting 
++ Troubleshooting is a vital skill for anyone using a programming language
++ Assume things will **always** break.
+
+1. Try to replicate the error. If you know what types of input will cause an error and which types won't, this is a clue.
+2. Narrow down on where the error is occuring. This typically involves running chunks of code line-by-line or block-by-block.
+3. Try fixing the error. 
+4. Google 
+    + copy and paste your error/warning message
+    + [CRAN (Comprehensive R Archive Network)](https://cran.r-project.org/)
+    + [RDocumentation](https://www.rdocumentation.org/)
+    + [Stack Exchange/Overflow](https://stackoverflow.com/)
+
+
 ## Summary
 + There are 5 atomic data types in R. Logical, integer, numeric, complex, character.
 + Vectors and matrices are used to store data of the same type.
 + Lists and data frames are used to store data of different types.
-+ R con handle infinity (```Inf```), missing values (```NA```), and division by 0 (```NaN```)
++ R can handle infinity (```Inf```), missing values (```NA```), and division by 0 (```NaN```)
 + Different data types inside of a vector or matrix will be coerced to the most flexible.
 
 
 ## Up Next
 + [Exercise 2](https://datumu.github.io/CSULB_Intro_R/exercises/exercise_2/ex_2.html)
 + Break
-
-
-
-
-

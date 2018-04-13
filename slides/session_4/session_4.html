@@ -162,11 +162,20 @@ ageCat &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot
 }
 age.df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> age, <span class="dt">ageCat =</span> ageCat)
 age.df[<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,]</code></pre></div>
-<pre><code>##   age ageCat
-## 1  66    Old
-## 2   6  Young
-## 3  31  Young</code></pre>
-<!-- need to put transition slide or something -->
+<pre><code>##   age      ageCat
+## 1  22       Young
+## 2  48 Middle-Aged
+## 3  20       Young</code></pre>
+</div>
+<div id="other-controls" class="slide section level2">
+<h2>Other Controls</h2>
+<ul>
+<li>break - exit the current loop or function.   <code>break</code></li>
+<li>repeat - repeat a loop or function. Like an infinite loop. <strong>Must</strong> code in your own break condition.   <code>repeat{do this}</code></li>
+<li>while loops - condensed version of <code>repeat{...; break}</code>.    <code>while(condition){do this}</code></li>
+<li>next - stop evaluating current iteration of your loop and move to the next. Like a minor <code>break</code>.    <code>next</code></li>
+<li>return - like a <code>break</code>, but exits top-level of function. Also returns an object from inside your function.    <code>for(){create object; return(object)}</code></li>
+</ul>
 </div>
 <div id="functions" class="slide section level2">
 <h2>Functions</h2>
@@ -195,11 +204,9 @@ age.df[<span class="dv">1</span><span class="op">:</span><span class="dv">3</spa
 <li>Define data needed inside of the function (extra variables, storage, etc).</li>
 </ol></li>
 </ul>
-<!-- need example here and prob quick hand written exercise where they write their own function. write sandwich into a function? -->
-<!-- Part 7 -->
 </div>
-<div id="guided-exercise" class="slide section level2">
-<h2>Guided Exercise</h2>
+<div id="active-learning" class="slide section level2">
+<h2>Active Learning</h2>
 <ul>
 <li>What do we want our function to do?
 <ul>
@@ -218,8 +225,8 @@ age.df[<span class="dv">1</span><span class="op">:</span><span class="dv">3</spa
 </ul></li>
 </ul>
 </div>
-<div id="exercise-contd" class="slide section level2">
-<h2>Exercise Cont’d</h2>
+<div id="active-learning-1" class="slide section level2">
+<h2>Active Learning</h2>
 <p><strong>Initialize</strong> <span class="math inline">\(tallest\)</span> = <span class="math inline">\(height_1\)</span><br />
 <strong>For</strong> each <span class="math inline">\(element\)</span> in <span class="math inline">\(H\)</span>, <strong>do</strong><br />
     <strong>If</strong> <span class="math inline">\(element &gt; tallest\)</span>, <strong>then</strong><br />
@@ -234,14 +241,12 @@ findTallest &lt;-<span class="st"> </span><span class="cf">function</span>(H){
   
   <span class="co"># search through all heights in H</span>
   <span class="cf">for</span>(height <span class="cf">in</span> H){
-    <span class="cf">if</span>(height <span class="op">&gt;</span><span class="st"> </span>tallest){tallest &lt;-<span class="st"> </span>i}
+    <span class="cf">if</span>(height <span class="op">&gt;</span><span class="st"> </span>tallest){tallest &lt;-<span class="st"> </span>height}
   }
   
   <span class="co"># spit out the tallest height after for-loop has run</span>
   <span class="kw">return</span>(tallest)
 }</code></pre></div>
-<!-- prompt them to modify the code to find the oldest person, shortest person, handle NA values -->
-<!-- Parts 8,9 -->
 </div>
 <div id="packages" class="slide section level2">
 <h2>Packages</h2>
