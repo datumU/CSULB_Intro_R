@@ -1,5 +1,5 @@
 ---
-title: 'Intro to Data Analysis with R: Session 4'
+title: 'Logistic Regression'
 subtitle: CSULB Intro to R
 date: April 27, 2018
 #author: Chris Galbraith
