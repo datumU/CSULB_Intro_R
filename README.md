@@ -40,7 +40,7 @@ Please follow the [Pre-Workshop Instructions](#Instructions) prior to coming to 
 
 | 	   Time	      |           			         	|							              |
 | -------------   | :-----------------------:	| :-----------------------: |   
-|  10:00 - 11:00  | Exploratory Data Analysis	|	|
+|  10:00 - 11:00  | [Exploratory Data Analysis](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_3/slides.html) | [Shell Code](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_1/shell_code.R), [Complete Code](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_1/complete_code.R)	|
 |	 11:00 - 11:30 	| Exercise 1 | |
 |	 11:30 - 12:15 	| Lunch | |
 |	 12:15 - 12:30  | Discuss Exercise 1 Solutions | |
