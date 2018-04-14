@@ -40,15 +40,15 @@ Please follow the [Pre-Workshop Instructions](#Instructions) prior to coming to 
 
 | 	   Time	      |           			         	|							              |
 | -------------   | :-----------------------:	| :-----------------------: |   
-|  10:00 - 11:00  | [Exploratory Data Analysis](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_1/session_1.html) | [Shell Code](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_1/shell_code.R), [Complete Code](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_1/complete_code.R)	|
-|	 11:00 - 11:30 	| Exercise 1 | |
-|	 11:30 - 12:15 	| Lunch | |
-|	 12:15 - 12:30  | Discuss Exercise 1 Solutions | Solution Code |
-|	 12:30 - 2:00 	| [Linear Regression](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_2/session_2.html) | [Shell Code](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_2/shell_code.R), [Complete Code](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_2/complete_code.R) |
-|	 2:00 - 2:30 	  | Exercise 2 | |
-|	 2:30 - 2:45  	| Break | |
-|	 2:45 - 3:00 	  | Discuss Exercise 2 Solutions | Solution Code |
-|	 3:00 - 4:00  	| [Logistic Regression](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_3/session_3.html) | [Shell Code](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_3/shell_code.R), [Complete Code](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_3/complete_code.R) |
+|  10:00 - 11:30  | [Exploratory Data Analysis](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_1/session_1.html) | [Shell Code](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_1/shell_code.R), [Complete Code](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_1/complete_code.R)	|
+|	 11:30 - 12:00 	| Exercise 1 | |
+|	 12:00 - 12:30 	| Lunch | |
+|	 12:30 - 1:00   | Discuss Exercise 1 Solutions | Solution Code |
+|	 1:00 - 2:30 	  | [Linear Regression](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_2/session_2.html) | [Shell Code](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_2/shell_code.R), [Complete Code](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_2/complete_code.R) |
+|	 2:30 - 3:00 	  | Exercise 2 | |
+|	 3:00 - 3:15  	| Break | |
+|	 3:15 - 3:30 	  | Discuss Exercise 2 Solutions | Solution Code |
+|	 3:30 - 4:00  	| [Logistic Regression](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_3/session_3.html) | [Shell Code](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_3/shell_code.R), [Complete Code](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_3/complete_code.R) |
 
 
 # <a name="Instructions"></a>Pre-Workshop Instructions
