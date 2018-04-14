@@ -1,16 +1,7 @@
 ####################################################################################
-### SESSION 2 - Complete code from slides
+### Exploratory Data Analysis - Complete code from slides
 ### Author: Chris Galbraith 
 ####################################################################################
-## Functions in R
-?sample
-
-sampSpace <- 1:6 
-sample(sampSpace, 1)  # arguments with default values can be omitted
-sample(size = 1, x = sampSpace)  # no need to remember the order 
-sample(size = 1, sampSpace)
-
-
 ## str()
 str(str)
 str(sample)

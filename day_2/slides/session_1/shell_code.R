@@ -1,13 +1,6 @@
 ####################################################################################
-### SESSION 2 - Shell code from slides
+### Exploratory Data Analysis - Shell code from slides
 ####################################################################################
-## Functions in R
-?sample
-
-sampSpace <- 1:6 
-sample(sampSpace, 1)  # arguments with default values can be omitted
-
-
 ## str()
 str(str)
 str(sample)
