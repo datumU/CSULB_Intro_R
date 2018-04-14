@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-## Session 4 Agenda
+## Agenda
 + [Motivating example](https://www.youtube.com/watch?v=j4JOjcDFtBE)
 + Brief Intro to Generalized Linear Models (GLMs)
 + Logistic Regression
