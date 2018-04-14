@@ -1,9 +1,7 @@
 ---
 title: 'Intro to Data Analysis with R: Session 4'
-subtitle: UCI Data Science Initiative
-params: 
-  reportdate: "x"  # to be replaced
-date: "`r params$reportdate`"
+subtitle: CSULB Intro to R
+date: April 27, 2018
 #author: Chris Galbraith
 output: slidy_presentation
 smaller: true
@@ -212,7 +210,7 @@ anova(logisticReg, logisticReg2, test='LRT')
 
 
 ## End of Session 4
-**Make sure you submit a [course evaluation survey](https://docs.google.com/forms/d/1hcL2hbUchrrSqjd-__2dZEotk7wK2_GrJj_DsK-rxds/edit)!**
+**Make sure to submit your course evaluation survey!**
 
 
 

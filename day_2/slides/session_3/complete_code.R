@@ -1,5 +1,5 @@
 ####################################################################################
-### SESSION 4 - Complete code from slides
+### Logistic Regression - Complete code from slides
 ### Author: Chris Galbraith 
 ####################################################################################
 ## O-Ring Data
