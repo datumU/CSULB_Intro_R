@@ -1,10 +1,8 @@
 ---
-title: "Intro to Data Analysis with R: Session 2"
-subtitle: UCI Data Science Initiative
-params: 
-  reportdate: "x"  # to be replaced
-date: "`r params$reportdate`"
-#author: "Chris Galbraith, Emily Smith"
+title: "Exploratory Data Analysis"
+subtitle: CSULB Intro to R
+date: April 27, 2018
+#author: "Chris Galbraith, Micah Jackson"
 output: slidy_presentation
 smaller: yes
 ---
@@ -14,8 +12,8 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-## Session 2 - Agenda
-1. R Packages, Functions & Help
+## Agenda
+1. Brief Review
 
 2. Exploratory Data Analysis
 
@@ -24,82 +22,8 @@ knitr::opts_chunk$set(echo = FALSE)
     + Boxplots
     + Scatterplot Matrices
     
-
-## Packages
-+ R packages are a way to maintain collections of R functions and data sets
-+ Packages allow for easy, transparent and cross-platform extension of the R base system
-
-## Packages
-+ Terminology:
-  
-    + *Package*: an extension of the R base system with code, data and documentation in a standardized format
-    + *Library*: a directory containing installed packages
-    + *Repository*: a website providing packages for installation
-    + *Source*: the original version of a package with human-readable text and code
-    + *Base packages*: part of the R source tree, maintained by R Core
-
-+ For more info on how R packages are developed, please read [Creating R Packages: A Tutorial](http://cran.r-project.org/doc/contrib/Leisch-CreatingPackages.pdf) by Friedrich Leisch.
-
-+ Go to https://cran.r-project.org/web/packages/ for a list of all available packages.
-
-
-## Installing a Package
-There are two main ways to install a package in R:
-
-1. Installing from CRAN: install a package directly from the repository
-    + Using R studio: ```Tools > Install Packages...```
-    + From R console: ```install.packages()```
-2. Installing from source: first download the add-on R package and then type the following in your console:
-    + ```install.packages("path_to_file", repos = NULL, type = "source")``` 
-
-Once you install a package, you need to load it into R using the function ```library()```
-
-
-## Installing a Package, contd.
-Let's install the package ```car``` that we will need later in this lecture.
-```{r echo=TRUE, eval=FALSE}
-install.packages("car")  # install the package
-library(car)  # load it into your R workspace
-```
-
-
-## Popular Packages
-+ To visualize data:
-    + ```ggplot2```: to create beautiful graphics
-    + ```googleVis```: to use Google Chart tools
-+ To report results:
-    + ```shiny```: to create interactive web-based apps
-    + ```knitr```: to combine R codes and Latex/Markdown codes
-    + ```slidify```: to build HTML 5 slide shows
-+ To write high-performance R code:
-    + ```rcpp```: to write R functions that call C++ code
-    + ```data.table```: to organize datasets for fast operations
-    + ```parallel```: to use parallel processing in R
-
-
-## Functions in R
-+ Consider the function ```sample()```. 
-+ Run ?sample to read the help file.
-```{r echo=TRUE, eval=FALSE}
-?sample
-```
-
-+ ```sample()``` has four arguments: 
-    + ```x```: vector of elements from which to choose
-    + ```size```: desired sample size
-    + ```replace```: sampling with/without replacement (logical)
-    + ```prob```: vector of probability weights
-+ The help file will specify which arguments have default values (and what those values are)
-
-
-## Calling a Function in R
-Function arguments can either be matched by position within the parentheses or by name
-```{r echo=TRUE} 
-sampSpace <- 1:6 
-sample(sampSpace, 1)  # arguments with default values can be omitted
-sample(size = 1, x = sampSpace)  # no need to remember the order 
-sample(size = 1, sampSpace)
-```
+## Review
+review day 1 materials here
 
 
 ## Some Useful Functions
@@ -133,18 +57,6 @@ Another useful function for understanding your data by providing a numeric summa
 ```{r echo = TRUE, eval=TRUE}
 summary(prestige)
 ```
-
-
-<!-- ## Control Structures -->
-<!-- + A control structure is a block of programming that analyzes variables and chooses a direction in which to go based on given parameters -->
-<!-- + Control structures in R include: -->
-<!--     + for loops -->
-<!--     + if/else statements -->
-<!--     + while loops  -->
-<!--     + repeat -->
-<!--     + break  -->
-<!--     + next -->
-<!--     + return -->
 
 
 ## Exploratory Data Analysis
@@ -299,10 +211,8 @@ scatterplotMatrix( prestige[ ,c("prestige","education","income","women")] )
 ```
 
 
-## End of Session 2
-Next up:
-
-1. [Exercise 2](http://ucidatascienceinitiative.github.io//IDA-with-R/exercises/ex_2.html)
+## Next up
+1. [Exercise 1](ADD ME)
 2. Lunch
 
-**Return at 1:00 to discuss solutions to Exercise 2!**
+**Return at XXXX to discuss solutions to Exercise 2!**
