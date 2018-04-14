@@ -48,7 +48,7 @@ Please follow the [Pre-Workshop Instructions](#Instructions) prior to coming to 
 |	 2:00 - 2:30 	  | Exercise 2 | |
 |	 2:30 - 2:45  	| Break | |
 |	 2:45 - 3:00 	  | Discuss Exercise 2 Solutions | |
-|	 3:00 - 4:00  	| Logistic Regression | |
+|	 3:00 - 4:00  	| [Logistic Regression](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_3/session_3.html) | [Shell Code](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_3/shell_code.R), [Complete Code](https://datumu.github.io/CSULB_Intro_R/day_2/slides/session_3/complete_code.R) |
 
 
 # <a name="Instructions"></a>Pre-Workshop Instructions
