@@ -32,6 +32,7 @@ par(mfrow=c(1,1))
 plot(auto$hp, auto$mpg, pch=20, xlab="Horsepower", ylab="MPG")
 abline(reg = linFit, col="red", lwd=2)
 curve(predict(quadFit, data.frame(hp=x)), add=TRUE, col="blue", lwd=2)
+legend("topright", legend=c("Linear Model", "Quadratic Model"), col=c("red","blue"), lty=1, lwd=2, bty="n")
 
 
 ### PART C ### 
@@ -60,22 +61,3 @@ anova(modelC2, finalModel)
 # C.2
 missing.mpg <- auto[is.na(auto$mpg), ]
 cbind(missing.mpg, fit=predict(finalModel, newdata = missing.mpg))
-
-### PART D ### 
-linContr <- function(model, contr){
-  beta.hat <- model$coef
-  cov.beta <- vcov(model)
-  est <- contr %*% beta.hat
-  se.est <- sqrt(contr %*% cov.beta %*% t(contr))
-  ci95.lo <- est - qnorm(0.975)*se.est
-  ci95.hi <- est + qnorm(0.975)*se.est
-  out <- data.frame(est, se.est, ci95.lo, ci95.hi)
-  round(out, 3)
-}
-
-# (1) 1980 vs 1970 for same weight & engine type
-linContr(finalModel, matrix(c(0, 0, 0, 10, 0), nrow=1, ncol=5))  # 1980 - 1970
-# (2) 2500 vs 3000 lbs for same model year & engine type
-linContr(finalModel, matrix(c(0, -500, -500^2, 0, 0), nrow=1, ncol=5))  # 2500 - 3000
-
-
