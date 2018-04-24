@@ -1,6 +1,6 @@
 ---
-title: "Intro to Data Analysis with R: Exercise 3"
-subtitle: UCI Data Science Initiative
+title: "Exercise 2"
+subtitle: CSULB Intro R
 # author: "Chris Galbraith"
 output: html_document
 ---
