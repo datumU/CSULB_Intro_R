@@ -21,10 +21,11 @@ set.seed(123)
 oneSampData <- rnorm(100, mean = 0, sd = 1)
 
 
-
 ##  One-Sample T-Test ($H_0: \mu = 0$)
 oneSampTest.0 <- t.test(oneSampData) 
 
+
+## One-Sample T-Test ($H_0: \mu = 0.3$)
 
 
 ## Load Data

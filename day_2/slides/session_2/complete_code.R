@@ -17,7 +17,7 @@ str(pnorm) # normal CDF
 pnorm(0, mean = 0, sd = 1) # Pr[X <= 0] = ?
 
 str(qnorm) # normal quantile func
-qnorm(0.975, mean = 0, sd = 1) # PR[X <= ?] = 0.975
+qnorm(0.975) # PR[X <= ?] = 0.975
 
 
 ##  One-Sample T-Test (Create Data)
@@ -32,7 +32,12 @@ oneSampTest.0 <- t.test(oneSampData)
 oneSampTest.0
 names(oneSampTest.0) 
 oneSampTest.0$statistic
-oneSampTest.0$estimate
+oneSampTest.0$p.value
+
+
+## One-Sample T-Test ($H_0: \mu = 0.3$)
+oneSampTest.mu <- t.test(oneSampData, mu = 0.3)
+oneSampTest.mu
 
 
 ## Load Data
@@ -68,8 +73,8 @@ confint(myReg, level=0.95)
 
 ##  Linear Regression - Adding Variables
 boxplot(prestige ~ type, data = Prestige, col = "grey",
-main = "Distribution of Prestige Score by Types",
-xlab = "Occupation Types", ylab = "Prestige Score")
+        main = "Distribution of Prestige Score by Types",
+        xlab = "Occupation Types", ylab = "Prestige Score")
 
 mod <- update(myReg, ~ . + type)
 summary(mod)
