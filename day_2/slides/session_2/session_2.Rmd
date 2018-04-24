@@ -27,6 +27,23 @@ knitr::opts_chunk$set(echo = FALSE)
     + Prediction
 
 
+## The Normal Distribution
+
++ Very common distribution 
+
++ Sometimes called the *bell curve* due to its shape
+
++ Two paramaters: mean ($\mu$) and standard deviation ($\sigma$)
+
++ Many real-life applications:
+    
+    + Male heights: $\mu = 70\text{ in.}, \sigma = 4\text{ in.}$
+    + Female heights: $\mu = 65\text{ in.}, \sigma = 3.5\text{ in.}$
+    + Blood pressure: $\mu = 85\text{ mm}, \sigma = 20\text{ mm}$
+
+![](normal_distn.png)
+
+
 ## Statistical Distributions in R:
 
 + R has many built-in statistical distributions
@@ -43,7 +60,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Standard Normal Distribution
 
-+ Calculate the value of the probability density function at $X = 0$
+Calculate the value of the probability density function at $X = 0$
 ```{r echo=TRUE}  
 str(dnorm) # normal pdf
 dnorm(x = 0, mean = 0, sd = 1)
@@ -51,16 +68,18 @@ dnorm(x = 0, mean = 0, sd = 1)
 
 
 ## Standard Normal Distribution
+
+Plot the density function using ```dnorm()```
 ```{r echo=TRUE, fig.height = 4.5, fig.align='center'}  
 x <- seq(from = -3, to = 3, by = 0.05)
 y <- dnorm(x, mean = 0, sd = 1)
-plot(x, y, type = "l", ylab = "Density")
+plot(x, y, type = "l", ylab = "Density", lwd = 2)
 ```
 
 
 ## Standard Normal Distribution
 
-+ Generate 10 independent random numbers from a standard normal distribution
+Generate 10 independent random numbers from a standard normal distribution
 ```{r echo=TRUE}  
 str(rnorm) # generate random number from normal dist
 rnorm(10, mean = 0, sd = 1)
@@ -69,15 +88,30 @@ rnorm(10, mean = 0, sd = 1)
 
 ## Standard Normal Distribution
 
-+ Calculate the probability that $X \leq 0$
+Calculate the probability that $X \leq 0$
 ```{r echo=TRUE}  
 str(pnorm) # normal CDF
 pnorm(0, mean = 0, sd = 1) # Pr[X <= 0] = ?
 ```
 
 
-## Standard Normal Distribution - 95% Region
-add plot with polygons to show 95% confidence equivalent
+## Standard Normal Distribution 
+
+
+```{r echo=TRUE}
+str(qnorm)
+qnorm(0.975)  # Pr[X <= ?] = 0.975
+```
+
+```{r echo=FALSE,fig.height = 4.5, fig.align='center'}
+x <- seq(from = -3.5, to = 3.5, by = 0.01)
+y <- dnorm(x, mean = 0, sd = 1)
+plot(x, y, type = "l", ylab = "Density", lwd = 2, xlab="")
+abline(v = qnorm(0.975), col="red", lty = 2, lwd = 2)
+abline(v = qnorm(0.025), col="red", lty = 2, lwd = 2)
+polygon( c( x[x>=qnorm(0.975)], qnorm(0.975) ),  c( y[x>=qnorm(0.975)], 0 ), col="red")
+polygon( c( x[x<=qnorm(0.025)], qnorm(0.025) ),  c( y[x<=qnorm(0.025)], 0 ), col="red")
+```
 
 
 
@@ -85,7 +119,7 @@ add plot with polygons to show 95% confidence equivalent
 T-tests can be used to draw statistical conclusions about parameters of interest in the data
 
 + Is the mean of this data different from zero (or another number)?
-+ **Is the regression slope coefficient different from zero?**
++ **Is this regression coefficient different from zero?**
 + Are the means of two data sets different from one another?
 
 T-tests can be categorized into two groups:
@@ -112,17 +146,48 @@ oneSampTest.0
 
 ```{r echo=TRUE}
 names(oneSampTest.0) 
-oneSampTest.0$statistic
-oneSampTest.0$estimate
 ```  
 
 
-## One-Sample T-Test
-plot to show what is really going on... similar to that of the normal disnt above
+## One-Sample T-Test ($H_0: \mu = 0$)
+
+```{r echo=TRUE}
+oneSampTest.0$statistic
+oneSampTest.0$p.value
+```  
+
+```{r echo = FALSE, fig.height = 4.5, fig.align='center'}
+x <- seq(from = -3.5, to = 3.5, by = 0.01)
+y <- dt(x, df = 99)
+plot(x, y, type = "l", ylab = "Density", lwd = 2, xlab="")
+abline(v = oneSampTest.0$statistic, col="red", lty = 2, lwd = 2)
+abline(v = -oneSampTest.0$statistic, col="red", lty = 2, lwd = 2)
+polygon( c( x[x>=oneSampTest.0$statistic], oneSampTest.0$statistic ),  
+         c( y[x>=oneSampTest.0$statistic], 0 ), col="red")
+polygon( c( x[x<=-oneSampTest.0$statistic], -oneSampTest.0$statistic ),  
+         c( y[x<=-oneSampTest.0$statistic], 0 ), col="red")
+```
 
 
-## Linear Regression
-univariate case
+## One-Sample T-Test ($H_0: \mu = 0.3$)
+
+```{r echo=TRUE}
+oneSampTest.mu <- t.test(oneSampData, mu = 0.3)
+oneSampTest.mu
+```  
+
+
+```{r echo = FALSE, fig.height = 4.5, fig.align='center'}
+x <- seq(from = -3.5, to = 3.5, by = 0.01)
+y <- dt(x, df = 99)
+plot(x, y, type = "l", ylab = "Density", lwd = 2, xlab="")
+abline(v = oneSampTest.mu$statistic, col="red", lty = 2, lwd = 2)
+abline(v = -oneSampTest.mu$statistic, col="red", lty = 2, lwd = 2)
+polygon( c( x[x<=oneSampTest.mu$statistic], oneSampTest.mu$statistic ),  
+         c( y[x<=oneSampTest.mu$statistic], 0 ), col="red")
+polygon( c( x[x>=-oneSampTest.mu$statistic], -oneSampTest.mu$statistic ),  
+         c( y[x>=-oneSampTest.mu$statistic], 0 ), col="red")
+```
 
 
 ## Linear Regression
