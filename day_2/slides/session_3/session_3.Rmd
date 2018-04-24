@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = FALSE)
     + Prediction
 
 
-## O-Ring Data
+## Motivating Example
 + On January 28, 1986, the USA Space Shuttle Challenger exploded 73 seconds into flight, killing all 7 crew members. The explosion was traced to failure of O-ring seals in the solid rocket booster at liftoff.
 
 + It was hypothesized that there is a inverse relationship between O-ring failure and temperature. 
@@ -38,7 +38,7 @@ knitr::opts_chunk$set(echo = FALSE)
     + Temporal order of flight
 
 
-## O-Ring Data, contd.
+## O-Ring Data
 More information about the O-ring data is available [here](https://archive.ics.uci.edu/ml/datasets/Challenger+USA+Space+Shuttle+O-Ring).
 
 ```{r echo=TRUE, error=FALSE, message=FALSE, warning=FALSE}
@@ -209,7 +209,7 @@ anova(logisticReg, logisticReg2, test='LRT')
 ```
 
 
-## End of Session 4
+## End of Day 2
 **Make sure to submit your course evaluation survey!**
 
 

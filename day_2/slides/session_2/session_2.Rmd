@@ -386,7 +386,7 @@ predict(myReg, newData, interval="predict")
 ## End of Session 2
 Next up:
 
-1. [Exercise 2](https://datumu.github.io/CSULB_Intro_R/day_1/exercises/exercise_2/ex_2.html)
+1. [Exercise 2](https://datumu.github.io/CSULB_Intro_R/day_2/exercises/exercise_2/ex_2.html)
 2. Break
 
-**Return at 2:45 to discuss solutions to Exercise 2!**
+**Return at 3:00 to discuss solutions to Exercise 2!**
