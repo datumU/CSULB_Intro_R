@@ -100,11 +100,11 @@ myDF <- data.frame(names=c('Albert', 'Bianca', 'Cat'), height=c(71, 57, 64), fem
 
 ```{r echo = TRUE, eval=TRUE}
 str(myDF)
-prestige <- read.csv('~/Documents/git/CSULB_Intro_R/data/prestige_v2.csv', header=TRUE)
-# prestige <- read.table(file = here::here("data", "prestige_v2.csv"), 
-#                        sep=",", 
-#                        header=TRUE, 
-#                        row.names=1)
+
+prestige <- read.table(file = here::here("data", "prestige_v2.csv"),
+                       sep=",",
+                       header=TRUE,
+                       row.names=1)
 str(prestige)
 ```
 
@@ -139,10 +139,9 @@ summary(prestige)
 
 + To explore relationships between variables:
     
-    + Grouped Boxplots
+    + Grouped Violin Plots
     + Scatterplots
     + Scatterplot Matrices
-    + Q-Q plot
     
     
 ## Useful plotting resources:
