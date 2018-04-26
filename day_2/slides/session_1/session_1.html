@@ -164,11 +164,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##  $ names : Factor w/ 3 levels &quot;Albert&quot;,&quot;Bianca&quot;,..: 1 2 3
 ##  $ height: num  71 57 64
 ##  $ female: num  0 1 1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">prestige &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">'~/Documents/git/CSULB_Intro_R/data/prestige_v2.csv'</span>, <span class="dt">header=</span><span class="ot">TRUE</span>)
-<span class="co"># prestige &lt;- read.table(file = here::here(&quot;data&quot;, &quot;prestige_v2.csv&quot;), </span>
-<span class="co">#                        sep=&quot;,&quot;, </span>
-<span class="co">#                        header=TRUE, </span>
-<span class="co">#                        row.names=1)</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">prestige &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file =</span> here<span class="op">::</span><span class="kw">here</span>(<span class="st">&quot;data&quot;</span>, <span class="st">&quot;prestige_v2.csv&quot;</span>),
+                       <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>,
+                       <span class="dt">header=</span><span class="ot">TRUE</span>,
+                       <span class="dt">row.names=</span><span class="dv">1</span>)
 <span class="kw">str</span>(prestige)</code></pre></div>
 <pre><code>## 'data.frame':    101 obs. of  6 variables:
 ##  $ education: num  13.1 12.3 12.8 11.4 14.6 ...
@@ -222,10 +221,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li><p>To explore relationships between variables:</p>
 <ul>
-<li>Grouped Boxplots</li>
+<li>Grouped Violin Plots</li>
 <li>Scatterplots</li>
 <li>Scatterplot Matrices</li>
-<li>Q-Q plot</li>
 </ul></li>
 </ul>
 </div>
