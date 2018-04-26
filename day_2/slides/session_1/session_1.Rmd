@@ -9,6 +9,7 @@ smaller: yes
 
 ```{r, include=FALSE, echo=FALSE, warning=FALSE, error=FALSE, message=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library(vioplot)
 ```
 
 
@@ -22,10 +23,58 @@ knitr::opts_chunk$set(echo = FALSE)
     + Boxplots
     + Scatterplot Matrices
     
-## Review
-review day 1 materials here
+    
+## Vector and Matrix Review
++ Vectors and Matrices are data structures used to hold data of the same type
+    + ```myVec <- c(1,2,3)```
+    + ```myMatrix <- matrix(c('Ariel', 'Bill', 'Chris', 'Devon',```
+    ```ncol=3, nrow=2)```
++ If the data is not of the same type, R will **coerce** the data to the most flexible type
++ We subset these structures using the ```[]``` operator
+    + ```myVec[2]```, &nbsp; ```myVec[-3]```, &nbsp; ```myVec[myVec >= 2]```
+    + ```myMatrix[2,1]```, &nbsp; ```myMatrix[3,]```, &nbsp; ```myMatrix[,1]```
 
 
+## Data Frame Review
++ Data Frames are special lists in R that hold different data types
+    + ```myDF <- data.frame(names=c('Albert', 'Bianca', 'Cat'),```
+    ```height=c(71, 57, 64),```
+    ```female=c(0,1,1))```
++ Each column must be the same length and must have the same data type within that column
++ We subset (named) data frames using the ```$``` operator. This can be combined with the ```[]``` operator.
+    + ```myDF$names```
+    + ```myDF$height[myDF$height > 60]```
+    + ```myDF$height[myDF$female==1]```
+    
+    
+## Function Review
++ Functions, ```function()```, are blocks of code or instructions that take some input and produce a desired output. 
++ The input is known as the arguments or parameters
++ In R, many functions have preset/default argument values so that you don't have to specify them each time. However, it's usually good practice to specify several arguments to make your output more readable.
+    
+
+## Reading Data
++ Before beginning a data analysis, we need to read in the appropriate data
++ This is generally handled with 1 of 2 functions: ```read.table()```, &nbsp; or ```read.csv()```
++ [Auto MPG data](https://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data)
+    + ```autos <-```
+    ```read.table(file='https://archive.ics.uci.edu/ml/```
+    ```machine-learning-databases/auto-mpg/auto-mpg.data',```
+    ```header=FALSE)```
++ [Abalone Whale Data](https://archive.ics.uci.edu/ml/machine-learning-databases/abalone/abalone.data)
+    + ```whales <-```
+    ```read.csv(file='https://archive.ics.uci.edu/ml/```
+    ```machine-learning-databases/abalone/abalone.data',```
+    ```header=FALSE)```
+    
+    
+## Writing Data
++ Writing data is useful when you need to save a copy of your dataset to your local machine
++ This is usually done with ```write.table()``` and ```write.csv()```
+    + ```write.table(object, filename, sep)```
+    + ```write.csv(object, filename)```
+
+    
 ## Some Useful Functions
 + ```str()```: a function to explain internal structure of an object
 + ```summary()```: a function that summarizes variables in a data frame 
@@ -34,8 +83,10 @@ review day 1 materials here
 
 ## ```str()```
 Compact way of understanding what an object is and what it contains
-```{r echo=TRUE}
-str(str)
+
+```{r, echo=TRUE}
+str(mean)
+str(matrix)
 str(sample)
 ```
 
@@ -43,11 +94,17 @@ str(sample)
 ## ```str()```
 After loading a data frame, it is often useful to use ```str()``` in order to understand the structure of your data. 
 
+```{r echo=FALSE}
+myDF <- data.frame(names=c('Albert', 'Bianca', 'Cat'), height=c(71, 57, 64), female=c(0,1,1))
+```
+
 ```{r echo = TRUE, eval=TRUE}
-prestige <- read.table(file = here::here("data", "prestige_v2.csv"), 
-                       sep=",", 
-                       header=TRUE, 
-                       row.names=1)
+str(myDF)
+prestige <- read.csv('~/Documents/git/CSULB_Intro_R/data/prestige_v2.csv', header=TRUE)
+# prestige <- read.table(file = here::here("data", "prestige_v2.csv"), 
+#                        sep=",", 
+#                        header=TRUE, 
+#                        row.names=1)
 str(prestige)
 ```
 
@@ -74,47 +131,63 @@ summary(prestige)
 ## Plotting in R
 + To explore the distribution of one variable:
     
-    + Histograms
+    + 5-number summary
     + Boxplots
+    + Histograms and Density Estimation
+    + Violin plots
+    
 
 + To explore relationships between variables:
     
     + Grouped Boxplots
     + Scatterplots
     + Scatterplot Matrices
+    + Q-Q plot
     
-+ Useful resources:
+    
+## Useful plotting resources:
 
-    + [Quick-R Graphical Parameters](https://www.statmethods.net/advgraphs/parameters.html)
-    + [```ggplot2```](http://ggplot2.tidyverse.org/)
-    + Search for (or post) specific questions on [stackoverflow](https://stackoverflow.com/questions/tagged/r), which is a community that will answer questions & chose the best solutions via voting
+  + [Quick-R Graphical Parameters](https://www.statmethods.net/advgraphs/parameters.html)
+  + [Colors in R](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)
+  + [Points and Line Types](http://www.cookbook-r.com/Graphs/Shapes_and_line_types/)
+  + [```ggplot2```](http://ggplot2.tidyverse.org/)
+  + Search for (or post) specific questions on [stackoverflow](https://stackoverflow.com/questions/tagged/r), which is a community that will answer questions & chose the best solutions via voting
   
 + *NOTE: This course provides a basic introduction to ```R```'s plotting capabilities. You can do much, much more elegant plots in ```R```!*
 
 
+## 5 number summary
++ As seen in the ```summary()``` function, the distribution of a single numeric variable can be summed up wth 5 numbers. These are the minimum and max values, the $1^{st}$ and $3^{rd}$ quartiles (25% and 75%), and the median (50%).
++ R also throws in the mean to create a "6 number summary." We will focus on the 5 without the mean.
+
+```{r, echo=TRUE}
+summary(prestige$prestige)
+```
+<!-- explain 5 number summary and draw pics on board describing quantiles -->
+
+
+## Box plots
++ A box plot, ```boxplot()```, is a handy graphical representation of the 5 number summary. 
++ Just as with the 5 number summary, the box plot tells us the min$^*$ and max$^*$ values, the $1^{st}$ and $3^{rd}$ quartiles, and the median. 
+    + If outliers are present, by default defined as outside of 1.5$\times$*inter-quartile range*, they will be shown outside of the whiskers.
+
+```{r, echo=TRUE}
+boxplot(prestige$prestige, horizontal=TRUE, xlab='Prestige Scores')
+```
+<!-- build the plot adding one parameter at a time to explain parameters -->
+
+
+
 ## Histograms
-+ One of the most basic plots in R is a histogram.
-+ Let's plot a histogram of the response variable ```prestige```.
-    + ```freq```: logical variable that controls the type of histogram (```TRUE``` gives counts, ```FALSE``` gives relative counts)
-    + ```breaks```: controls the number of bins & bin locations; multiple ways to set this
-    + We can add arguments to the function to change the bar colors, title, and axis labels.
++ Another useful graphic to visualize the distribution of a variable is a histogram, ```hist()```.
++ Reduced version of a "stem-and-leaf" plot
++ For each possible value of your variable (x-axis), a histogram displays the number of times that value appears in your data (y-axis). Counts can also be converted into proportions.
++ This is a natural plot for a discrete variable. For continuous variables, a histogram "bins" the observations into discrete units/intervals.
 ```{r echo = TRUE, eval=TRUE}
 hist(prestige$prestige, freq = FALSE, 
      col = "grey",
      main = "Histogram of Prestige Score", 
      xlab = "Prestige Score")
-```
-
-
-## Histograms, contd.
-+ Let's add a dashed vertical line at the median of prestige using ```abline()```
-    + Adds a straight line to the current figure
-    + Can be specified multiple ways--intercept/slope, horizontal/vertical location, regression coefficients/object
-    + Not unique to histograms--you can use ```abline``` on (almost) any figure
-```{r echo = TRUE, eval=TRUE}
-hist(prestige$prestige, freq = FALSE, col = "grey", 
-     main = "Histogram of Prestige Score", xlab = "Prestige Score")
-abline(v = median(prestige$prestige), col = "blue", lty = 2, lwd = 2)
 ```
 
 
@@ -126,46 +199,118 @@ abline(v = median(prestige$prestige), col = "blue", lty = 2, lwd = 2)
     + ```density()```: computes kernel density estimates (a smoothed histogram); see ```?density``` for more details
     
 ```{r echo = TRUE, eval=TRUE}
-hist(prestige$prestige, freq=FALSE, col = "grey", main = "", xlab = "Prestige Score", ylim=c(0, 0.022))
-abline(v = median(prestige$prestige), col = "blue", lty = 2, lwd = 2)
-lines(density(prestige$prestige), col = "red", lwd = 2)
+hist(prestige$prestige, freq=FALSE, col = "grey", main = "", xlab = "Prestige Score", ylim=c(0,0.022))
+lines(density(prestige$prestige, bw='nrd0'), col = "red", lwd = 2)
 ```
 
+
+## Violin Plots
++ So far we've seen how a distribution can be summarized by a 5 number summary, which can be visualized with a box plot. 
++ We've also seen how to view the shape of a distribution using histograms and density estimates.
++ `r emo::ji('thinking')` Can we combine these into one graphic?
+    + Obviously. We made a whole slide for it.
++ Violin plots create boxplots, but overlay them with a mirrored density estimate
+
+```{r echo=TRUE}
+vioplot(prestige$prestige, horizontal=TRUE, col='dodgerblue2',
+  names='Prestige Scores')
+```
+<!-- mention much better violin plotting capabilities (and more flexible in general) with ggplot -->
+
+
+<!-- QUICK EXERCISE???? -->
+
+## Exploring more than one variable
++ We've looked at ways to view the distribution of single variables, but how do we examine the relationship between 2 variables? 3? 42?
++ We'll focus on 2 for now.
++ Types of relationships:
+    + Discrete - Discrete
+    + Discrete - Continuous
+    + Continuous - Continuous
+    
+
+## Discrete - Discrete
++ Many times, we'll be interested in a discrete response across classes of subjects, e.g. proportion of smokers to non-smokers across males/females.
++ This can usually be summed up with a table
+
+|       | Male | Female |
+|------:|:----:|:------:|
+| Smoke |  16% |  12%   |
+| Nah   |  41% |  31%   |
+
++ We could also overlay histograms, though this is more beneficial for ordered factors or continuous covariates.
+
+
+## Overlay Histograms
++ For Discrete - Continuous types
++ When examining the distribution of a single variable, we can easily create a histogram using ```hist()```. We can extend this to creating a histogram of a single variable, but for multiple groups. 
++ Let's examine the ```prestige``` scores grouped by ```type```. 
+
+```{r, echo=TRUE}
+pp <- prestige$prestige
+hist(pp[prestige$type=='bc'], breaks=10, main='Histograms of Prestige Scores by Job Type',
+  xlab='Prestige Scores', col=adjustcolor('dodgerblue2',.4), xlim=c(0,100))
+hist(pp[prestige$type=='wc'], breaks=10, col=adjustcolor('green', .4), add=TRUE)
+hist(pp[prestige$type=='prof'], breaks=10, col=adjustcolor('purple', .4), add=TRUE)
+```
+
+
+## Adding Lines
++ While looking at these histograms (or any plot for that matter), we may wish to add lines indicating the location of the mean, median, quartiles, etc.
++ We can do this using the ```abline()``` function.
++ With ```abline()```, we can plot a vertical line, ```abline(v=...)```, horizontal line, ```abline(h=...)```, generic lines, ```abline(a=intercept, b=slope,...)```, and others.
+
+```{r, echo=TRUE, eval=FALSE}
+abline(v=mean(pp[prestige$type=='bc']), lwd=2, col='dodgerblue2')
+abline(v=mean(pp[prestige$type=='wc']), lwd=2, col='green')
+abline(v=mean(pp[prestige$type=='prof']), lwd=2, col='purple')
+```
+
+```{r, echo=FALSE, eval=TRUE}
+hist(pp[prestige$type=='bc'], breaks=10, main='Histograms of Prestige Scores by Job Type',
+  xlab='Prestige Scores', col=adjustcolor('dodgerblue2',.4), xlim=c(0,100))
+hist(pp[prestige$type=='wc'], breaks=10, col=adjustcolor('green', .4), add=TRUE)
+hist(pp[prestige$type=='prof'], breaks=10, col=adjustcolor('purple', .4), add=TRUE)
+
+abline(v=mean(pp[prestige$type=='bc']), lwd=2, col='dodgerblue2')
+abline(v=mean(pp[prestige$type=='wc']), lwd=2, col='green')
+abline(v=mean(pp[prestige$type=='prof']), lwd=2, col='purple')
+```
 
 ## Adding a Legend
 + With multiple features on one figure, a legend can help clearly convey what is plotted.
 + Use ```legend()``` to do this in R.
     + Very versatile function--look at its documentation 
     + Best to play around with this on your own, iterating through multiple plots until you get the legend to appear how you want it
+    
+```{r, echo=TRUE, eval=FALSE}
+legend("topright", legend = c("BC", "WC", "PROF"),
+       col = c("dodgerblue2", "green", "purple"), lty = 1, lwd = 2, bty = "n")
+```
 
-```{r echo=TRUE}
-hist(prestige$prestige, freq=FALSE, col = "grey", main = "", xlab = "Prestige Score", ylim=c(0, 0.022))
-abline(v = median(prestige$prestige), col = "blue", lty = 2, lwd = 2)
-lines(density(prestige$prestige), col = "red", lwd = 2)
-legend("topright", legend = c("Median", "Density Est."),
-       col = c("blue", "red"), lty = c(2, 1), lwd = 2, bty = "n")
+```{r echo=FALSE}
+hist(pp[prestige$type=='bc'], breaks=10, main='Histograms of Prestige Scores by Job Type',
+  xlab='Prestige Scores', col=adjustcolor('dodgerblue2',.4), xlim=c(0,100))
+hist(pp[prestige$type=='wc'], breaks=10, col=adjustcolor('green', .4), add=TRUE)
+hist(pp[prestige$type=='prof'], breaks=10, col=adjustcolor('purple', .4), add=TRUE)
+
+abline(v=mean(pp[prestige$type=='bc']), lwd=2, col='dodgerblue2')
+abline(v=mean(pp[prestige$type=='wc']), lwd=2, col='green')
+abline(v=mean(pp[prestige$type=='prof']), lwd=2, col='purple')
+
+legend("topright", legend = c("BC", "WC", "PROF"),
+       col = c("dodgerblue2", "green", "purple"), lty = 1, lwd = 2, bty = "n")
 ```
 
 
-## Boxplots
-+ Provide a graphical representation of numeric summary statistics.
-+ Use ```boxplot()``` to produce them in R
-+ First let's make a boxplot of the response variable ```prestige```:
-```{r echo = TRUE, eval=TRUE}
-summary(prestige$prestige)
-boxplot(prestige$prestige, horizontal = TRUE, xlab = "Prestige Score")
-```
-
-
-## Grouped Boxplots
+## Grouped Violin plots
 + Used to investigate relationships between variables:
     + Continuous variable & factor (most common)
     + Two continuous variables (group one of them)
-+ Let's look at a boxplot of ```prestige``` grouped by ```type```
++ Let's look at violin plots of ```prestige``` grouped by ```type```
 ```{r echo = TRUE, eval=TRUE}
-boxplot(prestige ~ type, data = prestige, col = "grey",
-        main = "Distribution of Prestige Score by Type of Occupation",
-        xlab = "Occupation Type", ylab = "Prestige Score")
+vioplot(pp[prestige$type=='bc'], pp[prestige$type=='wc'], pp[prestige$type=='prof'],
+  horizontal=TRUE, names=c('BC', 'WC', 'PROF'))
 ```
 
 
@@ -178,28 +323,35 @@ boxplot(prestige ~ type, data = prestige, col = "grey",
     + ```x``` and ```y``` must be the same dimension
     
 ```{r echo = TRUE, eval=TRUE}
-plot(x = prestige$education, y = prestige$prestige, type = "p", pch = 20,
+plot(x = prestige$education, y = prestige$prestige, pch = 20,
      main = "Prestige Score by Education",
-     xlab = "Avg Years of Education", ylab = "Prestige Score")
+     xlab = "Avg. Years of Education", ylab = "Prestige Score")
 ```
 
 
 ## Scatterplots, contd.
 + Let's overlay both a linear fit and smoother to our scatterplot. 
 + We can include this using the ```lowess()```, ```lines()```, and ```abline()``` functions.
-    + We've already used ```lines()``` and ```abline()```
     + Need to use ```lm()``` to fit a linear regression, more on this later
-    + ```lowess()```: computes a smoothed fit using locally-weighted polynomial regression (LOWESS); don't worry about the details here, just need to know it is an unbiased way (no assumptions) to estimate relationship between two variables
+    + ```lowess()```: **LO**cally **WE**ighted **S**catterplot **S**moother; computes a smoothed fit using locally-weighted polynomial regression.
     
 ```{r echo = TRUE, eval=TRUE}
-plot(prestige$education, prestige$prestige, type = "p", pch = 20,
+plot(prestige$education, prestige$prestige, pch = 20,
      main = "Prestige Score by Education",
-     xlab = "Ave. Years of Education", ylab = "Prestige Score")
-abline(reg = lm(prestige ~ education, data = prestige), col = "green", lwd = 2)  # linear regression
-lines(lowess(x = prestige$education, y = prestige$prestige), col = "red", lwd = 2)  # smoother
-legend("topleft", legend = c("Regression Line", "Smoother"), col = c("green", "red"),
-       lwd = c(2,2), lty = 1, bty = "n")
+     xlab = "Avg. Years of Education", ylab = "Prestige Score")
+
+abline(reg = lm(prestige ~ education, data = prestige),
+  col = "green", lwd = 2)  # linear regression
+
+lines(lowess(x = prestige$education, y = prestige$prestige),
+  col = "red", lwd = 2)  # smoother
+
+legend("topleft", legend = c("Regression Line", "Smoother"),
+  col = c("green", "red"), lwd = c(2,2), lty = 1, bty = "n")
 ```
+
+
+
 
 
 ## Scatterplot Matrices
@@ -209,6 +361,39 @@ legend("topleft", legend = c("Regression Line", "Smoother"), col = c("green", "r
 library(car)
 scatterplotMatrix( prestige[ ,c("prestige","education","income","women")] )
 ```
+
+
+## Summary
++ We've seen how to explore single variables with boxplots, histograms and density estimatates, and a combination of these known as a violin plot.
++ For 2 variables, we created grouped violin plots, overlayed histograms, and scatterplots. 
++ Visualizations can be enhanced by adding lines, colors, labels, etc
++ There is always more than one way to view your data. Each perspective can give you a new understanding.
+
+
+## Some common commands and arguments
+* Plots
+    + ```boxplot()```
+        - horizontal=TRUE
+    + ```hist()```
+        - freq=TRUE
+    + ```density()```
+        - bw=c('nrd0', 'SJ', 5, 0.5,...)
+    + ```vioplot::vioplot()```
+        - horizontal=TRUE, names=c('name1', 'name2',...)
+    + ```plot()```
+        
+* Common plot arguments (for **most** plots)
+    + labeling: main, xlab, ylab
+    + limits: xlim, ylim
+    + add to existing plot: add=TRUE
+    + point and line types and shapes: pch, lty, lwd
+    + color: col
+  
+* Other useful functions
+    + To add curves to existing plot: ```lines()```
+    + To add straight line to existing plot: ```abline()```
+    + To adjust color transparency: ```adjustcolor()```
+
 
 
 ## Next up
