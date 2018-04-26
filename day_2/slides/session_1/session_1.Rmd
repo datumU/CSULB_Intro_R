@@ -396,7 +396,7 @@ scatterplotMatrix( prestige[ ,c("prestige","education","income","women")] )
 
 
 ## Next up
-1. [Exercise 1](ADD ME)
+1. [Exercise 1](https://datumu.github.io/CSULB_Intro_R/day_2/exercises/exercise_1/ex_1.html)
 2. Lunch
 
-**Return at XXXX to discuss solutions to Exercise 2!**
+**Return at 12:15 to discuss solutions to Exercise 2!**
