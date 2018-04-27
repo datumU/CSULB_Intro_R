@@ -1,7 +1,7 @@
 ---
-title: "Intro to Data Analysis with R: Exercise 1 Solutions"
-subtitle: UCI Data Science Initiative
-# author: "Chris Galbraith"
+title: "Intro to R: Exercise 1 Solutions"
+subtitle: CSULB Intro to R
+# author: "Chris Galbraith, Micah Jackson"
 output: html_document
 ---
 
@@ -35,14 +35,14 @@ We will be focusing on the relationships between miles per gallon (mpg) and vari
 
 
 ### Part A - Data Input
-**A.1** Open a new R script to write and save your code for the exercises. Save this file in your local copy of the IDA-with-R-master directory, e.g., ```IDA-with-R-master/my_exercises/exercise_1.R```.
+**A.1** Open a new R script to write and save your code for the exercises. Save this file in your local copy of the CSULB_Intro_R folder, e.g., ```CSULB_Intro_R/my_exercise_1.R```.
 
-**A.2** Read in the Auto MPG data to a data frame named ```auto``` from the following url using ```read.table()```:  https://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data-original HINT: Run ```?read.table()``` and read about how to use a url as a file path.
+**A.2** Read in the Auto MPG data to a data frame named ```auto``` from the following url using ```read.table()```:  https://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data-original 
 ```{r echo=TRUE}
 auto <- read.table("https://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data-original")
 ```
 
-**A.3** Rename the variables (columns) using the following conventions: "mpg", "cyl", "disp", "hp", "weight", "acc", "model.yr", "origin", "name". HINT: You will need to use the ```names``` attribute of the data frame (i.e., ```names(auto)```).
+**A.3** Rename the variables (columns) using the following conventions: "mpg", "cyl", "disp", "hp", "weight", "acc", "model.yr", "origin", "name". 
 ```{r echo=TRUE}
 names(auto) <- c("mpg", "cyl", "disp", "hp", "weight", "acc", "model.yr", "origin", "name")
 ```
@@ -53,123 +53,101 @@ auto$cyl <- factor(auto$cyl)
 auto$name <- as(auto$name, "character")
 ```
 
-**A.5** Use the ```head()``` function to look at the first few rows of the data and make sure it looks like it was correctly loaded. You can compare the output here to the raw data by opening the url in A.2.
+**A.5** Use the ```head()``` function to look at the first few rows of the data and make sure it looks like it was correctly loaded. You can compare the output here to the raw data by opening the url in A.2. Without looking at the help file, what does the argument ```n``` do?
 ```{r echo=TRUE}
 head(auto)
+head(auto, n=10)
 ```
 
 
-### Part B - Missing Values
-**B.1** Locate the observations (rows) with missing data using ```is.na()```. HINT: You may want use ```which()``` with ```arr.ind=TRUE``` to return the (row, column) locations of the missing values.
-```{r echo=TRUE}
-missing <- which(is.na(auto), arr.ind = TRUE)
-missing
-```
-
-**B.2** Look at the missing observations by subsetting the ```auto``` data frame.
-```{r echo=TRUE}
-auto[missing[,1], ]
-```
-
-**B.3** Which variables are missing? What are the implications of this missingness? 
-
-*MPG is the response variable, we will need to predict these after fitting models.*
-
-*Horsepower is a predictor variable, we  need to investigate its relationship with MPG.*
-
-
-### Part C - Sorting
-**C.1** Sort the Auto MPG data in descending order by mpg and store the result into a data frame named ```auto.sorted```. HINT: You will need to use ```order()``` with ```na.last=NA``` so that the values with missing mpg are not in the sorted data frame.
-```{r echo=TRUE}
-sort.index <- order(auto$mpg, decreasing = TRUE, na.last = NA)
-auto.sorted <- auto[sort.index, ]
-```
-
-**C.2** Look at the observations with the top five values for mpg using ```head()```. 
-```{r echo=TRUE}
-head(auto.sorted, 5)
-```
-
-**C.3** Look at the observations with the bottom five values for mpg using ```tail()```.
-```{r echo=TRUE}
-tail(auto.sorted, 5)
-```
-
-**C.4** Do you notice any patterns with these two groups? HINT: You may need to do some Googling about these vehicles. 
-
-*Answers will vary.*
-
-### Part D - String Manipulation
-**D.1** Locate the observations with diesel engines. HINT: If a vehicle has a diesel engine, it will mention "diesel" in the name of the car. Use the ```grep()``` function do accomplish this.
+### Part B - String Manipulation
+**B.1** Locate the observations with diesel engines using the ```grep()``` function. The following command will search all auto names with "diesel" in the name.
 ```{r echo=TRUE}
 diesel.index <- grep("diesel", auto$name)
 diesel.index
 ```
 
-**D.2** Create a new variable (column) in the ```auto``` data frame called ```diesel``` such that ```auto$diesel = 1``` if the car has a diesel engine and ```0```, otherwise.
+**B.2** Create a new variable (column) in the ```auto``` data frame called ```diesel``` such that ```auto$diesel = 1``` if the car has a diesel engine and ```0```, otherwise.
 ```{r echo=TRUE}
-auto$diesel <- 0
-auto$diesel[diesel.index] <- 1
+auto$diesel <- 0 # creates new column of all 0s
+auto$diesel[diesel.index] <- 1 # assigns 1s to all autos with diesel in the name
 ```
 
-**D.3** Coerce ```auto$diesel``` into a factor variable using ```as()```.
+**B.3** Coerce ```auto$diesel``` into a factor variable using ```as()```.
 ```{r echo=TRUE}
-auto$diesel <- factor(auto$diesel)
+auto$diesel <- as.factor(auto$diesel)
 ```
 
-**D.4** Look at the structure of the ```auto``` data frame using ```str()``` to make sure that this was done correctly.
+**B.4** Look at the structure of the ```auto``` data frame using ```str()``` to make sure that this was done correctly.
 ```{r echo=TRUE}
 str(auto)
 ```
 
-**D.5** Save your data set as an R data (```.Rda```) file in the data directory (i.e.,  ```"IDA-with-R-master/data/auto_mpg_v2.Rda"```) using the ```save()``` function.
+**B.5** Save your data set as an R data (```.Rda```) file in the data directory (i.e.,  ```"CSULB_Intro_R/data/auto_mpg_v2.Rda"```) using the ```save()``` function.
 ```{r echo=TRUE, eval=FALSE}
 save(auto, file=here::here("data", "auto_mpg_v2.Rda"))
+?save
 ```
 
++ In general, it is better practice to save as a ```.csv``` or ```.txt``` file so that the data can be read easily by other programs. However, since we are only dealing with R, we will save the data as an ```.Rda``` file.
 
-### Part A 
-**A.1** Open a new R script and save it in the directory you created in Part A.1 of Exercise 1. Then, load the Auto MPG data set with the additional variable ```diesel``` using the ```load()``` function and file path from the end of Exercise 1. 
-```{r echo= TRUE}
-load(here::here("data", "auto_mpg_v2.Rda"))
-```
 
-**A.2** Using the ```summary()``` function, look at descriptive statistics for the Auto MPG data. What do you notice?
+
+
+
+### Part C
+**C.1** Using the ```summary()``` function, look at descriptive statistics for the Auto MPG data. What do you notice? Jot down or comment in your code some interesting features of the data.
 ```{r echo= TRUE}
 summary(auto)
 ```
 
-### Part B
-**B.1** Plot a relative frequency histogram of the response variable, MPG. Color the boxes grey. Make sure to name the plot and axes.
+### Part D
+**D.1** We will be interested in predicting/estimating a car's MPG. Plot a relative frequency histogram (y-axis has proportions, not counts) of the response variable, MPG. Color the boxes with a color of your choosing. Make sure to name the plot and axes (```main=...```, &nbsp; ```xlab=...```).
 ```{r echo=TRUE}
 hist(auto$mpg, freq=FALSE, col = "grey", main = "Histogram of MPG", xlab = "MPG")
 ```
 
-**B.2** Add a density curve to the histogram you plotted in B.1 using the ```lines()``` and ```density()``` functions. Color it red using the ```col``` argument. HINT: You need to change the value of ```na.rm``` in the density function to avoid an error. You also need to make sure that the histogram is on the proper scale!
+**D.2** Add a density curve to the histogram you plotted in B.1 using the ```lines()``` and ```density()``` functions. Color it red with transparency set to 0.5 using the ```col``` argument and ```adjustcolor()``` function. In the ```density()``` function, you will need to add the argument ```na.rm=TRUE``` to remove missing values.
 ```{r echo=TRUE}
 hist(auto$mpg, freq=FALSE, col = "grey", main = "Histogram of MPG", xlab = "MPG")
-lines(density(auto$mpg, na.rm=TRUE), col="red")
+lines(density(auto$mpg, na.rm=TRUE), col=adjustcolor("red", .5))
 ```
 
-**B.3** Add a vertical line to the plot from B.2 at the median of MPG. Make it dashed using the ```lty``` arguement, and make it red. HINT: You may need to use ```na.rm``` again.
+**D.3** Add a vertical line to the plot from B.2 at the median of MPG using ```abline().``` Within your ```median()``` call, you will need to use ```na.rm=TRUE``` again. Within this function, use the argument ```lty=...``` and set this equal to a number of your choice. What happens with different values for this argument?
 ```{r echo=TRUE}
 hist(auto$mpg, freq=FALSE, col = "grey", main = "Histogram of MPG", xlab = "MPG")
-lines(density(auto$mpg, na.rm=TRUE), col="red", main="Densities of Samp1 and Samp2", xlab="")
+lines(density(auto$mpg, na.rm=TRUE), col=adjustcolor("red", .5), main="Densities of Samp1 and Samp2", xlab="")
 abline(v = median(auto$mpg, na.rm=TRUE), col = "red", lwd = 2, lty=2)
 ```
 
 
-### Part C
-Create a boxplot of MPG grouped by the number of cylinders. Color the boxes grey. Make sure to name the plot and axes.
+### Part E
+**E.1** How many unique cylinder values exist in this data set?
 ```{r echo=TRUE}
-boxplot(mpg ~ cyl, data = auto, col = "grey",
+# Several options for getting this answer. 
+summary(auto)
+# or 
+summary(auto$cyl)
+# or
+unique(auto$cyl)
+```
+
+**E.2** Run the following code to create a vector of counts of each cylinder class
+```{r echo=TRUE}
+cylCounts <- table(auto$cyl)
+```
+
+
+**E.3** Create a boxplot of MPG grouped by the number of cylinders with ```boxplot(mpg ~ cyl, data=auto,...)```. Using the ```ifelse()``` function, color the boxes red if the number of data points in that class is below 5, and blue otherwise. Make sure to name the plot and axes.
+```{r echo=TRUE}
+boxplot(mpg ~ cyl, data = auto, col = ifelse(cylCounts < 5, 'red', 'blue'),
         main = "Distribution of MPG by Number of Cylinders",
         xlab = "Cylinders", ylab = "MPG")
 ```
 
 
-### Part D
-Create a scatterplot matrix of the Auto MPG data. Include the following variables: "mpg", "cyl", "disp", "hp", "weight", "acc", "model.yr". What relationships do you see? Is there any confounding? Which variables should be included in a regression? 
+### Part F
+Create a scatterplot matrix of the Auto MPG data. Include the following variables: "mpg", "cyl", "disp", "hp", "weight", "acc", "model.yr". What relationships do you see? Which variables have a strong relationship with each other? Strong relation with MPG? Which variables would you include in trying to predict a car's MPG rating?
 ```{r echo=TRUE, warning=FALSE}
 library(car)
 scatterplotMatrix( auto[, c("mpg", "cyl", "disp", "hp", "weight", "acc", "model.yr")] )
