@@ -62,4 +62,4 @@ RStudio is a set of integrated tools designed to help you be more productive wit
 # Authors
 Chris Galbraith (<galbraic@uci.edu>)
 
-Micah Jackson (<gmjackso@uci.edu>)
+Micah Jackson (<gmicahjackson@gmail.com>)
